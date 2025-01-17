@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdha2gsrd1me1"]
+
+[ext_resource type="Texture2D" uid="uid://bdoixx1dy5cdk" path="res://card.png" id="1_km4x2"]
+
+[node name="Scene" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Card" type="Sprite2D" parent="Control"]
+position = Vector2(948, 508)
+scale = Vector2(0.840164, 0.840164)
+texture = ExtResource("1_km4x2")
