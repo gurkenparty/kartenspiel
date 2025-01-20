@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg", "res://addons/json_editor/plugin.cfg")
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.117647, 0.117647, 0.180392, 1)

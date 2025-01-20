@@ -1,0 +1,24 @@
+[
+	{
+		"img_layer": 1,
+		"layers": [
+			"res://Assets/Cards/Layout/Mensch/1/Mensch_0.png",
+			"Character",
+			"res://Assets/Cards/Layout/Mensch/1/Mensch_2.png",
+			"res://Assets/Cards/Layout/Mensch/1/Mensch_3.png"
+		],
+		"layout_id": 1,
+		"rating": 1,
+		"type": "Mensch"
+	},
+	{
+		"id": 2,
+		"img_layer": 2,
+		"layers": [
+			"Layer1Data",
+			"Layer2Data"
+		],
+		"rating": 3,
+		"type": "Spell"
+	}
+]

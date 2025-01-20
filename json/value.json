@@ -1,0 +1,11 @@
+[
+	{
+		"name": "Knappe",
+		"health_points": 100,
+		"attack_damage": 15,
+		"effects": ["Shield Bash", "Armor Up"],
+		"story": "A brave squire ready to prove his worth.",
+		"type": "Mensch",
+		"layout_id": 1
+	}
+]
