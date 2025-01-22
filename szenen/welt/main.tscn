@@ -1,19 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=2 format=3 uid="uid://bdha2gsrd1me1"]
 
-[ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_ln1hv"]
-[ext_resource type="PackedScene" uid="uid://dfpw5dhjr17m0" path="res://szenen/karte/mensch/main.tscn" id="2_qivc5"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_86a13"]
 
-[node name="Welt" type="Node2D"]
-scale = Vector2(10, 10)
+[node name="Node3D" type="Node3D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.755, 0.755)
+[node name="Karte1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.353553, -0.707107, 0, 0.353553, 0.707107, -1.03, 3.275, 88.601)
+mesh = SubResource("PlaneMesh_86a13")
 
-[node name="Karte" parent="." instance=ExtResource("1_ln1hv")]
-position = Vector2(76, -16.8)
-scale = Vector2(0.10018, 0.10018)
-title = "Knappe"
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.786, 5.802, 89.6042)
 
-[node name="Mensch" parent="." instance=ExtResource("2_qivc5")]
-position = Vector2(-40.9, -0.4)
-scale = Vector2(0.112633, 0.112251)
+[node name="Spielfeld" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86a13")
+skeleton = NodePath("../Karte1")
