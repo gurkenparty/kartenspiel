@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6k3kywpvb4jf"]
 
-[ext_resource type="Script" path="res://scenes/karte.gd" id="1_6ta4j"]
+[ext_resource type="Script" path="res://szenen/karte/main.gd" id="1_6ta4j"]
 [ext_resource type="Texture2D" uid="uid://cov6vuj61b10a" path="res://assets/karten/mensch/1/1.png" id="1_kq5dt"]
 [ext_resource type="Texture2D" uid="uid://24bij6506evg" path="res://assets/karten/mensch/1/2.png" id="2_u5n3p"]
 [ext_resource type="Texture2D" uid="uid://whx0tm4djqc1" path="res://assets/karten/mensch/1/3.png" id="3_jslnt"]
@@ -23,7 +23,7 @@ texture = ExtResource("3_jslnt")
 [node name="Knappe" type="Sprite2D" parent="."]
 texture = ExtResource("4_nvqht")
 
-[node name="Label" type="Label" parent="."]
+[node name="Titel" type="Label" parent="."]
 offset_left = -180.0
 offset_top = -300.0
 offset_right = -121.0
@@ -32,4 +32,3 @@ scale = Vector2(0.91579, 0.736455)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_v5ml3")
 theme_override_font_sizes/font_size = 32
-text = "Knappe"

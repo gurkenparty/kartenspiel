@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfpw5dhjr17m0"]
+
+[ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_y1slq"]
+[ext_resource type="Script" path="res://szenen/karte/mensch/main.gd" id="2_bux1b"]
+
+[node name="Mensch" instance=ExtResource("1_y1slq")]
+script = ExtResource("2_bux1b")
