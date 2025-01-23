@@ -38,14 +38,7 @@ alignment = 1
 [node name="Knappe" parent="." instance=ExtResource("1_ln1hv")]
 position = Vector2(-34.8, 40.9)
 scale = Vector2(0.0429067, 0.0429067)
-title = "Knappe"
-level = 5
-angriff = 20
 
 [node name="Burg" parent="." instance=ExtResource("1_ln1hv")]
 position = Vector2(-90.8, 39)
 scale = Vector2(0.0436856, 0.0436856)
-title = "Burg"
-level = 3
-leben = 20
-angriff = 0

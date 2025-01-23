@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6k3kywpvb4jf"]
+[gd_scene load_steps=7 format=3 uid="uid://b6k3kywpvb4jf"]
 
 [ext_resource type="Script" path="res://szenen/karte/main.gd" id="1_6ta4j"]
 [ext_resource type="FontFile" uid="uid://2yw25hhlq7q3" path="res://assets/fonts/charm.ttf" id="3_llmsi"]
 [ext_resource type="FontFile" uid="uid://c4flvhfr36rw" path="res://assets/fonts/baloo/Bold.ttf" id="3_o6xu0"]
 [ext_resource type="FontFile" uid="uid://dtd7bey5gixxv" path="res://assets/fonts/Aleya/Alegreya-Italic-VariableFont_wght.ttf" id="4_j510w"]
-[ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe.png" id="4_m8343"]
 [ext_resource type="FontFile" uid="uid://dnueucrsw7cgt" path="res://assets/fonts/baloo/Medium.ttf" id="9_ylvx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg6re"]
@@ -20,11 +19,6 @@ script = ExtResource("1_6ta4j")
 [node name="CollisionShape" type="CollisionShape2D" parent="Area"]
 position = Vector2(1.18804e-05, -65)
 shape = SubResource("RectangleShape2D_lg6re")
-
-[node name="Knappe" type="Sprite2D" parent="."]
-position = Vector2(0, -68.165)
-scale = Vector2(2.325, 2.355)
-texture = ExtResource("4_m8343")
 
 [node name="Titel" type="Node2D" parent="."]
 
