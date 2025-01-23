@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8asw8lfunqwg"]
+
+[ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_14gpr"]
+[ext_resource type="Texture2D" uid="uid://bgcp7n6e6uxi6" path="res://assets/platten/amethyst.png" id="2_a814n"]
+
+[node name="Karte" instance=ExtResource("1_14gpr")]
+etikett = "Zauber"
+platte = ExtResource("2_a814n")

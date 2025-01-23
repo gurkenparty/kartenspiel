@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://86ibpwgnfrit"]
+
+[ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_ffeu7"]
+[ext_resource type="Texture2D" uid="uid://lmfvikambh0j" path="res://assets/platten/gold.png" id="2_c4kro"]
+
+[node name="Karte" instance=ExtResource("1_ffeu7")]
+etikett = "Truppe"
+platte = ExtResource("2_c4kro")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp8e42q8xqra2"]
+
+[ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_wq3en"]
+[ext_resource type="Texture2D" uid="uid://5upphmo0vgo0" path="res://assets/platten/smaragd.png" id="2_icupi"]
+
+[node name="Karte" instance=ExtResource("1_wq3en")]
+etikett = "Gebäude"
+platte = ExtResource("2_icupi")
