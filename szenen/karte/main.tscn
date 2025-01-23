@@ -1,172 +1,123 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6k3kywpvb4jf"]
+[gd_scene load_steps=8 format=3 uid="uid://b6k3kywpvb4jf"]
 
 [ext_resource type="Script" path="res://szenen/karte/main.gd" id="1_6ta4j"]
-[ext_resource type="Texture2D" uid="uid://d30qm1eyuenil" path="res://assets/platten/silber.png" id="2_bqajb"]
-[ext_resource type="Texture2D" uid="uid://cd7miq5pgyfrq" path="res://assets/hud/etikett.png" id="2_xw2t2"]
+[ext_resource type="FontFile" uid="uid://2yw25hhlq7q3" path="res://assets/fonts/charm.ttf" id="3_llmsi"]
 [ext_resource type="FontFile" uid="uid://c4flvhfr36rw" path="res://assets/fonts/baloo/Bold.ttf" id="3_o6xu0"]
-[ext_resource type="Texture2D" uid="uid://c1n1b81p0cyqk" path="res://assets/hud/level.png" id="4_1xv6i"]
-[ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/hud/bild.png" id="6_u3s4o"]
-[ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/hud/folie.png" id="7_4ejx7"]
-[ext_resource type="Texture2D" uid="uid://bo2vqa51o0h7a" path="res://assets/hud/tafel.png" id="8_f547m"]
+[ext_resource type="FontFile" uid="uid://dtd7bey5gixxv" path="res://assets/fonts/Aleya/Alegreya-Italic-VariableFont_wght.ttf" id="4_j510w"]
+[ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe.png" id="4_m8343"]
 [ext_resource type="FontFile" uid="uid://dnueucrsw7cgt" path="res://assets/fonts/baloo/Medium.ttf" id="9_ylvx8"]
-[ext_resource type="Texture2D" uid="uid://dbl6xfa2uy47o" path="res://assets/hud/titel.png" id="10_yq8mo"]
-[ext_resource type="Texture2D" uid="uid://b4qcoppwoa4go" path="res://assets/hud/stats.png" id="11_dofki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg6re"]
 size = Vector2(936.805, 1410)
 
 [node name="Karte" type="Node2D"]
+position = Vector2(-4.76837e-07, 6)
 scale = Vector2(0.100341, 0.1)
 script = ExtResource("1_6ta4j")
-
-[node name="Etikett" type="Sprite2D" parent="."]
-position = Vector2(0, 590)
-texture = ExtResource("2_xw2t2")
-
-[node name="Text" type="Label" parent="Etikett"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -438.228
-offset_top = -256.0
-offset_right = -277.228
-offset_bottom = -127.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_o6xu0")
-theme_override_font_sizes/font_size = 60
-text = "Etikett"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level" type="Sprite2D" parent="."]
-position = Vector2(0, -680)
-texture = ExtResource("4_1xv6i")
-
-[node name="Text" type="Label" parent="Level"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -328.194
-offset_top = -196.5
-offset_right = -145.194
-offset_bottom = -67.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_o6xu0")
-theme_override_font_sizes/font_size = 80
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Platte" type="Sprite2D" parent="."]
-texture = ExtResource("2_bqajb")
-
-[node name="Bild" type="Sprite2D" parent="."]
-position = Vector2(0, -210)
-texture = ExtResource("6_u3s4o")
-
-[node name="Folie" type="Sprite2D" parent="Bild"]
-texture = ExtResource("7_4ejx7")
-
-[node name="Tafel" type="Sprite2D" parent="."]
-position = Vector2(0, 240)
-texture = ExtResource("8_f547m")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Tafel"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -249.15
-offset_top = -180.0
-offset_right = -682.15
-offset_bottom = -587.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("9_ylvx8")
-theme_override_fonts/mono_font = ExtResource("9_ylvx8")
-theme_override_fonts/italics_font = ExtResource("9_ylvx8")
-theme_override_fonts/bold_italics_font = ExtResource("3_o6xu0")
-theme_override_fonts/bold_font = ExtResource("3_o6xu0")
-theme_override_font_sizes/normal_font_size = 35
-text = "Bacon ipsum dolor amet pastrami fatback pork chop tail, jowl pork loin prosciutto beef sausage shoulder corned beef tongue andouille. Cupim tri-tip frankfurter landjaeger."
-fit_content = true
-tab_size = 2
-
-[node name="Titel" type="Sprite2D" parent="."]
-position = Vector2(0, -520)
-texture = ExtResource("10_yq8mo")
-
-[node name="Text" type="Label" parent="Titel"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -622.228
-offset_top = -346.5
-offset_right = -461.228
-offset_bottom = -217.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_o6xu0")
-theme_override_font_sizes/font_size = 80
-text = "Titel"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Stats" type="Sprite2D" parent="."]
-position = Vector2(0, 510)
-texture = ExtResource("11_dofki")
-
-[node name="Leben" type="Label" parent="Stats"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1061.0
-offset_top = -308.5
-offset_right = -900.005
-offset_bottom = -179.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_o6xu0")
-theme_override_font_sizes/font_size = 80
-text = "HP"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Angriff" type="Label" parent="Stats"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -343.452
-offset_top = -313.0
-offset_right = -182.452
-offset_bottom = -184.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_o6xu0")
-theme_override_font_sizes/font_size = 80
-text = "AT"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Area" type="Area2D" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area"]
 position = Vector2(1.18804e-05, -65)
 shape = SubResource("RectangleShape2D_lg6re")
+
+[node name="Knappe" type="Sprite2D" parent="."]
+position = Vector2(0, -68.165)
+scale = Vector2(2.325, 2.355)
+texture = ExtResource("4_m8343")
+
+[node name="Titel" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Titel"]
+offset_left = -458.437
+offset_top = -780.0
+offset_right = -241.437
+offset_bottom = -686.0
+scale = Vector2(1.61406, 1.17885)
+theme_override_fonts/font = ExtResource("3_llmsi")
+theme_override_font_sizes/font_size = 60
+text = "Knappe"
+
+[node name="Typ" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Typ"]
+offset_left = -309.0
+offset_top = -110.0
+offset_right = -131.0
+offset_bottom = -16.0
+scale = Vector2(1.39624, 0.974262)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_j510w")
+theme_override_font_sizes/font_size = 60
+text = "Mensch"
+
+[node name="Effect" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Effect"]
+offset_left = -458.0
+offset_top = -30.0
+offset_right = 665.0
+offset_bottom = 411.0
+scale = Vector2(0.816117, 0.885161)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o6xu0")
+theme_override_font_sizes/font_size = 60
+text = "Wenn der"
+autowrap_mode = 3
+justification_flags = 171
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="Leben" type="Label" parent="Stats"]
+offset_left = -418.573
+offset_top = -100.0
+offset_right = -366.573
+offset_bottom = 10.0
+scale = Vector2(1.35662, 0.728156)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_llmsi")
+theme_override_font_sizes/font_size = 60
+text = "1"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Angriff" type="Label" parent="Stats"]
+offset_left = 388.675
+offset_top = -100.0
+offset_right = 440.675
+offset_bottom = 9.99999
+scale = Vector2(1.35662, 0.728156)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_llmsi")
+theme_override_font_sizes/font_size = 60
+text = "1"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Story" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Story"]
+offset_left = -439.0
+offset_top = 360.0
+offset_right = 912.0
+offset_bottom = 575.0
+scale = Vector2(0.656734, 0.837333)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_ylvx8")
+theme_override_font_sizes/font_size = 60
+text = "was eine Story."
+autowrap_mode = 3
+justification_flags = 171
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Level"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

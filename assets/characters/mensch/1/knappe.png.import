@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnikh0dg62ww0"
-path="res://.godot/imported/knappe.png-4e32460f5da0d0816fb5276b3f160893.ctex"
+uid="uid://djgqk4kwq8s3a"
+path="res://.godot/imported/Knappe.png-e73bff06b90779018f9f632b15de5837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/mensch/1/knappe.png"
-dest_files=["res://.godot/imported/knappe.png-4e32460f5da0d0816fb5276b3f160893.ctex"]
+source_file="res://assets/characters/mensch/1/Knappe.png"
+dest_files=["res://.godot/imported/Knappe.png-e73bff06b90779018f9f632b15de5837.ctex"]
 
 [params]
 

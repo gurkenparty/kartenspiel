@@ -2,7 +2,9 @@ class_name Karte
 extends Node2D
 
 @export var title: String = "Titel"
-@export var etikett: String = "Etikett"
+@export var typ: String = "Typ"
+@export var story: String = "Story"
+@export var effekt: String = "Effekt"
 @export var level: int = 1
 @export var leben: int = 10
 @export var angriff: int = 5
@@ -15,9 +17,15 @@ var initial_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node('Titel/Text').text = self.title
-	get_node('Etikett/Text').text = self.etikett
+	var node = get_node('Titel/Text')
+	if node and node is Label:
+		node.text = self.title
+	else:
+		print("Node 'Titel/Text' not found or is not a Label")
+	get_node('Typ/Text').text = self.typ
 	get_node('Level/Text').text = str(self.level)
+	get_node('Story/Text').text = self.story
+	get_node('Effect/Text').text = self.effekt
 	get_node('Stats/Leben').text = str(self.leben)
 	get_node('Stats/Angriff').text = str(self.angriff)
 
