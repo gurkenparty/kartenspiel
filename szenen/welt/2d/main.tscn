@@ -37,7 +37,7 @@ scale = Vector2(0.0403178, 0.04)
 
 [node name="Zauber" parent="." instance=ExtResource("2_7vahw")]
 material = null
-position = Vector2(48.9, 20.6)
+position = Vector2(48.8, 20.5)
 scale = Vector2(0.04, 0.04)
 
 [node name="Gebäude" parent="." instance=ExtResource("4_dkupq")]
