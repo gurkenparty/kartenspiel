@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pqvctmahacwa"
-path="res://.godot/imported/folie.png-0b749414d1d775fba0aaa32d62b551bd.ctex"
+uid="uid://byjqf0o4hp8xa"
+path="res://.godot/imported/ohren.png-64f8385f0b4fad2f7ebe3d0444fba597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/folie.png"
-dest_files=["res://.godot/imported/folie.png-0b749414d1d775fba0aaa32d62b551bd.ctex"]
+source_file="res://assets/ränder/ecken/ohren.png"
+dest_files=["res://.godot/imported/ohren.png-64f8385f0b4fad2f7ebe3d0444fba597.ctex"]
 
 [params]
 

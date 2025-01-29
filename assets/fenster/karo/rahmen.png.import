@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd7miq5pgyfrq"
-path="res://.godot/imported/etikett.png-afe48b1ec24a4704e38a1dbfbaf026f5.ctex"
+uid="uid://tob8uipjfs17"
+path="res://.godot/imported/rahmen.png-a684cceb03a59dc6d84fa5776455fec3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/etikett.png"
-dest_files=["res://.godot/imported/etikett.png-afe48b1ec24a4704e38a1dbfbaf026f5.ctex"]
+source_file="res://assets/fenster/karo/rahmen.png"
+dest_files=["res://.godot/imported/rahmen.png-a684cceb03a59dc6d84fa5776455fec3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbl6xfa2uy47o"
-path="res://.godot/imported/titel.png-a48ccfbc68e9b01bb9550ab7f729888b.ctex"
+uid="uid://cd7miq5pgyfrq"
+path="res://.godot/imported/etikett.png-f11228d318c84309b9e5f34501268f07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/titel.png"
-dest_files=["res://.godot/imported/titel.png-a48ccfbc68e9b01bb9550ab7f729888b.ctex"]
+source_file="res://assets/misc/etikett.png"
+dest_files=["res://.godot/imported/etikett.png-f11228d318c84309b9e5f34501268f07.ctex"]
 
 [params]
 

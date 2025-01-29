@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4qcoppwoa4go"
-path="res://.godot/imported/stats.png-4a8259af0f75dc4d9801172854691c99.ctex"
+uid="uid://bljnskrunxpbo"
+path="res://.godot/imported/quadrate.png-3284fb98536d5d3ae4b50bd96f0e2990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/stats.png"
-dest_files=["res://.godot/imported/stats.png-4a8259af0f75dc4d9801172854691c99.ctex"]
+source_file="res://assets/ränder/ecken/quadrate.png"
+dest_files=["res://.godot/imported/quadrate.png-3284fb98536d5d3ae4b50bd96f0e2990.ctex"]
 
 [params]
 

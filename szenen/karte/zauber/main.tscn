@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8asw8lfunqwg"]
+[gd_scene load_steps=6 format=3 uid="uid://c8asw8lfunqwg"]
 
 [ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_14gpr"]
 [ext_resource type="Texture2D" uid="uid://bgcp7n6e6uxi6" path="res://assets/platten/amethyst.png" id="2_a814n"]
+[ext_resource type="Texture2D" uid="uid://qbmc8ybcq6hv" path="res://assets/fenster/blume/rahmen.png" id="3_2rve3"]
+[ext_resource type="Texture2D" uid="uid://ddugdc0rkvgco" path="res://assets/fenster/blume/glas.png" id="4_jniad"]
+[ext_resource type="Texture2D" uid="uid://1hiikd6b3dbs" path="res://assets/bilder/neutral spell.webp" id="5_dq2sy"]
 
-[node name="Karte" instance=ExtResource("1_14gpr")]
+[node name="Zauber" instance=ExtResource("1_14gpr")]
+title = "Musterzauber"
 etikett = "Zauber"
 platte = ExtResource("2_a814n")
+fenster_rahmen = ExtResource("3_2rve3")
+fenster_glas = ExtResource("4_jniad")
+bild = ExtResource("5_dq2sy")

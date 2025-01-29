@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn4acjmi1iyll"
-path="res://.godot/imported/bild.png-a6788d601755fe2a609340f0ef9b863b.ctex"
+uid="uid://c3srmc57ibrk2"
+path="res://.godot/imported/rahmen.png-c8e0a54ae939c4034fd162a10d1af96a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/bild.png"
-dest_files=["res://.godot/imported/bild.png-a6788d601755fe2a609340f0ef9b863b.ctex"]
+source_file="res://assets/fenster/quadrat/rahmen.png"
+dest_files=["res://.godot/imported/rahmen.png-c8e0a54ae939c4034fd162a10d1af96a.ctex"]
 
 [params]
 

@@ -1,23 +1,38 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6k3kywpvb4jf"]
+[gd_scene load_steps=19 format=3 uid="uid://b6k3kywpvb4jf"]
 
 [ext_resource type="Script" path="res://szenen/karte/main.gd" id="1_6ta4j"]
+[ext_resource type="Shader" path="res://szenen/karte/titel.gdshader" id="1_guuaa"]
 [ext_resource type="Texture2D" uid="uid://d30qm1eyuenil" path="res://assets/platten/silber.png" id="2_bqajb"]
-[ext_resource type="Texture2D" uid="uid://cd7miq5pgyfrq" path="res://assets/hud/etikett.png" id="2_xw2t2"]
+[ext_resource type="Texture2D" uid="uid://cd7miq5pgyfrq" path="res://assets/misc/etikett.png" id="2_xw2t2"]
 [ext_resource type="FontFile" uid="uid://c4flvhfr36rw" path="res://assets/fonts/baloo/Bold.ttf" id="3_o6xu0"]
-[ext_resource type="Texture2D" uid="uid://c1n1b81p0cyqk" path="res://assets/hud/level.png" id="4_1xv6i"]
-[ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/hud/bild.png" id="6_u3s4o"]
-[ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/hud/folie.png" id="7_4ejx7"]
-[ext_resource type="Texture2D" uid="uid://bo2vqa51o0h7a" path="res://assets/hud/tafel.png" id="8_f547m"]
+[ext_resource type="Texture2D" uid="uid://tob8uipjfs17" path="res://assets/fenster/karo/rahmen.png" id="3_syhsc"]
+[ext_resource type="Texture2D" uid="uid://c1n1b81p0cyqk" path="res://assets/misc/level.png" id="4_1xv6i"]
+[ext_resource type="Texture2D" uid="uid://t7xp6eo0ugif" path="res://assets/fenster/karo/glas.png" id="4_aau71"]
+[ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/fenster/kreis/rahmen.png" id="6_u3s4o"]
+[ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/fenster/kreis/glas.png" id="7_4ejx7"]
+[ext_resource type="Texture2D" uid="uid://4ihdfgyjfrt1" path="res://assets/bilder/neutral landmark.webp" id="7_kchah"]
+[ext_resource type="Texture2D" uid="uid://bo2vqa51o0h7a" path="res://assets/misc/tafel.png" id="8_f547m"]
 [ext_resource type="FontFile" uid="uid://dnueucrsw7cgt" path="res://assets/fonts/baloo/Medium.ttf" id="9_ylvx8"]
-[ext_resource type="Texture2D" uid="uid://dbl6xfa2uy47o" path="res://assets/hud/titel.png" id="10_yq8mo"]
-[ext_resource type="Texture2D" uid="uid://b4qcoppwoa4go" path="res://assets/hud/stats.png" id="11_dofki"]
+[ext_resource type="Texture2D" uid="uid://dbl6xfa2uy47o" path="res://assets/misc/titel.png" id="10_yq8mo"]
+[ext_resource type="Texture2D" uid="uid://b4qcoppwoa4go" path="res://assets/misc/stats.png" id="11_dofki"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3ad0"]
+shader = ExtResource("1_guuaa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgcsb"]
+shader = ExtResource("1_guuaa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg6re"]
 size = Vector2(936.805, 1410)
 
 [node name="Karte" type="Node2D"]
+material = SubResource("ShaderMaterial_k3ad0")
 scale = Vector2(0.100341, 0.1)
 script = ExtResource("1_6ta4j")
+platte = ExtResource("2_bqajb")
+fenster_rahmen = ExtResource("3_syhsc")
+fenster_glas = ExtResource("4_aau71")
+bild = ExtResource("7_kchah")
 
 [node name="Etikett" type="Sprite2D" parent="."]
 position = Vector2(0, 590)
@@ -68,11 +83,24 @@ vertical_alignment = 1
 [node name="Platte" type="Sprite2D" parent="."]
 texture = ExtResource("2_bqajb")
 
-[node name="Bild" type="Sprite2D" parent="."]
+[node name="Fenster" type="Node2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="Rahmen" type="Sprite2D" parent="Fenster"]
 position = Vector2(0, -210)
 texture = ExtResource("6_u3s4o")
 
-[node name="Folie" type="Sprite2D" parent="Bild"]
+[node name="Pfad" type="Sprite2D" parent="Fenster"]
+clip_children = 1
+position = Vector2(0, -210)
+
+[node name="Bild" type="Sprite2D" parent="Fenster/Pfad"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_kchah")
+
+[node name="Glas" type="Sprite2D" parent="Fenster"]
+visible = false
+position = Vector2(0, -210)
 texture = ExtResource("7_4ejx7")
 
 [node name="Tafel" type="Sprite2D" parent="."]
@@ -104,6 +132,7 @@ position = Vector2(0, -520)
 texture = ExtResource("10_yq8mo")
 
 [node name="Text" type="Label" parent="Titel"]
+material = SubResource("ShaderMaterial_rgcsb")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -140,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_o6xu0")
 theme_override_font_sizes/font_size = 80
-text = "HP"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -158,7 +187,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_o6xu0")
 theme_override_font_sizes/font_size = 80
-text = "AT"
+text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 

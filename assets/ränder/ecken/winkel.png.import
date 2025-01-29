@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1n1b81p0cyqk"
-path="res://.godot/imported/level.png-66d11cb92fe64c4e2317b07297309047.ctex"
+uid="uid://cvy7mrmq7xki0"
+path="res://.godot/imported/winkel.png-d97872d79c3fae271d20db82a2c9c4ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/level.png"
-dest_files=["res://.godot/imported/level.png-66d11cb92fe64c4e2317b07297309047.ctex"]
+source_file="res://assets/ränder/ecken/winkel.png"
+dest_files=["res://.godot/imported/winkel.png-d97872d79c3fae271d20db82a2c9c4ba.ctex"]
 
 [params]
 

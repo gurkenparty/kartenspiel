@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo2vqa51o0h7a"
-path="res://.godot/imported/tafel.png-d9f7d0a9d41cbae7f5db66cc135995bd.ctex"
+uid="uid://b5b6lonavmdjd"
+path="res://.godot/imported/glas.png-404502aab61e01b4b599405366bc440f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/tafel.png"
-dest_files=["res://.godot/imported/tafel.png-d9f7d0a9d41cbae7f5db66cc135995bd.ctex"]
+source_file="res://assets/fenster/quadrat/glas.png"
+dest_files=["res://.godot/imported/glas.png-404502aab61e01b4b599405366bc440f.ctex"]
 
 [params]
 
