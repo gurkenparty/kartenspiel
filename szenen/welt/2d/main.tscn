@@ -11,41 +11,41 @@ scale = Vector2(10, 10)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.755, 0.755)
 
-[node name="Feld" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(0.599998, -40.6)
-scale = Vector2(0.04, 0.04)
-
-[node name="Feld2" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(-60.3, 34.5)
-scale = Vector2(0.04, 0.04)
-
-[node name="Feld3" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(62.1, 33.1)
-scale = Vector2(0.0403178, 0.04)
-
-[node name="Feld4" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(0.5, 34.9)
-scale = Vector2(0.0403178, 0.04)
-
 [node name="Feld5" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(-60.9, -39.4)
+position = Vector2(-50, -40)
 scale = Vector2(0.0403178, 0.04)
+
+[node name="Feld" parent="." instance=ExtResource("1_m1ga7")]
+position = Vector2(0.6, -40)
+scale = Vector2(0.04, 0.04)
 
 [node name="Feld6" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(60.6, -39.6)
+position = Vector2(50, -40.1)
+scale = Vector2(0.0403178, 0.04)
+
+[node name="Feld2" parent="." instance=ExtResource("1_m1ga7")]
+position = Vector2(-50, 19.5)
+scale = Vector2(0.04, 0.04)
+
+[node name="Feld4" parent="." instance=ExtResource("1_m1ga7")]
+position = Vector2(0.5, 19.5)
+scale = Vector2(0.0403178, 0.04)
+
+[node name="Feld3" parent="." instance=ExtResource("1_m1ga7")]
+position = Vector2(50, 19.4)
 scale = Vector2(0.0403178, 0.04)
 
 [node name="Zauber" parent="." instance=ExtResource("2_7vahw")]
 material = null
-position = Vector2(62.2, 36.6)
+position = Vector2(48.9, 20.6)
 scale = Vector2(0.04, 0.04)
 
-[node name="Karte" parent="." instance=ExtResource("4_dkupq")]
+[node name="Gebäude" parent="." instance=ExtResource("4_dkupq")]
 material = null
 position = Vector2(-0.100001, -39.5)
 scale = Vector2(0.04, 0.04)
 
 [node name="Truppe" parent="." instance=ExtResource("2_4yc0k")]
 material = null
-position = Vector2(-59.8, 35.9)
+position = Vector2(-49.5, 22)
 scale = Vector2(0.04, 0.04)

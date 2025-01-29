@@ -11,14 +11,11 @@ extends Node2D
 @export var fenster_rahmen: Texture2D = load("res://assets/fenster/kreis/rahmen.png")
 @export var fenster_glas: Texture2D = load("res://assets/fenster/kreis/glas.png")
 @export var bild: Texture2D = load("res://assets/bilder/neutral landmark.webp")
+@export var feld: Node2D
 
-var draggable: bool = false
-var inside_droppable: bool = false
-var droppable: Node2D
-var offset: Vector2
-var initial_position: Vector2
+var ist_im_fokus: bool = false
 
-func _init(title = self.title, etikett = self.etikett, tafel = self.tafel, level = self.level, leben = self.leben, angriff = self.angriff, platte = self.platte, fenster_rahmen = self.fenster_rahmen, fenster_glas = self.fenster_glas, bild = self.bild) -> void:
+func _init(title = self.title, etikett = self.etikett, tafel = self.tafel, level = self.level, leben = self.leben, angriff = self.angriff, platte = self.platte, fenster_rahmen = self.fenster_rahmen, fenster_glas = self.fenster_glas, bild = self.bild, feld = self.feld) -> void:
 	self.title = title
 	self.etikett = etikett
 	self.tafel = tafel
@@ -29,52 +26,65 @@ func _init(title = self.title, etikett = self.etikett, tafel = self.tafel, level
 	self.fenster_rahmen = fenster_rahmen
 	self.fenster_glas = fenster_glas
 	self.bild = bild
+	self.feld = feld
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node('Titel/Text').text = self.title
-	get_node('Etikett/Text').text = self.etikett
-	get_node('Level/Text').text = str(self.level)
-	get_node('Stats/Leben').text = str(self.leben)
-	get_node('Stats/Angriff').text = str(self.angriff)
-	get_node('Platte').texture = self.platte
-	get_node('Fenster/Rahmen').texture = self.fenster_rahmen
-	get_node('Fenster/Glas').texture = self.fenster_glas
-	get_node('Fenster/Pfad').texture = self.fenster_rahmen
-	get_node('Fenster/Pfad/Bild').texture = self.bild
+	get_node('Titel/Text').text = title
+	get_node('Etikett/Text').text = etikett
+	get_node('Level/Text').text = str(level)
+	get_node('Stats/Leben').text = str(leben)
+	get_node('Stats/Angriff').text = str(angriff)
+	get_node('Platte').texture = platte
+	get_node('Fenster/Rahmen').texture = fenster_rahmen
+	get_node('Fenster/Glas').texture = fenster_glas
+	get_node('Fenster/Pfad').texture = fenster_rahmen
+	get_node('Fenster/Pfad/Bild').texture = bild
+	
+	if not feld:
+		var felder = get_tree().get_nodes_in_group("feld")
+		var nähstes_feld = felder[0]
+		for feld in felder:
+			var distanz = global_position.distance_to(feld.global_position)
+			if distanz < global_position.distance_to(nähstes_feld.global_position):
+				nähstes_feld = feld
+		feld = nähstes_feld
+		
+	position = feld.position
 
 func _process(delta: float) -> void:
-	if draggable:
+	if ist_im_fokus:
 		if Input.is_action_pressed("click"):
-			print("press")
-			initial_position = global_position
 			global_position = get_global_mouse_position()
-			offset = get_global_mouse_position() - global_position
-			global.is_dragging = true
+			if not global.ist_am_ziehen:
+				global.ist_am_ziehen = true
+				global.fokussiertes_feld = feld
+			
 		elif Input.is_action_just_released("click"):
-			print("release")
-			global.is_dragging = false
+			global.ist_am_ziehen = false
+			
+			feld.karte = null
+			global.fokussiertes_feld.karte = self
+			feld = global.fokussiertes_feld
+			global.fokussiertes_feld = null
 			var tween = get_tree().create_tween()
-			if inside_droppable:
-				tween.tween_property(self, "position", droppable.position, 0.2).set_ease(Tween.EASE_OUT)
-			else:
-				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
+			tween.tween_property(self, "position", feld.position, 0.2).set_ease(Tween.EASE_OUT)
 
 func _on_area_mouse_entered() -> void:
-	if not global.is_dragging:
-		draggable = true
+	if not global.ist_am_ziehen:
+		ist_im_fokus = true
 		scale = scale * 1.01
 
 func _on_area_mouse_exited() -> void:
-	if not global.is_dragging:
-		draggable = false
+	if not global.ist_am_ziehen:
+		ist_im_fokus = false
 		scale = scale / 1.01
 
 func _on_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("droppable"):
-		inside_droppable = true
-		droppable = body
+	if body.is_in_group("feld"):
+		if not body.karte:
+			global.fokussiertes_feld = body
 
 func _on_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("droppable"):
-		inside_droppable = false
+	if body == global.fokussiertes_feld:
+		global.fokussiertes_feld = feld
