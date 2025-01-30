@@ -1,44 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdha2gsrd1me1"]
 
+[ext_resource type="Script" path="res://szenen/welt/2d/hand.gd" id="1_hpw7m"]
 [ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_ln1hv"]
-[ext_resource type="PackedScene" uid="uid://cntagvfclpfry" path="res://szenen/feld/main.tscn" id="1_m1ga7"]
 
 [node name="Welt" type="Node2D"]
 scale = Vector2(10, 10)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1.52588e-06)
+scale = Vector2(1, 1)
 zoom = Vector2(0.755, 0.755)
 
-[node name="Feld" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(11.4, -42.3)
-scale = Vector2(0.303141, 0.303141)
-
-[node name="Feld3" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(37.5, 0.5)
-scale = Vector2(0.303141, 0.303141)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 21.0
-offset_right = 40.0
-offset_bottom = 61.0
-
-[node name="Hand" parent="Control" instance=ExtResource("1_m1ga7")]
-position = Vector2(-1.1, 30.8)
-scale = Vector2(2.003, 0.303)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Hand"]
-offset_left = -64.0
-offset_top = -65.0
-offset_right = 64.0
-offset_bottom = 64.0
-alignment = 1
-
-[node name="Knappe" parent="." instance=ExtResource("1_ln1hv")]
-position = Vector2(-34.8, 40.9)
-scale = Vector2(0.0429067, 0.0429067)
-
-[node name="Burg" parent="." instance=ExtResource("1_ln1hv")]
-position = Vector2(-90.8, 39)
-scale = Vector2(0.0436856, 0.0436856)
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(0, 70)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_hpw7m")
+card_scene = ExtResource("1_ln1hv")

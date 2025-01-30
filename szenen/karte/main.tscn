@@ -13,6 +13,10 @@ size = Vector2(936.805, 1410)
 position = Vector2(-4.76837e-07, 6)
 scale = Vector2(0.100341, 0.1)
 script = ExtResource("1_6ta4j")
+typ = "Mensch"
+story = "Testgeschichte"
+default_position = Vector2(-4.76837e-07, 6)
+default_rotation = null
 
 [node name="Area" type="Area2D" parent="."]
 
@@ -23,6 +27,7 @@ shape = SubResource("RectangleShape2D_lg6re")
 [node name="Titel" type="Node2D" parent="."]
 
 [node name="Text" type="Label" parent="Titel"]
+z_index = 1
 offset_left = -458.437
 offset_top = -780.0
 offset_right = -241.437
@@ -30,11 +35,12 @@ offset_bottom = -686.0
 scale = Vector2(1.61406, 1.17885)
 theme_override_fonts/font = ExtResource("3_llmsi")
 theme_override_font_sizes/font_size = 60
-text = "Knappe"
+text = "Titel"
 
 [node name="Typ" type="Node2D" parent="."]
 
 [node name="Text" type="Label" parent="Typ"]
+z_index = 1
 offset_left = -309.0
 offset_top = -110.0
 offset_right = -131.0
@@ -48,6 +54,7 @@ text = "Mensch"
 [node name="Effect" type="Node2D" parent="."]
 
 [node name="Text" type="Label" parent="Effect"]
+z_index = 1
 offset_left = -458.0
 offset_top = -30.0
 offset_right = 665.0
@@ -56,7 +63,7 @@ scale = Vector2(0.816117, 0.885161)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_o6xu0")
 theme_override_font_sizes/font_size = 60
-text = "Wenn der"
+text = "Effekt"
 autowrap_mode = 3
 justification_flags = 171
 clip_text = true
@@ -65,6 +72,7 @@ text_overrun_behavior = 3
 [node name="Stats" type="Node2D" parent="."]
 
 [node name="Leben" type="Label" parent="Stats"]
+z_index = 1
 offset_left = -418.573
 offset_top = -100.0
 offset_right = -366.573
@@ -73,11 +81,12 @@ scale = Vector2(1.35662, 0.728156)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_llmsi")
 theme_override_font_sizes/font_size = 60
-text = "1"
+text = "10"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="Angriff" type="Label" parent="Stats"]
+z_index = 1
 offset_left = 388.675
 offset_top = -100.0
 offset_right = 440.675
@@ -86,13 +95,14 @@ scale = Vector2(1.35662, 0.728156)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_llmsi")
 theme_override_font_sizes/font_size = 60
-text = "1"
+text = "5"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="Story" type="Node2D" parent="."]
 
 [node name="Text" type="Label" parent="Story"]
+z_index = 1
 offset_left = -439.0
 offset_top = 360.0
 offset_right = 912.0
@@ -101,7 +111,7 @@ scale = Vector2(0.656734, 0.837333)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_ylvx8")
 theme_override_font_sizes/font_size = 60
-text = "was eine Story."
+text = "Testgeschichte"
 autowrap_mode = 3
 justification_flags = 171
 clip_text = true
@@ -110,8 +120,10 @@ text_overrun_behavior = 3
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Text" type="Label" parent="Level"]
+z_index = 1
 offset_right = 40.0
 offset_bottom = 23.0
+text = "1"
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

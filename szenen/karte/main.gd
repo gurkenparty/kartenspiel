@@ -9,15 +9,23 @@ extends Node2D
 @export var level: int = 1
 @export var leben: int = 10
 @export var angriff: int = 5
+@export var default_position: Vector2
+@export var default_rotation: float
 
 var draggable: bool = false
 var inside_droppable: bool = false
 var droppable: Node2D
 var offset: Vector2
 var initial_position: Vector2
+var is_hovered = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.default_position = position
+	call_deferred("_set_default_rotation")
+	print("DefaultRotation:" + str(self.default_rotation))
+	print("RotationDegreesfromdefault:" + str(rotation_degrees))
 	spawn_card("Knappe")
 
 func _process(delta: float) -> void:
@@ -37,12 +45,26 @@ func _process(delta: float) -> void:
 			else:
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
 
+func _set_default_rotation():
+	self.default_rotation = rotation_degrees  # Store the actual rotation
+
 func _on_area_mouse_entered() -> void:
+	is_hovered  = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", default_position + Vector2(0,-100), 0.1).set_ease(Tween.EASE_OUT)  # Move up
+	tween.tween_property(self, "scale", Vector2(0.2, 0.2), 0.1).set_ease(Tween.EASE_OUT)  # Scale up
+	tween.tween_property(self, "rotation_degrees", 0, 0.1).set_ease(Tween.EASE_OUT) 
+	print("Rotationdegrees: " + str(rotation_degrees)) # Set rotation to 0# Remove rotation while hovered
 	if not global.is_dragging:
 		draggable = true
 		scale = scale * 1.01
 
 func _on_area_mouse_exited() -> void:
+	is_hovered = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", default_position, 0.1).set_ease(Tween.EASE_OUT)  # Move back
+	tween.tween_property(self, "scale", Vector2(0.1, 0.1), 0.1).set_ease(Tween.EASE_OUT)  # Reset size
+	tween.tween_property(self, "rotation_degrees", self.default_rotation, 0.1).set_ease(Tween.EASE_OUT)  # Restore original rotation
 	if not global.is_dragging:
 		draggable = false
 		scale = scale / 1.01
