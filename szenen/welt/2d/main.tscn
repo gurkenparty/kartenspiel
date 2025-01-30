@@ -24,7 +24,8 @@ position = Vector2(50, -40.1)
 scale = Vector2(0.0403178, 0.04)
 
 [node name="Feld2" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(-50, 19.5)
+position = Vector2(-42.9, 22.6)
+rotation = -0.15708
 scale = Vector2(0.04, 0.04)
 
 [node name="Feld4" parent="." instance=ExtResource("1_m1ga7")]
@@ -32,12 +33,13 @@ position = Vector2(0.5, 19.5)
 scale = Vector2(0.0403178, 0.04)
 
 [node name="Feld3" parent="." instance=ExtResource("1_m1ga7")]
-position = Vector2(50, 19.4)
+position = Vector2(44.5, 23.2)
+rotation = 0.15708
 scale = Vector2(0.0403178, 0.04)
 
 [node name="Zauber" parent="." instance=ExtResource("2_7vahw")]
 material = null
-position = Vector2(48.8, 20.5)
+position = Vector2(50.5, -37.3)
 scale = Vector2(0.04, 0.04)
 
 [node name="Gebäude" parent="." instance=ExtResource("4_dkupq")]
@@ -47,5 +49,5 @@ scale = Vector2(0.04, 0.04)
 
 [node name="Truppe" parent="." instance=ExtResource("2_4yc0k")]
 material = null
-position = Vector2(-49.5, 22)
+position = Vector2(-49.5, -38.4)
 scale = Vector2(0.04, 0.04)
