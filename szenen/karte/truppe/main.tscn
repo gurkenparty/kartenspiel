@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_ffeu7"]
 [ext_resource type="Texture2D" uid="uid://lmfvikambh0j" path="res://assets/platten/gold.png" id="2_c4kro"]
-[ext_resource type="Texture2D" uid="uid://c3srmc57ibrk2" path="res://assets/fenster/quadrat/rahmen.png" id="3_6vj32"]
-[ext_resource type="Texture2D" uid="uid://b5b6lonavmdjd" path="res://assets/fenster/quadrat/glas.png" id="4_qdnra"]
+[ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/fenster/kreis/glas.png" id="3_hynvb"]
+[ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/fenster/kreis/rahmen.png" id="4_q7jcy"]
 [ext_resource type="Texture2D" uid="uid://cops1vbcdud4p" path="res://assets/bilder/neutral minion.webp" id="5_s2fhi"]
 
 [node name="Truppe" instance=ExtResource("1_ffeu7")]
 title = "Mustertruppe"
 etikett = "Truppe"
 platte = ExtResource("2_c4kro")
-fenster_rahmen = ExtResource("3_6vj32")
-fenster_glas = ExtResource("4_qdnra")
+fenster_rahmen = ExtResource("4_q7jcy")
+fenster_glas = ExtResource("3_hynvb")
 bild = ExtResource("5_s2fhi")
