@@ -1,13 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6k3kywpvb4jf"]
+[gd_scene load_steps=18 format=3 uid="uid://b6k3kywpvb4jf"]
 
 [ext_resource type="Script" path="res://szenen/karte/main.gd" id="1_6ta4j"]
 [ext_resource type="Shader" path="res://szenen/karte/titel.gdshader" id="1_guuaa"]
 [ext_resource type="Texture2D" uid="uid://d30qm1eyuenil" path="res://assets/platten/silber.png" id="2_bqajb"]
 [ext_resource type="Texture2D" uid="uid://cd7miq5pgyfrq" path="res://assets/misc/etikett.png" id="2_xw2t2"]
+[ext_resource type="Texture2D" uid="uid://c1tt0raryo483" path="res://assets/karten/mensch/1/Mensch_1_Karte.png" id="3_fr0iv"]
 [ext_resource type="FontFile" uid="uid://c4flvhfr36rw" path="res://assets/fonts/baloo/Bold.ttf" id="3_o6xu0"]
-[ext_resource type="Texture2D" uid="uid://tob8uipjfs17" path="res://assets/fenster/karo/rahmen.png" id="3_syhsc"]
 [ext_resource type="Texture2D" uid="uid://c1n1b81p0cyqk" path="res://assets/misc/level.png" id="4_1xv6i"]
-[ext_resource type="Texture2D" uid="uid://t7xp6eo0ugif" path="res://assets/fenster/karo/glas.png" id="4_aau71"]
 [ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/fenster/kreis/rahmen.png" id="6_u3s4o"]
 [ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/fenster/kreis/glas.png" id="7_4ejx7"]
 [ext_resource type="Texture2D" uid="uid://4ihdfgyjfrt1" path="res://assets/bilder/neutral landmark.webp" id="7_kchah"]
@@ -29,9 +28,7 @@ size = Vector2(936.805, 1410)
 material = SubResource("ShaderMaterial_k3ad0")
 scale = Vector2(0.100341, 0.1)
 script = ExtResource("1_6ta4j")
-platte = ExtResource("2_bqajb")
-fenster_rahmen = ExtResource("3_syhsc")
-fenster_glas = ExtResource("4_aau71")
+platte = ExtResource("3_fr0iv")
 bild = ExtResource("7_kchah")
 
 [node name="Etikett" type="Sprite2D" parent="."]

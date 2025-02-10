@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cov6vuj61b10a"
-path="res://.godot/imported/1.png-982e8c5513727f7fbb483dc913efa957.ctex"
+uid="uid://de0r7o8q67vm5"
+path="res://.godot/imported/Mensch_3_Overlay.png-eba2ff7a116b6c011711088f7573a3f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/karten/mensch/1/1.png"
-dest_files=["res://.godot/imported/1.png-982e8c5513727f7fbb483dc913efa957.ctex"]
+source_file="res://assets/karten/mensch/3/Mensch_3_Overlay.png"
+dest_files=["res://.godot/imported/Mensch_3_Overlay.png-eba2ff7a116b6c011711088f7573a3f1.ctex"]
 
 [params]
 

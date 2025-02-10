@@ -7,10 +7,8 @@ extends Node2D
 @export var level: int = 1
 @export var leben: int = 10
 @export var angriff: int = 5
-@export var platte: Texture2D = load("res://assets/platten/silber.png")
-@export var fenster_rahmen: Texture2D = load("res://assets/fenster/kreis/rahmen.png")
-@export var fenster_glas: Texture2D = load("res://assets/fenster/kreis/glas.png")
-@export var bild: Texture2D = load("res://assets/bilder/neutral landmark.webp")
+@export var platte: Texture2D
+@export var bild: Texture2D 
 @export var feld: Node2D
 
 var ist_im_fokus: bool = false
@@ -38,9 +36,6 @@ func _ready() -> void:
 	get_node('Stats/Leben').text = str(leben)
 	get_node('Stats/Angriff').text = str(angriff)
 	get_node('Platte').texture = platte
-	get_node('Fenster/Rahmen').texture = fenster_rahmen
-	get_node('Fenster/Glas').texture = fenster_glas
-	get_node('Fenster/Pfad').texture = fenster_rahmen
 	get_node('Fenster/Pfad/Bild').texture = bild
 	
 	if not feld:

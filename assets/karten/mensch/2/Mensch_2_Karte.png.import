@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24bij6506evg"
-path="res://.godot/imported/2.png-da6eb97f8b6cd8a5435414ebe939fea3.ctex"
+uid="uid://d3tmte27kivnc"
+path="res://.godot/imported/Mensch_2_Karte.png-5fc0de0884e2dd581b5b4b3202871bde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/karten/mensch/1/2.png"
-dest_files=["res://.godot/imported/2.png-da6eb97f8b6cd8a5435414ebe939fea3.ctex"]
+source_file="res://assets/karten/mensch/2/Mensch_2_Karte.png"
+dest_files=["res://.godot/imported/Mensch_2_Karte.png-5fc0de0884e2dd581b5b4b3202871bde.ctex"]
 
 [params]
 
