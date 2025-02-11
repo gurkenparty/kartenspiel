@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmyit0dwfi0f4"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/card_3d.gd" id="1_r6vgo"]
+[ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/knappe.png" id="2_q26v3"]
+
+[node name="Card3d" type="Node3D"]
+script = ExtResource("1_r6vgo")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_q26v3")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

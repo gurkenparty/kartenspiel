@@ -26,5 +26,6 @@ scale = Vector2(14.21, 3.784)
 script = ExtResource("3_rkq52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o3mb0")
 debug_color = Color(0.934978, 0.964975, 0.995113, 0.42)

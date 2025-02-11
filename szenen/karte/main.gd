@@ -18,6 +18,7 @@ var droppable: Node2D
 var offset: Vector2
 var initial_position: Vector2
 var is_hovered = false
+var is_on_board = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,21 +28,26 @@ func _ready() -> void:
 	print("DefaultRotation:" + str(self.default_rotation))
 	print("RotationDegreesfromdefault:" + str(rotation_degrees))
 	spawn_card("Knappe")
+	add_to_group("cards")
 
 func _process(delta: float) -> void:
 	if draggable:
 		if Input.is_action_pressed("click"):
-			print("press")
-			initial_position = global_position
+			# Beim Dragen: direkt an die Mausposition setzen
+			# (initial_position nur einmal speichern, z.B. beim Klick-Down)
+			if not global.is_dragging:
+				initial_position = global_position
 			global_position = get_global_mouse_position()
-			offset = get_global_mouse_position() - global_position
 			global.is_dragging = true
 		elif Input.is_action_just_released("click"):
-			print("release")
 			global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if inside_droppable:
-				tween.tween_property(self, "position", droppable.position, 0.2).set_ease(Tween.EASE_OUT)
+				# Drop-Area-Position aus dem gespeicherten droppable-Node verwen
+				tween.tween_property(self, "position", droppable.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				# Nach dem Ablegen sollte die Karte nicht mehr draggable sein
+				draggable = false
+			
 			else:
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
 
@@ -127,3 +133,21 @@ func spawn_card(Cardname:String):
 	self.effekt = Cardvals.effekt
 	self.leben = Cardvals.leben
 	self.angriff = Cardvals.angriff
+
+
+
+# Diese Funktion wird von der DropArea aufgerufen, wenn die Karte abgelegt wird
+func drop_to_board(drop_position: Vector2) -> void:
+	if is_on_board:
+		return  # Falls die Karte schon abgelegt ist, mache nichts
+
+	is_on_board = true
+
+	# Verschiebe die Karte zur Drop-Position (kannst du auch anpassen, z.B. mit einem kleinen Offset)
+	position = drop_position
+
+	# Ändere die Skalierung, um die Karte kleiner darzustellen
+	# Hier auf 50 % der Originalgröße; passe den Wert bei Bedarf an
+	scale = Vector2(0.5, 0.5)
+
+	# Optional: Wenn du eine Animation haben möchtest, könntest du hier eine Tween-Animation starten.

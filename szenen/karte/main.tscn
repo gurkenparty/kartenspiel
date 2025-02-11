@@ -16,7 +16,6 @@ script = ExtResource("1_6ta4j")
 typ = "Mensch"
 story = "Testgeschichte"
 default_position = Vector2(-4.76837e-07, 6)
-default_rotation = null
 
 [node name="Area" type="Area2D" parent="."]
 
