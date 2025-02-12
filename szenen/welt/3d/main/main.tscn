@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq65bc324sfpr"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/main/gridgen.gd" id="1_cy1m6"]
+[ext_resource type="PackedScene" uid="uid://ck70hquosnmb6" path="res://szenen/welt/3d/main/cell.tscn" id="2_j5toq"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Spielfeld" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00886, 0.0287046, 8.43842)
+script = ExtResource("1_cy1m6")
+grid_width = 20
+grid_depth = 20
+cell_scene = ExtResource("2_j5toq")
+
+[node name="Camera3D" type="Camera3D" parent="Spielfeld"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 19.9239, 24.2643, 29.3456)
+
+[node name="RayCast3D" type="RayCast3D" parent="Spielfeld/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965927, 0, 0.965927, 0.258819, -0.413801, 2.04894, -3.51632)
+target_position = Vector3(22.5169, 14.2643, 23.6785)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0136306, 0.999907, 0, -0.999907, 0.0136306, 0, 0, 0)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck70hquosnmb6"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/main/cell.gd" id="1_6uscq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31y4a"]
+size = Vector3(1.99298, 0.552979, 1.99365)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjk4e"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ern1g"]
+material = SubResource("StandardMaterial3D_yjk4e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdvdp"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q33kq"]
+material = SubResource("StandardMaterial3D_sdvdp")
+
+[node name="Cell" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_6uscq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.01755, 0, 0, 0, 1.01755, 0, 0, 0, 1.01755, 0.00119019, 0.223511, 0.00366211)
+shape = SubResource("BoxShape3D_31y4a")
+
+[node name="Feld" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("PlaneMesh_ern1g")
+skeleton = NodePath("../..")
+
+[node name="Rand" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1.06, 0, 0, 0, 1.06, 0, 0, 0, 1.06, 0.00426865, -0.0173818, -0.0025177)
+mesh = SubResource("PlaneMesh_q33kq")
+skeleton = NodePath("../..")
