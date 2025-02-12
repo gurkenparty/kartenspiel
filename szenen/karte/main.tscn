@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://szenen/karte/titel.gdshader" id="1_guuaa"]
 [ext_resource type="Texture2D" uid="uid://d30qm1eyuenil" path="res://assets/platten/silber.png" id="2_bqajb"]
 [ext_resource type="Texture2D" uid="uid://cd7miq5pgyfrq" path="res://assets/misc/etikett.png" id="2_xw2t2"]
-[ext_resource type="Texture2D" uid="uid://c1tt0raryo483" path="res://assets/karten/mensch/1/Mensch_1_Karte.png" id="3_fr0iv"]
+[ext_resource type="Texture2D" uid="uid://b8cy5vgor8lt4" path="res://assets/fenster/kreis/pfad.png" id="3_1kn1y"]
 [ext_resource type="FontFile" uid="uid://c4flvhfr36rw" path="res://assets/fonts/baloo/Bold.ttf" id="3_o6xu0"]
 [ext_resource type="Texture2D" uid="uid://c1n1b81p0cyqk" path="res://assets/misc/level.png" id="4_1xv6i"]
 [ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/fenster/kreis/rahmen.png" id="6_u3s4o"]
@@ -28,8 +28,7 @@ size = Vector2(936.805, 1410)
 material = SubResource("ShaderMaterial_k3ad0")
 scale = Vector2(0.100341, 0.1)
 script = ExtResource("1_6ta4j")
-platte = ExtResource("3_fr0iv")
-bild = ExtResource("7_kchah")
+fenster_pfad = ExtResource("3_1kn1y")
 
 [node name="Etikett" type="Sprite2D" parent="."]
 position = Vector2(0, 590)
@@ -90,13 +89,14 @@ texture = ExtResource("6_u3s4o")
 [node name="Pfad" type="Sprite2D" parent="Fenster"]
 clip_children = 1
 position = Vector2(0, -210)
+texture = ExtResource("6_u3s4o")
 
 [node name="Bild" type="Sprite2D" parent="Fenster/Pfad"]
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7_kchah")
 
 [node name="Glas" type="Sprite2D" parent="Fenster"]
-visible = false
+modulate = Color(1, 1, 1, 0.376471)
 position = Vector2(0, -210)
 texture = ExtResource("7_4ejx7")
 

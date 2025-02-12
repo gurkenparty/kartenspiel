@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://86ibpwgnfrit"]
+[gd_scene load_steps=7 format=3 uid="uid://86ibpwgnfrit"]
 
 [ext_resource type="PackedScene" uid="uid://b6k3kywpvb4jf" path="res://szenen/karte/main.tscn" id="1_ffeu7"]
 [ext_resource type="Texture2D" uid="uid://lmfvikambh0j" path="res://assets/platten/gold.png" id="2_c4kro"]
-[ext_resource type="Texture2D" uid="uid://pqvctmahacwa" path="res://assets/fenster/kreis/glas.png" id="3_hynvb"]
-[ext_resource type="Texture2D" uid="uid://cn4acjmi1iyll" path="res://assets/fenster/kreis/rahmen.png" id="4_q7jcy"]
+[ext_resource type="Texture2D" uid="uid://tob8uipjfs17" path="res://assets/fenster/karo/rahmen.png" id="4_psjor"]
+[ext_resource type="Texture2D" uid="uid://t7xp6eo0ugif" path="res://assets/fenster/karo/glas.png" id="5_cwlny"]
+[ext_resource type="Texture2D" uid="uid://c03lu04y80bcx" path="res://assets/fenster/karo/pfad.png" id="5_nw3og"]
 [ext_resource type="Texture2D" uid="uid://cops1vbcdud4p" path="res://assets/bilder/neutral minion.webp" id="5_s2fhi"]
 
 [node name="Truppe" instance=ExtResource("1_ffeu7")]
 title = "Mustertruppe"
 etikett = "Truppe"
 platte = ExtResource("2_c4kro")
-fenster_rahmen = ExtResource("4_q7jcy")
-fenster_glas = ExtResource("3_hynvb")
 bild = ExtResource("5_s2fhi")
+fenster_rahmen = ExtResource("4_psjor")
+fenster_pfad = ExtResource("5_nw3og")
+fenster_glas = ExtResource("5_cwlny")
