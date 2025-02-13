@@ -5,26 +5,24 @@ extends Node3D
 @export var grid_depth: int = 5
 @export var cell_size: float = 2.0  # Adjust based on cell dimensions
 @export var cell_scene: PackedScene
-const HOVER_COLOR := Color(0, 1, 0, 1)  # Green
-const DEFAULT_COLOR := Color(1, 1, 1, 1)  # White
-const RADIUS := 2.0  # Adjust radius for effect
+const HOVER_COLOR = Color(0, 1, 0, 1)  # Green
+const DEFAULT_COLOR = Color(1, 1, 1, 1)  # White
+const RADIUS = 5.0  # Adjust radius for effect
 
 var hovered_tiles := []
-@onready var ray := $Camera3D/RayCast3D
 
-
-@onready var camera := $Camera3D
+@export var camera: Camera3D
+@export var cursor_marker: Node3D  # Assign this in the Inspector (a small invisible object)
 
 func _ready():
+	cursor_marker.add_to_group("cursor")
 	generate_grid()
 
 func generate_grid():
 	# Remove existing cells before regenerating
-# Remove existing cells before regenerating, but don't remove the camera
 	for child in get_children():
-		if child is Node3D and child != camera and child != ray:
+		if child is Node3D and child != camera and child != cursor_marker:
 			child.queue_free()
-
 	
 	# Generate new grid
 	for x in range(grid_width):
@@ -33,69 +31,57 @@ func generate_grid():
 			cell.transform.origin = Vector3(x * cell_size, 0, z * cell_size)
 			add_child(cell)
 			cell.add_to_group("tiles")  # Add the tile to the "tiles" group
-			
-			
-
 
 func _process(delta):
-	update_hovered_tiles()
+	update_cursor_position()
+
+	# Find all tiles under the cursor (use Area3D for detection)
+	var hovered_tiles = get_hovered_tiles()
+	highlight_tiles(hovered_tiles)
+
+func get_hovered_tiles() -> Array:
+	var tiles_in_range = []
+	var cursor_pos = cursor_marker.global_transform.origin
 	
-func update_hovered_tiles():
-	print("update_hovered_tiles is called")
+	# Convert RADIUS to a grid-aligned square selection
+	var half_size = ceil(RADIUS / cell_size)  # Ensure at least 1 tile is selected
 
-	var ray_target = get_mouse_target_position()  # Get the ray's target position
-	ray.target_position = ray_target  # Set the target position directly
-	ray.force_raycast_update()
-	if ray.is_colliding():
-		var tile = ray.get_collider()
-		print("Ray is colliding with: " + str(tile))  # Add more detail to the log
-		if tile and tile.is_in_group("tiles"):  # Check if the tile is in the "tiles" group
-			print("Tile is in the 'tiles' group!")
-			highlight_tiles(get_nearby_tiles(tile))
-		else:
-			print("Tile is NOT in the 'tiles' group!")
-	else:
-		print("Ray is not colliding with anything.")
-		reset_highlighted_tiles()
-		print("Tiles resetted")
-
-func get_mouse_target_position() -> Vector3:
-	var mouse_pos = get_viewport().get_mouse_position()
-	
-	# Getting the ray from the camera to the 3D world based on the mouse position
-	var ray_origin = camera.position  # Ray starts from the camera position
-	var ray_direction = camera.project_ray_normal(mouse_pos)
-	ray_direction.y = -1  # Pointing down (negative Y direction)  # Ray direction from camera to mouse in 3D world
-	
-	# Debug prints to check the values
-	print("Camera Position: ", camera.position)
-	print("Mouse Position: ", mouse_pos)
-	print("Ray Origin: ", ray_origin)
-	print("Ray Direction Before Y Constraint: ", ray_direction)
-	
-	# Optionally, limit the height range to avoid pointing too high or too low
-
-	print("Ray Direction After Y Constraint: ", ray_direction)
-
-	# Compute the ray target position by adding the direction multiplied by a distance (10 units away)
-	return ray_origin + ray_direction * 10  # Adjust multiplier as needed for your scene scale
-
-func get_nearby_tiles(center_tile) -> Array:
-	var nearby_tiles = []
+	# Iterate over all tiles
 	for tile in get_tree().get_nodes_in_group("tiles"):
-		if tile.global_transform.origin.distance_to(center_tile.global_transform.origin) <= RADIUS:
-			nearby_tiles.append(tile)
-	return nearby_tiles
+		var tile_pos = tile.global_transform.origin
+
+		# Check if the tile is within the square bounds around the cursor
+		if (
+			abs(tile_pos.x - cursor_pos.x) < half_size * cell_size and
+			abs(tile_pos.z - cursor_pos.z) < half_size * cell_size
+		):
+			tiles_in_range.append(tile)
+
+	return tiles_in_range
+
+
+func update_cursor_position():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_direction = camera.project_ray_normal(mouse_pos)
+
+	# Calculate intersection with Y = 0.1 plane
+	var t = (0.1 - ray_origin.y) / ray_direction.y  # Solve for Y = 0.1
+	var world_position = ray_origin + ray_direction * t
+
+	# Set the cursor's position
+	cursor_marker.global_transform.origin = Vector3(world_position.x, 0.1, world_position.z)
+	print("Cursor Position:", cursor_marker.global_transform.origin)
 
 func highlight_tiles(tiles):
 	reset_highlighted_tiles()
 	hovered_tiles = tiles
 	for tile in hovered_tiles:
 		if tile.has_method("set_color"):
-			tile.set_color(HOVER_COLOR)
+			tile.set_color(true)
 
 func reset_highlighted_tiles():
 	for tile in hovered_tiles:
 		if tile.has_method("set_color"):
-			tile.set_color(DEFAULT_COLOR)
+			tile.set_color(false)
 	hovered_tiles.clear()

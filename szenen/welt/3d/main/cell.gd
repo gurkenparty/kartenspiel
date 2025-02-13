@@ -1,13 +1,35 @@
-extends Area3D
+extends Node3D
 
-@onready var mesh_instance := $Feld
-func set_color(color: Color):
-	var mat = mesh_instance.get_surface_override_material(0)
-	if mat:
-		print("Material found: ", mat)
-		mat.albedo_color = color
+@export var default_material : Material
+@export var hover_material : Material
+@onready var area = $Area3D  # Assuming Area3D is a direct child
+
+var current_material : Material
+
+func _ready():
+	# Set the default material
+	current_material = default_material
+	$Area3D/Feld.material_override = default_material  # Assuming the mesh is a MeshInstance3D
+
+	# Connect signals for the Area3D
+	area.body_entered.connect(_on_body_entered)
+	area.body_exited.connect(_on_body_exited)
+
+# Change material based on the highlight state
+func set_color(is_highlighted: bool):
+	if is_highlighted:
+		$Area3D/Feld.material_override = hover_material
 	else:
-		print("No material override found, creating new material")
-		var new_mat = StandardMaterial3D.new()
-		new_mat.albedo_color = color
-		mesh_instance.set_surface_override_material(0, new_mat)
+		$Area3D/Feld.material_override = default_material
+
+
+func _on_body_entered(body: Node3D) -> void:
+		if body.is_in_group("cursor"):  # You can add a group for your cursor object
+			print("Mouse entered tile")
+			set_color(true)
+
+
+func _on_body_exited(body: Node3D) -> void:
+		if body.is_in_group("cursor"):  # You can add a group for your cursor object
+			print("Mouse exited tile")
+			set_color(false)
