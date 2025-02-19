@@ -1,32 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck70hquosnmb6"]
+[gd_scene load_steps=7 format=3 uid="uid://ck70hquosnmb6"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main/cell.gd" id="1_6uscq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25583"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckget"]
-albedo_color = Color(0.388235, 0.545098, 0.266667, 0.933333)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_31y4a"]
 size = Vector3(1.99298, 0.552979, 1.99365)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjk4e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tm18l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ern1g"]
-material = SubResource("StandardMaterial3D_yjk4e")
+material = SubResource("StandardMaterial3D_tm18l")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aofxc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy4xt"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5pyeb"]
-material = SubResource("StandardMaterial3D_aofxc")
+material = SubResource("StandardMaterial3D_cy4xt")
 
 [node name="Cell" type="Node3D"]
+transform = Transform3D(1.00108, 0, 0, 0, 1.00108, 0, 0, 0, 1.00108, 0, 0, 0)
 script = ExtResource("1_6uscq")
-default_material = SubResource("StandardMaterial3D_25583")
-hover_material = SubResource("StandardMaterial3D_ckget")
 
 [node name="Area3D" type="Area3D" parent="."]
 

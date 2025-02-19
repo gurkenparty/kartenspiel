@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq65bc324sfpr"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/main/gridgen.gd" id="1_cy1m6"]
+[ext_resource type="PackedScene" uid="uid://ck70hquosnmb6" path="res://szenen/welt/3d/main/cell.tscn" id="2_j5toq"]
+[ext_resource type="Script" path="res://szenen/welt/3d/main/hand.gd" id="3_1c6jt"]
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn" id="3_je0dr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1q8rw"]
+size = Vector3(1.57556, 0.27063, 0.0518799)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbhxh"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Spielfeld" type="Node3D" parent="." node_paths=PackedStringArray("camera", "cursor_marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00886, 0.0287046, -0.328551)
+script = ExtResource("1_cy1m6")
+grid_width = 20
+grid_depth = 20
+cell_scene = ExtResource("2_j5toq")
+camera = NodePath("Camera3D")
+cursor_marker = NodePath("Mousepos")
+
+[node name="Camera3D" type="Camera3D" parent="Spielfeld"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 20.109, 28.244, 35.006)
+
+[node name="Hand" type="Node3D" parent="Spielfeld/Camera3D" node_paths=PackedStringArray("card_holder_area")]
+script = ExtResource("3_1c6jt")
+card_scene = ExtResource("3_je0dr")
+num_cards = 1
+card_holder_area = NodePath("cardhold")
+
+[node name="cardhold" type="Area3D" parent="Spielfeld/Camera3D/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00758362, -1.48268)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spielfeld/Camera3D/Hand/cardhold"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0217896, -0.236721, 0.439785)
+shape = SubResource("BoxShape3D_1q8rw")
+
+[node name="Mousepos" type="Node3D" parent="Spielfeld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0.0712954, 130.676)
+
+[node name="Area3D" type="Area3D" parent="Spielfeld/Mousepos"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spielfeld/Mousepos/Area3D"]
+shape = SubResource("BoxShape3D_hbhxh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0136306, 0.999907, 0, -0.999907, 0.0136306, 0, 14.2214, 16.5707)

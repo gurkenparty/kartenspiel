@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://clw2ievmlm3v3"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/card/mensch/1/mensch1.gd" id="1_qyjqu"]
+[ext_resource type="Texture2D" uid="uid://dxk2hfhuao3s" path="res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.png" id="2_63rht"]
+
+[node name="Knappe" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_qyjqu")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.999449, 0, 0, 0, 0.999449, 0, 0, 0, 0.999449, 0, 0, 0)
+texture = ExtResource("2_63rht")
+
+[node name="Stats" type="Node3D" parent="."]
+
+[node name="leben" type="Label3D" parent="Stats"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, 1.79224, 0.0206692, 0.0427669)
+pixel_size = 0.006
+double_sided = false
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="angriff" type="Label3D" parent="Stats"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, -1.60618, 0.00969381, 0.0435393)
+pixel_size = 0.006
+double_sided = false
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "1"
