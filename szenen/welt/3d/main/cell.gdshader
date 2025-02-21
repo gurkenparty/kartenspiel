@@ -9,7 +9,7 @@ void fragment() {
     float line = step(grid_uv.x, line_thickness) + step(grid_uv.y, line_thickness);
     line += step(1.0 - grid_uv.x, line_thickness) + step(1.0 - grid_uv.y, line_thickness);
     line = clamp(line, 0.0, 1.0);
-    
+
     vec4 final_color = mix(fill_color, line_color, line);  // Mix fill and line colors
     COLOR = final_color;
 }

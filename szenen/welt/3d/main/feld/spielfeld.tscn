@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvc2p73ej1m10"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l3e01"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ejyb"]
+size = Vector3(3.98485, 0.0249023, 1.97237)
+
+[node name="Spielfeld" type="Area3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["ally"]]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_l3e01")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0139692, 0.00854497, 0.0263299)
+shape = SubResource("BoxShape3D_8ejyb")

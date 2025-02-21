@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brb1rv1cvyh4x"
-path="res://.godot/imported/Naerrin.png-8de3ee9d51d404ddb226ee466c3efdc2.ctex"
+uid="uid://cw2whptmxje1o"
+path="res://.godot/imported/card_selectable.jpg-350e89663a2a20091b3940bee4af24a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://szenen/welt/3d/card/mensch/1/Naerrin.png"
-dest_files=["res://.godot/imported/Naerrin.png-8de3ee9d51d404ddb226ee466c3efdc2.ctex"]
+source_file="res://assets/card/card_selectable.jpg"
+dest_files=["res://.godot/imported/card_selectable.jpg-350e89663a2a20091b3940bee4af24a4.ctex"]
 
 [params]
 

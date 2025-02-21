@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdha2gsrd1me1"]
+
+[ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
+[ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/welt/3d/card/mensch/1/mensch1.tscn" id="2_02yof"]
+[ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/knappe.png" id="2_h22su"]
+[ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/welt/3d/main/feld/spielfeld.tscn" id="4_qwc7v"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_bcnpp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 4.677, 2.823)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0173128, 0.99985, 0, -0.99985, 0.0173128, 0, 0, 0)
+
+[node name="Hand" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Karte2d" parent="Hand" node_paths=PackedStringArray("cam") instance=ExtResource("1_sx5me")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -26.0
+offset_right = 72.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+cardimg = ExtResource("2_h22su")
+draggable = ExtResource("2_02yof")
+cam = NodePath("../../Camera3D")
+
+[node name="Spielfeld" parent="." instance=ExtResource("4_qwc7v")]
