@@ -6,7 +6,10 @@ var effect_activated = false  # Ensure effect only runs once # Adjust to the cor
 
 func _ready():
 	angriff = 1  
-	leben = 2  
+	leben = 2
+	standard_texture = preload("res://assets/card/card_textures/texture_black_paper.jpg")
+	selection_material_texture = preload("res://assets/card/card_selectable.jpg")
+	selected_material_texture = preload("res://assets/card/card_selected.jpg")
 	add_to_group("Mensch")
 	add_to_group("Ritter")  
 	update_labels()

@@ -74,6 +74,7 @@ func _physics_process(_delta):
 			self.visible = false
 			local_draggable.played = true
 			local_draggable.add_to_group("Player1")
+			local_draggable.cam = cam
 			# Emit the signal to notify the hand container
 			card_placed.emit(self)
 			print("Card " + str(self) + " emitted")
@@ -96,3 +97,4 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	is_dragging = false
 	print("Button Up")
+	

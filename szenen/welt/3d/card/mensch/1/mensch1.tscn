@@ -6,7 +6,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_voii1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_140ad"]
-size = Vector3(3.65506, 3.22081, 0.292877)
+size = Vector3(3.99843, 3.22081, 1.30464)
 
 [node name="Truppe" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
@@ -41,7 +41,8 @@ mesh = SubResource("BoxMesh_voii1")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -7.53175e-13, 0, 7.53175e-13, 1, 0.187972, 1.35909, -0.102709)
+transform = Transform3D(1, 0, 0, 0, 1, -7.53175e-13, 0, 7.53175e-13, 1, 0.0162878, 1.35909, 0.403173)
 shape = SubResource("BoxShape3D_140ad")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

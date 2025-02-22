@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvc2p73ej1m10"]
+[gd_scene load_steps=4 format=3 uid="uid://bvc2p73ej1m10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3er1"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l3e01"]
+material = SubResource("StandardMaterial3D_m3er1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ejyb"]
 size = Vector3(3.98485, 0.0249023, 1.97237)

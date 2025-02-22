@@ -41,6 +41,7 @@ Landwirt=""
 feld=""
 Player1=""
 Player2=""
+selected=""
 
 [input]
 
