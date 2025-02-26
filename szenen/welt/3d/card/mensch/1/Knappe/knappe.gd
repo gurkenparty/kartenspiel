@@ -6,6 +6,7 @@ extends "res://szenen/welt/3d/card/mensch/1/mensch1.gd"
 var effect_activated = false  # Ensure effect only runs once # Adjust to the correct path # Disable collision checks at start
 
 func _ready():
+	cost = {"Holz":2,"Stein":1,"Metall":0,"Amethyst":0}
 	angriff = 1  
 	leben = 2
 	headclass = "Mensch"

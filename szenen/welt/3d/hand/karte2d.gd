@@ -64,7 +64,7 @@ func _physics_process(_delta):
 			var placing_tween = create_tween()
 			placing_tween.tween_property(local_draggable, "position", final_position, 0.2)
 
-			if not GameState.placed_cards.has(card_key):
+			if not GameState.placed_cards.has(card_key) and local_draggable.cost["Holz"] < GameState.ressources["Holz"] and local_draggable.cost["Stein"] < GameState.ressources["Stein"] and local_draggable.cost["Metall"] < GameState.ressources["Metall"] and local_draggable.cost["Amethyst"] < GameState.ressources["Amethyst"]:
 				GameState.placed_cards[card_key] = []
 			GameState.placed_cards[card_key].append(final_position)
 
@@ -75,6 +75,7 @@ func _physics_process(_delta):
 			local_draggable.played = true
 			local_draggable.add_to_group("Player1")
 			local_draggable.cam = cam
+			local_draggable.cardimg_file = cardimg
 			# Emit the signal to notify the hand container
 			card_placed.emit(self)
 			print("Card " + str(self) + " emitted")

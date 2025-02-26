@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=11 format=3 uid="uid://bdha2gsrd1me1"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
 [ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://szenen/welt/3d/zug_weiter.gd" id="5_ogxev"]
 [ext_resource type="Script" path="res://szenen/welt/3d/deck.gd" id="6_xgr2f"]
 [ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
+[ext_resource type="Script" path="res://scripts/game_state_player.gd" id="7_y8wtm"]
+[ext_resource type="Script" path="res://szenen/welt/3d/playerui.gd" id="10_svj5g"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bcnpp")
@@ -51,7 +53,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Knappe" parent="." groups=["Player2"] instance=ExtResource("5_5d2vx")]
+[node name="Knappe" parent="." groups=["Player2", "feld"] instance=ExtResource("5_5d2vx")]
 transform = Transform3D(-0.5, 4.37114e-08, 1.91069e-15, 0, -2.18557e-08, 0.5, 4.37114e-08, 0.5, 2.18557e-08, 0.0708714, 0.151748, -5.17857)
 
 [node name="Spielfeld" parent="." instance=ExtResource("4_qwc7v")]
@@ -79,9 +81,46 @@ offset_bottom = 6.0
 script = ExtResource("5_ogxev")
 
 [node name="Player1_control" type="Node3D" parent="."]
+script = ExtResource("7_y8wtm")
 
 [node name="Deck1" type="Node3D" parent="Player1_control"]
 script = ExtResource("6_xgr2f")
 
 [node name="GamestateWorld" type="Node3D" parent="."]
 script = ExtResource("7_j88pf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 707.0
+offset_top = 5.0
+offset_right = 1123.0
+offset_bottom = 85.0
+script = ExtResource("10_svj5g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Holz" type="Label" parent="Node2D/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Stein" type="Label" parent="Node2D/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Gold" type="Label" parent="Node2D/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Amethyst" type="Label" parent="Node2D/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Metall" type="Label" parent="Node2D/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20

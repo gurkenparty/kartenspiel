@@ -6,13 +6,15 @@ extends Node3D
 @export var headclass = "Mensch"
 @export var subclass = ""
 @export var rating = 1
+@export var cost = {"Holz":0,"Stein":0,"Metall":0,"Amethyst":0}
 @export var init_angriff: int
 @export var init_leben: int
 @export var standard_texture: Texture2D = preload("res://assets/card/card_textures/texture_black_paper.jpg")
 @export var selection_material_texture: Texture2D = preload("res://assets/card/card_selectable.jpg")
 @export var selected_material_texture: Texture2D = preload("res://assets/card/card_selected.jpg")
 @export var cardmenu : PackedScene
-
+@export var cardimg_file = Texture2D
+@export var cardimg_scene: PackedScene = preload("res://szenen/welt/3d/hand/preview.tscn")
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
 @onready var select_border = $MeshInstance3D
@@ -35,9 +37,6 @@ var karte2d: Button  # Reference to the 2D card
 signal card_selected(card, distance)
 var cardmenu_path
 func _ready():
-	cardmenu_path = "res://szenen/welt/3d/card/" + str(headclass.to_lower()) + "/" + str(rating) + "/" + str(self.name).to_lower() + "/cardmenu.tscn"
-	print("path for" + str(self.name) + "is: " + str(cardmenu_path))
-	cardmenu = load(cardmenu_path)
 	set_process(true)
 	add_to_group("Truppe")  # General troop group
 	add_to_group(str(headclass))  # Head class
@@ -69,14 +68,23 @@ func _input(event):
 			if result["collider"] == collision_area:
 				print("Ray hit this card!")
 				if selection:
+					print("selection if loop")
 					set_selected()
 				else:
-					print(str(self.name) + " Cardmenu path is: " + str(cardmenu_path))
-					if cardmenu:  # Stelle sicher, dass die Szene geladen wurde
-						var cardmenu_instance = cardmenu.instantiate()
-						add_child(cardmenu_instance)
+					print("Not selection")
+					if cardimg_scene:
+						print("In cardimg if loop")
+						var instantiated_cardimg_scene = cardimg_scene.instantiate()
+						print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
+						add_child(instantiated_cardimg_scene)
+						print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
+						instantiated_cardimg_scene.texture = cardimg_file
+						instantiated_cardimg_scene.visible = true
+						print("Card scene: " + str(instantiated_cardimg_scene) + " visibility: " + str(instantiated_cardimg_scene.visible))
+						print("Card scene: " + str(instantiated_cardimg_scene) + " texture: " + str(instantiated_cardimg_scene.texture))
 					else:
-						push_error("Fehler: cardmenu konnte nicht geladen werden!")
+						print("Error: cardimg_scene is null!")
+					
 			else:
 				print("Ray hit another object:", result["collider"])
 		else:
