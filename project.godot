@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [autoload]
 
 global="*res://scripts/global.gd"
-Cardvals="res://scripts/cardvals.gd"
+Cardvals="*res://scripts/cardvals.gd"
 GameState="*res://scripts/game_state_player.gd"
 GameStateWorld="*res://scripts/game_state_world.gd"
 

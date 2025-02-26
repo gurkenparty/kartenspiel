@@ -1,10 +1,10 @@
 extends Node3D
 
 var deck = [
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/knappe.tscn")},
+	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn")},
+	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn")},
+	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn")},
+	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn")},
 	
 	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Landwirtin/Landwirtin.tscn")},
 	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/welt/3d/card/mensch/1/Landwirtin/Landwirtin.tscn")},
