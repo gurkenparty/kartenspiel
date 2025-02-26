@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg0q73bx3xrjh"]
+
+[ext_resource type="Script" path="res://szenen/hand/karte2d.gd" id="1_e8ihp"]
+
+[node name="Karte2d" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_e8ihp")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

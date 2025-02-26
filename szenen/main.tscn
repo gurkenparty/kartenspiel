@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdha2gsrd1me1"]
+
+[ext_resource type="Script" path="res://szenen/main.gd" id="1_bcnpp"]
+[ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/hand/karte_2d.tscn" id="1_sx5me"]
+[ext_resource type="Script" path="res://szenen/handcard.gd" id="2_vqgol"]
+[ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/main/feld/spielfeld.tscn" id="4_qwc7v"]
+[ext_resource type="PackedScene" uid="uid://bwlsc2g35h12v" path="res://karten/mensch/1/Knappe/Knappe.tscn" id="5_5d2vx"]
+[ext_resource type="Script" path="res://szenen/zug_weiter.gd" id="5_ogxev"]
+[ext_resource type="Script" path="res://szenen/deck.gd" id="6_xgr2f"]
+[ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_bcnpp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524, 0.0739527, -0.0558453, -0.0397854)
+
+[node name="Player1_Hand" type="Control" parent="." node_paths=PackedStringArray("hand_container", "deck")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.9999
+offset_top = -9.0
+offset_right = 20.0001
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 8
+script = ExtResource("2_vqgol")
+card_scene = ExtResource("1_sx5me")
+hand_container = NodePath("HBoxContainer")
+deck = NodePath("../Player1_control/Deck1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player1_Hand"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Knappe" parent="." groups=["Player2"] instance=ExtResource("5_5d2vx")]
+transform = Transform3D(-0.5, 4.37114e-08, 1.91069e-15, 0, -2.18557e-08, 0.5, 4.37114e-08, 0.5, 2.18557e-08, 0.0708714, 0.151748, -5.17857)
+
+[node name="Spielfeld" parent="." instance=ExtResource("4_qwc7v")]
+transform = Transform3D(5.98513, 0, 0, 0, 5.98513, 0, 0, 0, 5.98513, 0, 0, 0)
+
+[node name="Zug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="weiter" type="Button" parent="Zug"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -2.0
+offset_right = -81.0
+offset_bottom = 6.0
+script = ExtResource("5_ogxev")
+
+[node name="Player1_control" type="Node3D" parent="."]
+
+[node name="Deck1" type="Node3D" parent="Player1_control"]
+script = ExtResource("6_xgr2f")
+
+[node name="GamestateWorld" type="Node3D" parent="."]
+script = ExtResource("7_j88pf")

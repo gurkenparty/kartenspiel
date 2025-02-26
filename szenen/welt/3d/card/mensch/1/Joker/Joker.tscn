@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv6fv2yreq6kv"]
-
-[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/welt/3d/card/mensch/1/mensch1.tscn" id="1_gpkw8"]
-[ext_resource type="Texture2D" uid="uid://bq4old8uy8xos" path="res://assets/characters/mensch/1/Joker/Joker_cropped.png" id="2_ne7hj"]
-
-[node name="Joker" instance=ExtResource("1_gpkw8")]
-
-[node name="Sprite3D" parent="." index="0"]
-texture = ExtResource("2_ne7hj")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5oafir4hkmp0"]
+
+[sub_resource type="GDScript" id="GDScript_rysfm"]
+script/source = "extends Node  # Or MeshInstance or PlaneMesh, depending on your setup
+
+func _ready():
+	pass
+
+# Define a simple bounding box for the board's area
+func get_rect() -> Rect2:
+	var board_size = Vector2(10, 10)  # Example size of the game board
+	return Rect2(Vector2(-board_size.x / 2, -board_size.y / 2), board_size)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31y4a"]
+size = Vector3(1.99298, 0.552979, 1.99365)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tm18l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ern1g"]
+material = SubResource("StandardMaterial3D_tm18l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy4xt"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5pyeb"]
+material = SubResource("StandardMaterial3D_cy4xt")
+
+[node name="Cell" type="Node3D"]
+transform = Transform3D(1.00108, 0, 0, 0, 1.00108, 0, 0, 0, 1.00108, 0, 0, 0)
+script = SubResource("GDScript_rysfm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.01755, 0, 0, 0, 1.01755, 0, 0, 0, 1.01755, 0.00119019, 0.223511, 0.00366211)
+shape = SubResource("BoxShape3D_31y4a")
+
+[node name="Feld" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("PlaneMesh_ern1g")
+skeleton = NodePath("../..")
+
+[node name="Rand1" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.036604, 0, 0, 0, 0.0421328, 0, 0, 0, 2.00722, -1.00986, 0.0228365, 0)
+mesh = SubResource("BoxMesh_5pyeb")
+
+[node name="Rand2" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.036604, 0, 0, 0, 0.0421328, 0, 0, 0, 2.00722, 1.00252, 0.0228366, 0.000528812)
+mesh = SubResource("BoxMesh_5pyeb")
+
+[node name="Rand3" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-1.60001e-09, 0, 2.00722, 0, 0.0421328, 0, -0.036604, 0, -8.77382e-08, 0.010191, 0.0228366, 0.9923)
+mesh = SubResource("BoxMesh_5pyeb")
+
+[node name="Rand4" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-1.60001e-09, 0, 2.00722, 0, 0.0421328, 0, -0.036604, 0, -8.77382e-08, 0.010191, 0.0228366, -0.989607)
+mesh = SubResource("BoxMesh_5pyeb")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
