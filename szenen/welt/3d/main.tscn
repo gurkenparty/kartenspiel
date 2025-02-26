@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=9 format=3 uid="uid://bdha2gsrd1me1"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
 [ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
 [ext_resource type="Script" path="res://szenen/welt/3d/handcard.gd" id="2_vqgol"]
 [ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/welt/3d/main/feld/spielfeld.tscn" id="4_qwc7v"]
-[ext_resource type="PackedScene" uid="uid://bwlsc2g35h12v" path="res://szenen/welt/3d/card/mensch/1/Knappe/knappe.tscn" id="5_5d2vx"]
+[ext_resource type="PackedScene" uid="uid://bwlsc2g35h12v" path="res://szenen/welt/3d/card/mensch/1/Knappe/Knappe.tscn" id="5_5d2vx"]
 [ext_resource type="Script" path="res://szenen/welt/3d/zug_weiter.gd" id="5_ogxev"]
 [ext_resource type="Script" path="res://szenen/welt/3d/deck.gd" id="6_xgr2f"]
 [ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
-[ext_resource type="PackedScene" uid="uid://cslw0lmlpampy" path="res://assets/map/terrain/source/Test.fbx" id="9_0ucun"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bcnpp")
@@ -86,9 +85,3 @@ script = ExtResource("6_xgr2f")
 
 [node name="GamestateWorld" type="Node3D" parent="."]
 script = ExtResource("7_j88pf")
-
-[node name="Terrain" type="Node3D" parent="."]
-transform = Transform3D(2.56471, 0, 0, 0, 2.56471, 0, 0, 0, 2.56471, 0, 4.13723, 0)
-
-[node name="Test" parent="Terrain" instance=ExtResource("9_0ucun")]
-transform = Transform3D(6.38364, 0, 0, 0, 6.38364, 0, 0, 0, 6.38364, 0, -2.0423, 0)

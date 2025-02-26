@@ -1,5 +1,6 @@
 extends "res://szenen/welt/3d/card/mensch/1/mensch1.gd"
 
+
 @export var unterstützung: int = 1  
 
 var effect_activated = false  # Ensure effect only runs once # Adjust to the correct path # Disable collision checks at start
@@ -7,17 +8,22 @@ var effect_activated = false  # Ensure effect only runs once # Adjust to the cor
 func _ready():
 	angriff = 1  
 	leben = 2
+	headclass = "Mensch"
+	subclass = "Ritter"
+	rating = 1
+	cardmenu_path = "res://szenen/welt/3d/card/" + str(headclass.to_lower()) + "/" + str(rating) + "/" + str(self.name).to_lower() + "/cardmenu.tscn"
+	print("path for" + str(self.name) + "is: " + str(cardmenu_path))
+	cardmenu = load(cardmenu_path)
 	standard_texture = preload("res://assets/card/card_textures/texture_black_paper.jpg")
 	selection_material_texture = preload("res://assets/card/card_selectable.jpg")
-	selected_material_texture = preload("res://assets/card/card_selected.jpg")
-	add_to_group("Mensch")
-	add_to_group("Ritter")  
+	selected_material_texture = preload("res://assets/card/card_selected.jpg") 
 	update_labels()
 
 func _process(_delta):
 	pass
 
 func apply_effect():
+	print(self.name + " is in group Truppe: " + str(self.is_in_group("Truppe")))
 	if effect_activated:
 		print("Effect already activated, skipping...")
 		return  # Prevent reapplying effect

@@ -3,11 +3,15 @@ extends Node3D
 @export var cam: Camera3D # Get the active camera
 @export var angriff: int = 0
 @export var leben: int = 0
-var init_angriff: int
-var init_leben: int
+@export var headclass = "Mensch"
+@export var subclass = ""
+@export var rating = 1
+@export var init_angriff: int
+@export var init_leben: int
 @export var standard_texture: Texture2D = preload("res://assets/card/card_textures/texture_black_paper.jpg")
 @export var selection_material_texture: Texture2D = preload("res://assets/card/card_selectable.jpg")
 @export var selected_material_texture: Texture2D = preload("res://assets/card/card_selected.jpg")
+@export var cardmenu : PackedScene
 
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
@@ -29,15 +33,21 @@ var move_distance_areas = []
 @export var new_card: Node
 var karte2d: Button  # Reference to the 2D card
 signal card_selected(card, distance)
-
+var cardmenu_path
 func _ready():
+	cardmenu_path = "res://szenen/welt/3d/card/" + str(headclass.to_lower()) + "/" + str(rating) + "/" + str(self.name).to_lower() + "/cardmenu.tscn"
+	print("path for" + str(self.name) + "is: " + str(cardmenu_path))
+	cardmenu = load(cardmenu_path)
 	set_process(true)
 	add_to_group("Truppe")  # General troop group
+	add_to_group(str(headclass))  # Head class
+	add_to_group(str(subclass))  # Subclass
 	update_labels()
 	set_process_input(true)  # Enable input processing
 	init_angriff = angriff
 	init_leben = leben
 	update_labels()
+	
 	
 	# Connect signals if karte2d is assigned
 	if karte2d:
@@ -60,6 +70,13 @@ func _input(event):
 				print("Ray hit this card!")
 				if selection:
 					set_selected()
+				else:
+					print(str(self.name) + " Cardmenu path is: " + str(cardmenu_path))
+					if cardmenu:  # Stelle sicher, dass die Szene geladen wurde
+						var cardmenu_instance = cardmenu.instantiate()
+						add_child(cardmenu_instance)
+					else:
+						push_error("Fehler: cardmenu konnte nicht geladen werden!")
 			else:
 				print("Ray hit another object:", result["collider"])
 		else:
