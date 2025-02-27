@@ -16,6 +16,7 @@ extends Node3D
 @export var cardimg_file = Texture2D
 @export var cardimg_scene: PackedScene = preload("res://szenen/welt/3d/hand/preview.tscn")
 @export var option_btn : Button
+@export var weiter_btn : Button
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
 @onready var select_border = $MeshInstance3D
@@ -32,7 +33,7 @@ var selection_material
 var selected_material
 var standard_material
 var move_distance_areas = []
-
+var temporary_move_distance = 0
 var instantiated_cardimg_scene
 @export var new_card: Node
 var karte2d: Button  # Reference to the 2D card
@@ -79,6 +80,7 @@ func _input(event):
 						instantiated_cardimg_scene = cardimg_scene.instantiate()
 						print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
 						add_child(instantiated_cardimg_scene)
+						instantiated_cardimg_scene.weiter_btn = weiter_btn
 						print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
 						instantiated_cardimg_scene.texture = cardimg_file
 						instantiated_cardimg_scene.visible = true
@@ -87,6 +89,7 @@ func _input(event):
 						option_btn.visible = true
 						option_btn.connect("option_pressed", _on_option_pressed)
 						print(self.name, " got the signal from ", str(option_btn))
+						weiter_btn.visible = false
 						print("Card scene: " + str(instantiated_cardimg_scene) + " texture: " + str(instantiated_cardimg_scene.texture))
 					else:
 						print("Error: cardimg_scene is null!")
@@ -97,7 +100,7 @@ func _input(event):
 			print("Ray did not hit anything.")
 				# Do something while still colliding, e.g., update position
 
-func _on_card_placed(card):
+func _on_card_placed(card, card3d):
 	print("Karte3D detected that a card was placed:", card.name)
 	if not effect_placed:
 		add_to_group("feld")
@@ -128,6 +131,7 @@ func selection_off():
 	self.global_position = original_position
 	remove_from_group("selected")
 	selected = false
+	GameState.selected_cards.erase(self)
 	print("Selection off")
 	select_border.scale -= Vector3(0.3, 0.3, 0)
 	standard_material = StandardMaterial3D.new()
@@ -149,8 +153,12 @@ func set_selected():
 		print("Selected Material for: " + str(self.name) + " applied")
 		add_to_group("selected")
 		selected = true
+		temporary_move_distance = move_distance_areas.size()
 		emit_signal("card_selected", self, move_distance_areas.size())
+		print(self.name + " move distance: " + str(move_distance_areas.size()))
+		GameState.selected_cards.append(self)
 		print(self.name + " emitted: " + str(card_selected))
+		GameState.set_attack_mode()
 	elif selection and selected:
 		selection_material = StandardMaterial3D.new()
 		selection_material.albedo_texture = selection_material_texture
@@ -158,6 +166,9 @@ func set_selected():
 		print("Selection Material for: " + str(self.name) + " applied")
 		remove_from_group("selected")
 		selected = false
+		emit_signal("card_selected", self, temporary_move_distance*-1)
+		GameState.selected_cards.erase(self)
+		GameState.set_attack_mode()
 		
 func update_labels():
 	attack_label.text = str(angriff)
@@ -205,18 +216,14 @@ func change_values(value: String, change: int):
 func _on_card_selected(card, distance):
 	print(self.name + " doing on card function")
 	# Debug the overlap_areas and card comparison
-	if card.name == self.name:  # Compare by reference or area name if needed
-		print(self.name + " is colliding with selected " + card.name)
-		_handle_overlap()
-	elif self.global_position.x > card.global_position.x:
+	if self.global_position.x > card.global_position.x:
 		print(self.name +" moved for distance: "+ str(distance))
-		if distance > 6:
-			distance = 6
-		self.global_position += Vector3(distance, 0,0)
+		self.global_position += Vector3(distance*2, 0,0)
 
 func _on_area_3d_area_entered(area: Area3D):
-	if area.name != "Spielfeld:":
+	if area.name != "Spielfeld":
 		move_distance_areas.append(area)
+		print(self.name + " move distance areas: " + str(move_distance_areas))
 	if area.name != "Spielfeld" and not overlap_areas.has(area) and self.global_position.x > area.global_position.x:
 		overlap_areas.append(area)
 		print("Colliding with " + area.name)
@@ -225,6 +232,8 @@ func _on_area_3d_area_exited(area: Area3D):
 	if overlap_areas.has(area):
 		overlap_areas.erase(area)
 		print("Stopped colliding with " + area.name)
+	if move_distance_areas.has(area):
+		move_distance_areas.erase(area)
 
 func _handle_overlap():
 	print(self.name + " is in handle overlap")

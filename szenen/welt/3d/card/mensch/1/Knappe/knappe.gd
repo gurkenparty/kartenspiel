@@ -25,6 +25,7 @@ func _process(_delta):
 
 # Apply effect
 func apply_effect():
+	weiter_btn.visible = false
 	print(self.name + " is in group Truppe: " + str(self.is_in_group("Truppe")))
 	if effect_activated:
 		print("Effect already activated, skipping...")
@@ -34,6 +35,7 @@ func apply_effect():
 	var instantiated_cardimg_scene = cardimg_scene.instantiate()
 	print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
 	add_child(instantiated_cardimg_scene)
+	instantiated_cardimg_scene.weiter_btn = weiter_btn
 	print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
 	
 	# Set the texture for the preview image
@@ -67,6 +69,7 @@ func apply_effect():
 	
 	if ritter_cards.is_empty():
 		print("No Ritter cards found to apply effect!")
+		weiter_btn.visible = true
 		return
 	
 	for ritter in ritter_cards:
@@ -77,3 +80,5 @@ func apply_effect():
 
 	effect_activated = true  # Ensure effect only happens once
 	print("Effect successfully applied!")
+	weiter_btn.visible = true
+	

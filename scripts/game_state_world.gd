@@ -14,7 +14,6 @@ var max_players: int = 2  # Supports more players if needed
 
 signal phase_changed(new_phase)
 signal turn_changed(new_player)
-
 func next_phase():
 	current_phase += 1
 	print("Next phase triggered: " + str(current_phase))  

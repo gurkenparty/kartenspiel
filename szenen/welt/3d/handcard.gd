@@ -4,6 +4,7 @@ extends Control
 @export var hand_container: HBoxContainer  # UI container for cards
 @export var deck: Node3D  # Reference to the Deck node
 @export var option_btn : Button
+@export var weiter_btn : Button
 
 signal card_played(card)  # Signal when a card is played
 signal request_draw_card  # Signal to request a new card from the deck
@@ -36,6 +37,7 @@ func spawn_card(card_data: Dictionary):
 		new_card.card_placed.connect(_on_card_placed)
 		hand_container.add_child(new_card)
 		new_card.option_btn = option_btn
+		new_card.weiter_btn = weiter_btn
 
 # Function to initially fill the hand
 func spawn_hand_cards(amount: int):
@@ -43,7 +45,7 @@ func spawn_hand_cards(amount: int):
 		_on_request_draw_card()
 
 # Function to remove a played card from hand
-func _on_card_placed(card: Button):
+func _on_card_placed(card: Button, card3d: Node3D):
 	print("Card placed:", card.name)
 	hand_container.remove_child(card)
 
@@ -52,6 +54,7 @@ func _on_card_placed(card: Button):
 	if world_parent:
 		world_parent.add_child(card)
 		print("Card: " + str(card) + " added to: " + str(world_parent))
+		GameState.placed_3d_cards.append(card3d)
 
 func _on_phase_changed(new_phase: int):
 	print("Game State changed on Hand to phase: ", new_phase)  # Debug signal reception

@@ -1,5 +1,5 @@
 extends Button
-
+@export var option_btn: Button
 func _ready():
 	text = GameStateWorld.get_phase_name()
 	GameStateWorld.phase_changed.connect(_on_phase_changed)
