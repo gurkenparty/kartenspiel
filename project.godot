@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kartenspiel"
-run/main_scene="res://szenen/welt/2d/main.tscn"
+run/main_scene="res://szenen/welt/3d/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]

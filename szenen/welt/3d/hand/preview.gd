@@ -16,5 +16,5 @@ func _on_area_2d_mouse_entered() -> void:
 
 
 func _on_area_2d_mouse_exited() -> void:
-	self.visible = false
+	pass
 	

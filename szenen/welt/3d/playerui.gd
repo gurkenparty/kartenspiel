@@ -7,13 +7,13 @@ extends Control
 @onready var gold_label = $HBoxContainer/Gold
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	holz_label.text = str(GameState.ressources["Holz"])
-	stein_label.text = str(GameState.ressources["Stein"])
-	metall_label.text = str(GameState.ressources["Metall"])
-	amethyst_label.text = str(GameState.ressources["Amethyst"])
-	gold_label.text = str(GameState.ressources["Gold"])
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	holz_label.text = "Holz: " + str(GameState.ressources["Holz"])
+	stein_label.text = "Stein: " + str(GameState.ressources["Stein"])
+	metall_label.text = "Metall: " + str(GameState.ressources["Metall"])
+	amethyst_label.text = "Amethyst: " + str(GameState.ressources["Amethyst"])
+	gold_label.text = "Gold: " + str(GameState.ressources["Gold"])

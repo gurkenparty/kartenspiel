@@ -3,12 +3,14 @@ extends Control
 @export var card_scene: PackedScene  # The Karte2D scene
 @export var hand_container: HBoxContainer  # UI container for cards
 @export var deck: Node3D  # Reference to the Deck node
+@export var option_btn : Button
 
 signal card_played(card)  # Signal when a card is played
 signal request_draw_card  # Signal to request a new card from the deck
 
 func _ready():
 	spawn_hand_cards(5)  # Spawn initial 5 cards
+	self.global_position += Vector2(0, 100)
 
 	# Listen for phase changes from GameState
 	GameStateWorld.phase_changed.connect(_on_phase_changed)
@@ -33,6 +35,7 @@ func spawn_card(card_data: Dictionary):
 		new_card.draggable = card_data["draggable_scene"]
 		new_card.card_placed.connect(_on_card_placed)
 		hand_container.add_child(new_card)
+		new_card.option_btn = option_btn
 
 # Function to initially fill the hand
 func spawn_hand_cards(amount: int):
@@ -53,4 +56,7 @@ func _on_card_placed(card: Button):
 func _on_phase_changed(new_phase: int):
 	print("Game State changed on Hand to phase: ", new_phase)  # Debug signal reception
 	if new_phase == GameStateWorld.Phase.DRAWING:
+		self.global_position -= Vector2(0, 100)
 		spawn_hand_cards(1)
+	elif  new_phase == GameStateWorld.Phase.FIGHTING:
+		self.global_position += Vector2(0, 100)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=13 format=3 uid="uid://bdha2gsrd1me1"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
 [ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
 [ext_resource type="Script" path="res://scripts/game_state_player.gd" id="7_y8wtm"]
 [ext_resource type="Script" path="res://szenen/welt/3d/playerui.gd" id="10_svj5g"]
+[ext_resource type="Script" path="res://szenen/welt/3d/option_btn.gd" id="11_mr2js"]
+[ext_resource type="PackedScene" uid="uid://d230j82xu84sf" path="res://szenen/welt/3d/main/basis.tscn" id="12_8qww4"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bcnpp")
@@ -20,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524, 0.0739527, -0.0558453, -0.0397854)
 
-[node name="Player1_Hand" type="Control" parent="." node_paths=PackedStringArray("hand_container", "deck")]
+[node name="Player1_Hand" type="Control" parent="." node_paths=PackedStringArray("hand_container", "deck", "option_btn")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -39,6 +41,7 @@ script = ExtResource("2_vqgol")
 card_scene = ExtResource("1_sx5me")
 hand_container = NodePath("HBoxContainer")
 deck = NodePath("../Player1_control/Deck1")
+option_btn = NodePath("../Node2D/option_btn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player1_Hand"]
 layout_mode = 1
@@ -57,7 +60,7 @@ grow_vertical = 0
 transform = Transform3D(-0.5, 4.37114e-08, 1.91069e-15, 0, -2.18557e-08, 0.5, 4.37114e-08, 0.5, 2.18557e-08, 0.0708714, 0.151748, -5.17857)
 
 [node name="Spielfeld" parent="." instance=ExtResource("4_qwc7v")]
-transform = Transform3D(5.98513, 0, 0, 0, 5.98513, 0, 0, 0, 5.98513, 0, 0, 0)
+transform = Transform3D(5.98513, 0, 0, 0, 5.98513, 0, 0, 0, 9.88521, 0, 0, 0)
 
 [node name="Zug" type="Control" parent="."]
 layout_mode = 3
@@ -91,7 +94,7 @@ script = ExtResource("7_j88pf")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="Node2D"]
+[node name="Playerui" type="Control" parent="Node2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 707.0
@@ -100,27 +103,44 @@ offset_right = 1123.0
 offset_bottom = 85.0
 script = ExtResource("10_svj5g")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Playerui"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Holz" type="Label" parent="Node2D/Control/HBoxContainer"]
+[node name="Holz" type="Label" parent="Node2D/Playerui/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="Stein" type="Label" parent="Node2D/Control/HBoxContainer"]
+[node name="Stein" type="Label" parent="Node2D/Playerui/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="Gold" type="Label" parent="Node2D/Control/HBoxContainer"]
+[node name="Metall" type="Label" parent="Node2D/Playerui/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="Amethyst" type="Label" parent="Node2D/Control/HBoxContainer"]
+[node name="Amethyst" type="Label" parent="Node2D/Playerui/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="Metall" type="Label" parent="Node2D/Control/HBoxContainer"]
+[node name="Gold" type="Label" parent="Node2D/Playerui/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
+
+[node name="option_btn" type="Button" parent="Node2D"]
+modulate = Color(0.898039, 0.690196, 0.168627, 1)
+offset_left = 1436.0
+offset_top = 818.0
+offset_right = 1838.0
+offset_bottom = 861.0
+text = "Option"
+script = ExtResource("11_mr2js")
+
+[node name="Basis" parent="." groups=["Player1"] instance=ExtResource("12_8qww4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00651741, 0.518542, 6.81539)
+
+[node name="Basis2" parent="." groups=["Player2"] instance=ExtResource("12_8qww4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0271401, 0.505, -7.1358)
+
+[connection signal="pressed" from="Node2D/option_btn" to="Node2D/option_btn" method="_on_pressed"]

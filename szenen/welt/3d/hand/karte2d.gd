@@ -5,14 +5,16 @@ signal card_placed(card)  # Declare the signal
 @export var cardimg: Texture2D
 @export var draggable: PackedScene
 @export var cam: Camera3D
+@export var option_btn: Button
 var is_dragging = false
 var local_draggable: Node
 var placed = false
-
+var cost: Dictionary
 func _ready() -> void:
 	icon = cardimg
 	local_draggable = draggable.instantiate()
 	add_child(local_draggable)
+	cost = local_draggable.cost
 
 	# This ensures Karte3D knows which Karte2D it belongs to
 	local_draggable.set_karte2d(self)
@@ -45,6 +47,16 @@ func _physics_process(_delta):
 
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_dragging:
 		if rayResult.has("collider"):
+			# Check if resources are enough before placing the card
+			if not can_place_card():
+				reset_card_position()
+				return  # Stop further execution
+
+			# Deduct resources
+			for res in cost.keys():
+				GameState.ressources[res] -= cost[res]
+
+			# Normal placement process
 			var co: CollisionObject3D = rayResult.get("collider")
 			var card_key = cardimg.resource_path
 
@@ -64,7 +76,7 @@ func _physics_process(_delta):
 			var placing_tween = create_tween()
 			placing_tween.tween_property(local_draggable, "position", final_position, 0.2)
 
-			if not GameState.placed_cards.has(card_key) and local_draggable.cost["Holz"] < GameState.ressources["Holz"] and local_draggable.cost["Stein"] < GameState.ressources["Stein"] and local_draggable.cost["Metall"] < GameState.ressources["Metall"] and local_draggable.cost["Amethyst"] < GameState.ressources["Amethyst"]:
+			if not GameState.placed_cards.has(card_key):
 				GameState.placed_cards[card_key] = []
 			GameState.placed_cards[card_key].append(final_position)
 
@@ -76,20 +88,32 @@ func _physics_process(_delta):
 			local_draggable.add_to_group("Player1")
 			local_draggable.cam = cam
 			local_draggable.cardimg_file = cardimg
+			local_draggable.option_btn = option_btn
+
 			# Emit the signal to notify the hand container
 			card_placed.emit(self)
 			print("Card " + str(self) + " emitted")
 		else:
-			placed = false
-			var hand_tween = create_tween()
-			hand_tween.tween_property(local_draggable, "position", Vector3(cam.global_position.x, cam.global_position.y - 1, cam.global_position.z), 0.2)
-			local_draggable.visible = false
-			self.visible = true
-			is_dragging = false
+			reset_card_position()
 
 	if not is_dragging and placed:
 		local_draggable.visible = true
 		self.visible = false
+
+func can_place_card() -> bool:
+	for res in cost.keys():
+		if GameState.ressources[res] < cost[res]:
+			print("Not enough " + res)
+			return false
+	return true
+
+func reset_card_position():
+	placed = false
+	is_dragging = false
+	local_draggable.visible = false
+	self.visible = true
+	print("Card placement canceled due to insufficient resources.")
+
 
 func _on_button_down() -> void:
 	is_dragging = true

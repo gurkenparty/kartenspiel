@@ -23,23 +23,40 @@ func _ready():
 func _process(_delta):
 	pass
 
+# Apply effect
 func apply_effect():
 	print(self.name + " is in group Truppe: " + str(self.is_in_group("Truppe")))
 	if effect_activated:
 		print("Effect already activated, skipping...")
 		return  # Prevent reapplying effect
 	
+	# Instantiate the preview card image
+	var instantiated_cardimg_scene = cardimg_scene.instantiate()
+	print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
+	add_child(instantiated_cardimg_scene)
+	print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
+	
+	# Set the texture for the preview image
+	instantiated_cardimg_scene.texture = cardimg_file
+	instantiated_cardimg_scene.visible = true
 	print("Applying effect...")
 
+	# Wait for 2 seconds
+	await get_tree().create_timer(2.0).timeout  # Wait for 2 seconds before hiding the preview
+
+	# After 2 seconds, hide the preview
+	instantiated_cardimg_scene.queue_free()
+	print("Card preview hidden after 2 seconds")
+
+	# Continue with your other effect application logic
 	var all_cards_feld = get_tree().get_nodes_in_group("feld")
-	var all_cards= []
+	var all_cards = []
 	for i in all_cards_feld:
 		if i.is_in_group("Player1"):
 			all_cards.append(i)
 	if all_cards.is_empty():
 		print("No cards found in 'feld' group!")
 		return
-
 	var ritter_cards = []
 
 	for card in all_cards:

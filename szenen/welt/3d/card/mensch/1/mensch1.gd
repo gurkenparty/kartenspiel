@@ -15,6 +15,7 @@ extends Node3D
 @export var cardmenu : PackedScene
 @export var cardimg_file = Texture2D
 @export var cardimg_scene: PackedScene = preload("res://szenen/welt/3d/hand/preview.tscn")
+@export var option_btn : Button
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
 @onready var select_border = $MeshInstance3D
@@ -32,6 +33,7 @@ var selected_material
 var standard_material
 var move_distance_areas = []
 
+var instantiated_cardimg_scene
 @export var new_card: Node
 var karte2d: Button  # Reference to the 2D card
 signal card_selected(card, distance)
@@ -74,13 +76,17 @@ func _input(event):
 					print("Not selection")
 					if cardimg_scene:
 						print("In cardimg if loop")
-						var instantiated_cardimg_scene = cardimg_scene.instantiate()
+						instantiated_cardimg_scene = cardimg_scene.instantiate()
 						print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
 						add_child(instantiated_cardimg_scene)
 						print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
 						instantiated_cardimg_scene.texture = cardimg_file
 						instantiated_cardimg_scene.visible = true
 						print("Card scene: " + str(instantiated_cardimg_scene) + " visibility: " + str(instantiated_cardimg_scene.visible))
+						option_btn.text = str(self.name) + " Vorschau ausblenden"
+						option_btn.visible = true
+						option_btn.connect("option_pressed", _on_option_pressed)
+						print(self.name, " got the signal from ", str(option_btn))
 						print("Card scene: " + str(instantiated_cardimg_scene) + " texture: " + str(instantiated_cardimg_scene.texture))
 					else:
 						print("Error: cardimg_scene is null!")
@@ -224,3 +230,8 @@ func _handle_overlap():
 	print(self.name + " is in handle overlap")
 	self.global_position += Vector3(2*overlap_areas.size(), 0, 0)
 	overlap_areas.clear()
+	
+func _on_option_pressed():
+	if instantiated_cardimg_scene.visible == true:
+		instantiated_cardimg_scene.visible = false
+		option_btn.visible = false
