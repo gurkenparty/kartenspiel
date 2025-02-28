@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1dolm2iue71s"
-path="res://.godot/imported/General_cropped.png-ab09e373c2f160649962a15cab605d95.ctex"
+uid="uid://bvix2vd641gu0"
+path="res://.godot/imported/General.png-d86050b7ab0b80be18b87acf2fb5779a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/mensch/4/General_der_1._Legion/General_cropped.png"
-dest_files=["res://.godot/imported/General_cropped.png-ab09e373c2f160649962a15cab605d95.ctex"]
+source_file="res://assets/characters/mensch/4/General_der_1_Legion/General.png"
+dest_files=["res://.godot/imported/General.png-d86050b7ab0b80be18b87acf2fb5779a.ctex"]
 
 [params]
 

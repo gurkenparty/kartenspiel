@@ -17,6 +17,8 @@ extends Node3D
 @export var cardimg_scene: PackedScene = preload("res://szenen/welt/3d/hand/preview.tscn")
 @export var option_btn : Button
 @export var weiter_btn : Button
+@export var hand: Control
+@export var player_number : int
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
 @onready var select_border = $MeshInstance3D
@@ -110,9 +112,9 @@ func _on_card_placed(card, card3d):
 		GameStateWorld.phase_changed.connect(_on_phase_changed)
 
 func _on_phase_changed(new_phase: int):
-	if new_phase == GameStateWorld.Phase.FIGHTING:
+	if new_phase == GameStateWorld.Phase.FIGHTING and GameStateWorld.current_player == player_number:
 		selection_on()
-	elif new_phase == GameStateWorld.Phase.LAST_EFFECT:
+	elif new_phase == GameStateWorld.Phase.LAST_EFFECT and GameStateWorld.current_player == player_number:
 		print("New phase is after fight")
 		selection_off()
 

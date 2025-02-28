@@ -6,6 +6,8 @@ signal card_placed(card, card3d)  # Declare the signal
 @export var cam: Camera3D
 @export var option_btn: Button
 @export var weiter_btn: Button
+@export var hand : Control
+@export var player_number:int
 var is_dragging = false
 var local_draggable: Node
 var placed = false
@@ -91,6 +93,8 @@ func _physics_process(_delta):
 				local_draggable.cardimg_file = cardimg
 				local_draggable.option_btn = option_btn
 				local_draggable.weiter_btn = weiter_btn
+				local_draggable.hand = hand
+				local_draggable.player_number = player_number
 
 				# Emit the signal to notify the hand container
 				card_placed.emit(self, local_draggable)

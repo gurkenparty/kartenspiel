@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://byus4mdpfhyq0"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/welt/3d/card/mensch/1/mensch1.tscn" id="1_lm07i"]
+[ext_resource type="Texture2D" uid="uid://1dolm2iue71s" path="res://assets/characters/mensch/4/General_der_1_Legion/General_cropped.png" id="2_pef67"]
+
+[node name="General_der_1_legion" instance=ExtResource("1_lm07i")]
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_pef67")
