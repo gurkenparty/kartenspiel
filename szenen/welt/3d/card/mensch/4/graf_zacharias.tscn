@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://pj3sjbkyx5a"]
-
-[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/welt/3d/card/mensch/1/mensch1.tscn" id="1_2h2b3"]
-[ext_resource type="Texture2D" uid="uid://bk26vmvw0rqd" path="res://assets/characters/mensch/4/Graf_Zacharias/Zachar_crpopped.png" id="2_3jtqx"]
-
-[node name="Graf_Zacharias" instance=ExtResource("1_2h2b3")]
-
-[node name="Sprite3D" parent="." index="0"]
-texture = ExtResource("2_3jtqx")

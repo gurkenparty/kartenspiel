@@ -2,8 +2,9 @@ extends "res://szenen/welt/3d/card/mensch/1/mensch1.gd"
 
 
 func _ready():
+	cost = {"Holz":1, "Stein":4, "Metall":1}
 	angriff = 1  
-	leben = 2
+	leben = 4
 	headclass = "Mensch"
 	subclass = "Ritter"
 	rating = 2
@@ -37,5 +38,6 @@ func apply_effect():
 	print("Applying effect...")
 	await get_tree().create_timer(2.0).timeout  # Wait for 2 seconds before hiding the preview
 	hand.spawn_hand_cards(1)
+	instantiated_cardimg_scene.visible = false
 	instantiated_cardimg_scene.queue_free()
 	weiter_btn.visible = true

@@ -3,6 +3,7 @@ extends "res://szenen/welt/3d/card/mensch/1/mensch1.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cost = {"Holz":4, "Stein":1}
 	angriff = 2
 	leben = 2
 	headclass = "Mensch"

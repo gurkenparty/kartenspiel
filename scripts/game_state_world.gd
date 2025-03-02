@@ -1,5 +1,6 @@
 extends Node
-
+@onready var player_1_base: Control = get_tree().get_root().find_child("Basis", true, false)
+@onready var player_2_base: Control = get_tree().get_root().find_child("Basis2", true, false)
 enum Phase { 
 	FIRST_EFFECT, 
 	DRAWING, 
@@ -47,3 +48,11 @@ func get_phase_name() -> String:
 		Phase.FIGHTING: return "Kämpfen"
 		Phase.LAST_EFFECT: return "Zug beenden"
 		_: return "Unknown Phase"
+
+func player_attacking(player:int, attack:Array):
+	if player == 1:
+		for card in attack:
+			player_2_base.change_hp_base(card.angriff*-1)
+	elif player == 2:
+		for card in attack:
+			player_1_base.change_hp_base(card.angriff*-1)

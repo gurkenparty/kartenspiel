@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=18 format=3 uid="uid://bdha2gsrd1me1"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
 [ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
@@ -12,6 +12,13 @@
 [ext_resource type="Script" path="res://szenen/welt/3d/playerui.gd" id="10_svj5g"]
 [ext_resource type="Script" path="res://szenen/welt/3d/option_btn.gd" id="11_mr2js"]
 [ext_resource type="PackedScene" uid="uid://d230j82xu84sf" path="res://szenen/welt/3d/main/basis.tscn" id="12_8qww4"]
+[ext_resource type="Texture2D" uid="uid://dnhodn0kn0q5k" path="res://assets/layouts/Caracter_base.png" id="13_fk8wc"]
+[ext_resource type="Shader" path="res://szenen/welt/3d/profileimg.gdshader" id="14_fdxmg"]
+[ext_resource type="Texture2D" uid="uid://ctxycpumdy6e5" path="res://assets/layouts/testchar.png" id="15_g3f66"]
+[ext_resource type="Texture2D" uid="uid://bji1p336mnkcw" path="res://assets/layouts/testchar2.png" id="16_pmio3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o5"]
+shader = ExtResource("14_fdxmg")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bcnpp")
@@ -139,10 +146,86 @@ offset_bottom = 861.0
 text = "Option"
 script = ExtResource("11_mr2js")
 
-[node name="Basis" parent="." groups=["Player1"] instance=ExtResource("12_8qww4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00651741, 0.518542, 4.58603)
+[node name="Basis" parent="." node_paths=PackedStringArray("label") groups=["Player1"] instance=ExtResource("12_8qww4")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+label = NodePath("hp")
 
-[node name="Basis2" parent="." groups=["Player2"] instance=ExtResource("12_8qww4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0271401, 0.505, -5.55366)
+[node name="bcr" type="Sprite2D" parent="Basis"]
+position = Vector2(246, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_fk8wc")
+
+[node name="character_img" type="Sprite2D" parent="Basis"]
+material = SubResource("ShaderMaterial_s48o5")
+position = Vector2(72.25, -71)
+scale = Vector2(0.0590049, 0.0606971)
+texture = ExtResource("15_g3f66")
+
+[node name="username1" type="Label" parent="Basis"]
+offset_left = 170.0
+offset_top = -109.0
+offset_right = 494.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "tes1"
+justification_flags = 162
+text_overrun_behavior = 1
+
+[node name="hp" type="Label" parent="Basis"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -104.0
+offset_right = 171.0
+offset_bottom = 14.0
+scale = Vector2(0.616297, 0.567962)
+theme_override_font_sizes/font_size = 86
+text = "100"
+horizontal_alignment = 1
+
+[node name="Basis2" parent="." node_paths=PackedStringArray("label") groups=["Player1"] instance=ExtResource("12_8qww4")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+label = NodePath("hp2")
+
+[node name="bcr" type="Sprite2D" parent="Basis2"]
+position = Vector2(-249, 62)
+scale = Vector2(-0.25, -0.25)
+texture = ExtResource("13_fk8wc")
+
+[node name="character_img2" type="Sprite2D" parent="Basis2"]
+material = SubResource("ShaderMaterial_s48o5")
+position = Vector2(-71, 77)
+scale = Vector2(0.0590049, 0.0606971)
+texture = ExtResource("16_pmio3")
+
+[node name="username2" type="Label" parent="Basis2"]
+offset_left = -478.0
+offset_top = 41.0
+offset_right = -154.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "test2"
+horizontal_alignment = 2
+justification_flags = 162
+text_overrun_behavior = 1
+text_direction = 1
+
+[node name="hp2" type="Label" parent="Basis2"]
+layout_mode = 0
+offset_left = -114.0
+offset_top = 44.0
+offset_right = 33.0
+offset_bottom = 162.0
+scale = Vector2(0.616297, 0.567962)
+theme_override_font_sizes/font_size = 86
+text = "100"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Node2D/option_btn" to="Node2D/option_btn" method="_on_pressed"]

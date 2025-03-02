@@ -2,6 +2,7 @@ extends "res://szenen/welt/3d/card/mensch/1/mensch1.gd"  # Extend the base troop
 
 
 func _ready():
+	cost = {"Holz": 2, "Stein":2}
 	angriff = 1  # Unique value for Ritter
 	leben = 2  # Unique value for Ritter
 	headclass = "Mensch"
@@ -10,9 +11,7 @@ func _ready():
 	add_to_group("Landwirt")  # Add to "Ritter" group
 	update_labels()
 	apply_effect()
-	cardmenu_path = "res://szenen/welt/3d/card/" + str(headclass.to_lower()) + "/" + str(rating) + "/" + str(self.name).to_lower() + "/cardmenu.tscn"
-	print("path for" + str(self.name) + "is: " + str(cardmenu_path))
-	cardmenu = load(cardmenu_path)
+
 
 func apply_effect():
 	pass
