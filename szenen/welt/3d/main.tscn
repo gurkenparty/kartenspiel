@@ -96,6 +96,7 @@ option_btn = NodePath("../../Node2D/option_btn")
 script = ExtResource("7_y8wtm")
 
 [node name="Deck1" type="Node3D" parent="Player1_control"]
+visible = false
 script = ExtResource("6_xgr2f")
 
 [node name="GamestateWorld" type="Node3D" parent="."]
@@ -165,6 +166,7 @@ scale = Vector2(0.0590049, 0.0606971)
 texture = ExtResource("15_g3f66")
 
 [node name="username1" type="Label" parent="Basis"]
+layout_mode = 0
 offset_left = 170.0
 offset_top = -109.0
 offset_right = 494.0
@@ -205,6 +207,7 @@ scale = Vector2(0.0590049, 0.0606971)
 texture = ExtResource("16_pmio3")
 
 [node name="username2" type="Label" parent="Basis2"]
+layout_mode = 0
 offset_left = -478.0
 offset_top = 41.0
 offset_right = -154.0
