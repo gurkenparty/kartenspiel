@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdha2gsrd1me1"]
+[gd_scene load_steps=19 format=3 uid="uid://bdha2gsrd1me1"]
 
 [ext_resource type="Script" path="res://szenen/welt/3d/main.gd" id="1_bcnpp"]
 [ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/welt/3d/hand/karte_2d.tscn" id="1_sx5me"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
 [ext_resource type="Script" path="res://scripts/game_state_player.gd" id="7_y8wtm"]
 [ext_resource type="Script" path="res://szenen/welt/3d/playerui.gd" id="10_svj5g"]
+[ext_resource type="Texture2D" uid="uid://bkj1gmesssciq" path="res://assets/layouts/materialUI.png" id="11_764cq"]
 [ext_resource type="Script" path="res://szenen/welt/3d/option_btn.gd" id="11_mr2js"]
 [ext_resource type="PackedScene" uid="uid://d230j82xu84sf" path="res://szenen/welt/3d/main/basis.tscn" id="12_8qww4"]
 [ext_resource type="Texture2D" uid="uid://dnhodn0kn0q5k" path="res://assets/layouts/Caracter_base.png" id="13_fk8wc"]
@@ -20,11 +21,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o5"]
 shader = ExtResource("14_fdxmg")
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("camera_1", "camera_2")]
 script = ExtResource("1_bcnpp")
+camera_1 = NodePath("Camera3D")
+camera_2 = NodePath("Camera3D2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, -7.92319e-08, 3.69465e-08, 0, 0.422618, 0.906308, -8.74228e-08, 0.906308, -0.422618, 0, 10.002, -6.70938)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524, 0.0739527, -0.0558453, -0.0397854)
@@ -48,7 +54,7 @@ script = ExtResource("2_vqgol")
 card_scene = ExtResource("1_sx5me")
 hand_container = NodePath("HBoxContainer")
 deck = NodePath("../Player1_control/Deck1")
-option_btn = NodePath("../Node2D/option_btn")
+option_btn = NodePath("../player_UI/option_btn")
 weiter_btn = NodePath("../Zug/weiter")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player1_Hand"]
@@ -90,7 +96,7 @@ offset_top = -2.0
 offset_right = -81.0
 offset_bottom = 6.0
 script = ExtResource("5_ogxev")
-option_btn = NodePath("../../Node2D/option_btn")
+option_btn = NodePath("../../player_UI/option_btn")
 
 [node name="Player1_control" type="Node3D" parent="."]
 script = ExtResource("7_y8wtm")
@@ -102,9 +108,9 @@ script = ExtResource("6_xgr2f")
 [node name="GamestateWorld" type="Node3D" parent="."]
 script = ExtResource("7_j88pf")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="player_UI" type="Node2D" parent="."]
 
-[node name="Playerui" type="Control" parent="Node2D"]
+[node name="Playerui" type="Control" parent="player_UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 707.0
@@ -113,32 +119,67 @@ offset_right = 1123.0
 offset_bottom = 85.0
 script = ExtResource("10_svj5g")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Playerui"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="material_screen" type="Sprite2D" parent="player_UI/Playerui"]
+position = Vector2(1000, 1023)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_764cq")
 
-[node name="Holz" type="Label" parent="Node2D/Playerui/HBoxContainer"]
+[node name="Holz" type="Label" parent="player_UI/Playerui"]
 layout_mode = 2
+offset_left = 843.0
+offset_top = 1025.0
+offset_right = 878.0
+offset_bottom = 1053.0
+scale = Vector2(0.873451, 0.808604)
 theme_override_font_sizes/font_size = 20
+text = "120"
+horizontal_alignment = 1
 
-[node name="Stein" type="Label" parent="Node2D/Playerui/HBoxContainer"]
+[node name="Stein" type="Label" parent="player_UI/Playerui"]
 layout_mode = 2
+offset_left = 915.0
+offset_top = 1025.0
+offset_right = 950.0
+offset_bottom = 1053.0
+scale = Vector2(0.715266, 0.818828)
 theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
 
-[node name="Metall" type="Label" parent="Node2D/Playerui/HBoxContainer"]
+[node name="Metall" type="Label" parent="player_UI/Playerui"]
 layout_mode = 2
+offset_left = 982.0
+offset_top = 1026.0
+offset_right = 1017.0
+offset_bottom = 1054.0
+scale = Vector2(0.747298, 0.779929)
 theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
 
-[node name="Amethyst" type="Label" parent="Node2D/Playerui/HBoxContainer"]
+[node name="Amethyst" type="Label" parent="player_UI/Playerui"]
 layout_mode = 2
+offset_left = 1043.0
+offset_top = 1027.0
+offset_right = 1078.0
+offset_bottom = 1055.0
+scale = Vector2(0.747611, 0.759592)
 theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
 
-[node name="Gold" type="Label" parent="Node2D/Playerui/HBoxContainer"]
+[node name="Gold" type="Label" parent="player_UI/Playerui"]
 layout_mode = 2
+offset_left = 1105.0
+offset_top = 1026.0
+offset_right = 1140.0
+offset_bottom = 1054.0
+scale = Vector2(0.680079, 0.830627)
 theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
 
-[node name="option_btn" type="Button" parent="Node2D"]
+[node name="option_btn" type="Button" parent="player_UI"]
 modulate = Color(0.898039, 0.690196, 0.168627, 1)
 offset_left = 1436.0
 offset_top = 818.0
@@ -152,6 +193,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+scale = Vector2(0.7, 0.7)
 label = NodePath("hp")
 
 [node name="bcr" type="Sprite2D" parent="Basis"]
@@ -193,6 +235,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
+scale = Vector2(0.7, 0.7)
 label = NodePath("hp2")
 
 [node name="bcr" type="Sprite2D" parent="Basis2"]
@@ -231,4 +274,4 @@ theme_override_font_sizes/font_size = 86
 text = "100"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="Node2D/option_btn" to="Node2D/option_btn" method="_on_pressed"]
+[connection signal="pressed" from="player_UI/option_btn" to="player_UI/option_btn" method="_on_pressed"]
