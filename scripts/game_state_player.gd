@@ -10,7 +10,7 @@ var field_z = 0  # Fixed z-axis position
 var placed_3d_cards = []
 var selected_cards = []
 var attack_mode = false
-var ressources = {"Holz" : 200, "Stein" : 120, "Metall" : 120, "Amethyst" : 0, "Gold" : 0}
+var ressources = {"Holz" : 30, "Stein" : 30, "Metall" : 30, "Amethyst" : 0, "Gold" : 0}
 func _ready():
 	print("option_btn:", option_btn)
 	print("weiter_btn:", weiter_btn)
