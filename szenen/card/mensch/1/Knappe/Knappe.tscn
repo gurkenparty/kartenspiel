@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwlsc2g35h12v"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_hfji1"]
+[ext_resource type="Script" path="res://szenen/card/mensch/1/Knappe/knappe.gd" id="2_j04nk"]
+
+[node name="Knappe" groups=["Mensch", "Ritter", "Truppe"] instance=ExtResource("1_hfji1")]
+script = ExtResource("2_j04nk")
+"unterstützung" = 1

@@ -1,0 +1,277 @@
+[gd_scene load_steps=19 format=3 uid="uid://bdha2gsrd1me1"]
+
+[ext_resource type="Script" path="res://szenen/main.gd" id="1_bcnpp"]
+[ext_resource type="PackedScene" uid="uid://bg0q73bx3xrjh" path="res://szenen/hand/karte_2d.tscn" id="1_sx5me"]
+[ext_resource type="Script" path="res://szenen/handcard.gd" id="2_vqgol"]
+[ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/main/feld/spielfeld.tscn" id="4_qwc7v"]
+[ext_resource type="PackedScene" uid="uid://bwlsc2g35h12v" path="res://szenen/card/mensch/1/Knappe/Knappe.tscn" id="5_5d2vx"]
+[ext_resource type="Script" path="res://szenen/zug_weiter.gd" id="5_ogxev"]
+[ext_resource type="Script" path="res://szenen/deck.gd" id="6_xgr2f"]
+[ext_resource type="Script" path="res://scripts/game_state_world.gd" id="7_j88pf"]
+[ext_resource type="Script" path="res://scripts/game_state_player.gd" id="7_y8wtm"]
+[ext_resource type="Script" path="res://szenen/playerui.gd" id="10_svj5g"]
+[ext_resource type="Texture2D" uid="uid://bkj1gmesssciq" path="res://assets/layouts/materialUI.png" id="11_764cq"]
+[ext_resource type="Script" path="res://szenen/option_btn.gd" id="11_mr2js"]
+[ext_resource type="PackedScene" uid="uid://d230j82xu84sf" path="res://szenen/main/basis.tscn" id="12_8qww4"]
+[ext_resource type="Texture2D" uid="uid://dnhodn0kn0q5k" path="res://assets/layouts/Caracter_base.png" id="13_fk8wc"]
+[ext_resource type="Shader" path="res://szenen/profileimg.gdshader" id="14_fdxmg"]
+[ext_resource type="Texture2D" uid="uid://ctxycpumdy6e5" path="res://assets/layouts/testchar.png" id="15_g3f66"]
+[ext_resource type="Texture2D" uid="uid://bji1p336mnkcw" path="res://assets/layouts/testchar2.png" id="16_pmio3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o5"]
+shader = ExtResource("14_fdxmg")
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("camera_1", "camera_2")]
+script = ExtResource("1_bcnpp")
+camera_1 = NodePath("Camera3D")
+camera_2 = NodePath("Camera3D2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, -7.92319e-08, 3.69465e-08, 0, 0.422618, 0.906308, -8.74228e-08, 0.906308, -0.422618, 0, 10.002, -6.70938)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524, 0.0739527, -0.0558453, -0.0397854)
+
+[node name="Player1_Hand" type="Control" parent="." node_paths=PackedStringArray("hand_container", "deck", "option_btn", "weiter_btn")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.9999
+offset_top = -9.0
+offset_right = 20.0001
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 8
+script = ExtResource("2_vqgol")
+card_scene = ExtResource("1_sx5me")
+hand_container = NodePath("HBoxContainer")
+deck = NodePath("../Player1_control/Deck1")
+option_btn = NodePath("../player_UI/option_btn")
+weiter_btn = NodePath("../Zug/weiter")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player1_Hand"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Knappe" parent="." groups=["Player2", "feld"] instance=ExtResource("5_5d2vx")]
+transform = Transform3D(-0.5, 4.37114e-08, 1.91069e-15, 0, -2.18557e-08, 0.5, 4.37114e-08, 0.5, 2.18557e-08, 0.0708714, 0.151748, -4.05768)
+
+[node name="Spielfeld" parent="." instance=ExtResource("4_qwc7v")]
+transform = Transform3D(5.98513, 0, 0, 0, 5.98513, 0, 0, 0, 7.29676, 0, 0, 0)
+
+[node name="Zug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="weiter" type="Button" parent="Zug" node_paths=PackedStringArray("option_btn")]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -2.0
+offset_right = -81.0
+offset_bottom = 6.0
+script = ExtResource("5_ogxev")
+option_btn = NodePath("../../player_UI/option_btn")
+
+[node name="Player1_control" type="Node3D" parent="."]
+script = ExtResource("7_y8wtm")
+
+[node name="Deck1" type="Node3D" parent="Player1_control"]
+visible = false
+script = ExtResource("6_xgr2f")
+
+[node name="GamestateWorld" type="Node3D" parent="."]
+script = ExtResource("7_j88pf")
+
+[node name="player_UI" type="Node2D" parent="."]
+
+[node name="Playerui" type="Control" parent="player_UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 707.0
+offset_top = 5.0
+offset_right = 1123.0
+offset_bottom = 85.0
+script = ExtResource("10_svj5g")
+
+[node name="material_screen" type="Sprite2D" parent="player_UI/Playerui"]
+position = Vector2(1000, 1023)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_764cq")
+
+[node name="Holz" type="Label" parent="player_UI/Playerui"]
+layout_mode = 2
+offset_left = 843.0
+offset_top = 1025.0
+offset_right = 878.0
+offset_bottom = 1053.0
+scale = Vector2(0.873451, 0.808604)
+theme_override_font_sizes/font_size = 20
+text = "120"
+horizontal_alignment = 1
+
+[node name="Stein" type="Label" parent="player_UI/Playerui"]
+layout_mode = 2
+offset_left = 915.0
+offset_top = 1025.0
+offset_right = 950.0
+offset_bottom = 1053.0
+scale = Vector2(0.715266, 0.818828)
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Metall" type="Label" parent="player_UI/Playerui"]
+layout_mode = 2
+offset_left = 982.0
+offset_top = 1026.0
+offset_right = 1017.0
+offset_bottom = 1054.0
+scale = Vector2(0.747298, 0.779929)
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Amethyst" type="Label" parent="player_UI/Playerui"]
+layout_mode = 2
+offset_left = 1043.0
+offset_top = 1027.0
+offset_right = 1078.0
+offset_bottom = 1055.0
+scale = Vector2(0.747611, 0.759592)
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Gold" type="Label" parent="player_UI/Playerui"]
+layout_mode = 2
+offset_left = 1105.0
+offset_top = 1026.0
+offset_right = 1140.0
+offset_bottom = 1054.0
+scale = Vector2(0.680079, 0.830627)
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="option_btn" type="Button" parent="player_UI"]
+modulate = Color(0.898039, 0.690196, 0.168627, 1)
+offset_left = 1436.0
+offset_top = 818.0
+offset_right = 1838.0
+offset_bottom = 861.0
+text = "Option"
+script = ExtResource("11_mr2js")
+
+[node name="Basis" parent="." node_paths=PackedStringArray("label") groups=["Player1"] instance=ExtResource("12_8qww4")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+label = NodePath("hp")
+
+[node name="bcr" type="Sprite2D" parent="Basis"]
+position = Vector2(246, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_fk8wc")
+
+[node name="character_img" type="Sprite2D" parent="Basis"]
+material = SubResource("ShaderMaterial_s48o5")
+position = Vector2(72.25, -71)
+scale = Vector2(0.0590049, 0.0606971)
+texture = ExtResource("15_g3f66")
+
+[node name="username1" type="Label" parent="Basis"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = -109.0
+offset_right = 494.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "tes1"
+justification_flags = 162
+text_overrun_behavior = 1
+
+[node name="hp" type="Label" parent="Basis"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -104.0
+offset_right = 171.0
+offset_bottom = 14.0
+scale = Vector2(0.616297, 0.567962)
+theme_override_font_sizes/font_size = 86
+text = "100"
+horizontal_alignment = 1
+
+[node name="Basis2" parent="." node_paths=PackedStringArray("label") groups=["Player1"] instance=ExtResource("12_8qww4")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+scale = Vector2(0.7, 0.7)
+label = NodePath("hp2")
+
+[node name="bcr" type="Sprite2D" parent="Basis2"]
+position = Vector2(-249, 62)
+scale = Vector2(-0.25, -0.25)
+texture = ExtResource("13_fk8wc")
+
+[node name="character_img2" type="Sprite2D" parent="Basis2"]
+material = SubResource("ShaderMaterial_s48o5")
+position = Vector2(-71, 77)
+scale = Vector2(0.0590049, 0.0606971)
+texture = ExtResource("16_pmio3")
+
+[node name="username2" type="Label" parent="Basis2"]
+layout_mode = 0
+offset_left = -478.0
+offset_top = 41.0
+offset_right = -154.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "test2"
+horizontal_alignment = 2
+justification_flags = 162
+text_overrun_behavior = 1
+text_direction = 1
+
+[node name="hp2" type="Label" parent="Basis2"]
+layout_mode = 0
+offset_left = -114.0
+offset_top = 44.0
+offset_right = 33.0
+offset_bottom = 162.0
+scale = Vector2(0.616297, 0.567962)
+theme_override_font_sizes/font_size = 86
+text = "100"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="player_UI/option_btn" to="player_UI/option_btn" method="_on_pressed"]

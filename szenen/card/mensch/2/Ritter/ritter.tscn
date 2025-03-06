@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8w0tyd0hqbuj"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_5o05u"]
+[ext_resource type="Script" path="res://szenen/card/mensch/2/Ritter/ritter.gd" id="2_mn7rv"]
+[ext_resource type="Texture2D" uid="uid://c8l1t8k5eyn7l" path="res://assets/characters/mensch/2/Ritter/Ritter_cropped.png" id="2_vywvy"]
+
+[node name="Ritter" groups=["Mensch", "Ritter", "Truppe"] instance=ExtResource("1_5o05u")]
+script = ExtResource("2_mn7rv")
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_vywvy")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8b07iehusfej"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_moqhk"]
+[ext_resource type="Script" path="res://szenen/card/Kobold/3/Späher/späher.gd" id="2_3nbti"]
+[ext_resource type="Texture2D" uid="uid://cb84te2ykmhq5" path="res://assets/characters/Kobold/3/Späher/Späher_Cropped.png" id="3_28q4f"]
+
+[node name="Späher" instance=ExtResource("1_moqhk")]
+script = ExtResource("2_3nbti")
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("3_28q4f")
+
+[node name="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(3.84837, 0, 0, 0, 3.222, -1.77636e-15, 0, 2.84217e-14, 0.229, 0, 1.36569, -0.139546)

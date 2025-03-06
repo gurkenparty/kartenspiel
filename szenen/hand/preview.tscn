@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnan037u7fiet"]
+
+[ext_resource type="Texture2D" uid="uid://b0ew43f5f7fmx" path="res://assets/characters/mensch/1/Joker/Joker.png" id="1_45s1w"]
+[ext_resource type="Script" path="res://szenen/hand/preview.gd" id="2_2lrxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0vdc"]
+size = Vector2(400, 602)
+
+[node name="preview" type="Sprite2D"]
+position = Vector2(1634, 483)
+texture = ExtResource("1_45s1w")
+script = ExtResource("2_2lrxq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_r0vdc")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
