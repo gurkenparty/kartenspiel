@@ -3,7 +3,7 @@ extends Node3D
 @export var cam: Camera3D # Get the active camera
 @export var angriff: int = 0
 @export var leben: int = 0
-@export var headclass = "Mensch"
+@export var headclass = "Truppe"
 @export var subclass = ""
 @export var rating = 1
 @export var cost = {"Holz":0,"Stein":0,"Metall":0,"Amethyst":0}
