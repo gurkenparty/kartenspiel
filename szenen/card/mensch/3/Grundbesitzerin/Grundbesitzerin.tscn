@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpk5k6gjn015c"]
 
-[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_2mywy"]
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_2mywy"]
 [ext_resource type="Script" path="res://szenen/card/mensch/3/Grundbesitzerin/grundbesitzerin.gd" id="2_u168s"]
 [ext_resource type="Texture2D" uid="uid://50ucctwg0xat" path="res://assets/characters/mensch/3/Grundbesitzerin/Grundbesitzerin_cropped.png" id="2_vvvjp"]
 

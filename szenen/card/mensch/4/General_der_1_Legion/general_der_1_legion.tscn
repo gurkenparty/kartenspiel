@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cr3xdjpkqbfpj"]
 
-[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_lm07i"]
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_lm07i"]
 [ext_resource type="Script" path="res://szenen/card/mensch/4/General_der_1_Legion/general_der_1_legion.gd" id="2_gb00l"]
 [ext_resource type="Texture2D" uid="uid://1dolm2iue71s" path="res://assets/characters/mensch/4/General_der_1_Legion/General_cropped.png" id="2_pef67"]
 

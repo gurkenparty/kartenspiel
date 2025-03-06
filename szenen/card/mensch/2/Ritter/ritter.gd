@@ -1,4 +1,4 @@
-extends "res://szenen/card/mensch/1/mensch1.gd"
+extends "res://szenen/card/mensch/main.gd"
 
 
 func _ready():

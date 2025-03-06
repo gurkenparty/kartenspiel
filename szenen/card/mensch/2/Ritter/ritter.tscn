@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8w0tyd0hqbuj"]
 
-[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/1/mensch1.tscn" id="1_5o05u"]
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_5o05u"]
 [ext_resource type="Script" path="res://szenen/card/mensch/2/Ritter/ritter.gd" id="2_mn7rv"]
 [ext_resource type="Texture2D" uid="uid://c8l1t8k5eyn7l" path="res://assets/characters/mensch/2/Ritter/Ritter_cropped.png" id="2_vywvy"]
 

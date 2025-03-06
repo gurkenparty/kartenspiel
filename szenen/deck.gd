@@ -5,7 +5,6 @@ var deck = [
 	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
 	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
 	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
-	
 	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
 	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
 	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
@@ -17,13 +16,14 @@ var deck = [
 	{"texture": preload("res://assets/characters/mensch/4/Graf_Zacharias/Zacharias.png"), "draggable_scene": preload("res://szenen/card/mensch/4/Graf_Zacharias/graf_zacharias.tscn")},
 	{"texture": preload("res://assets/characters/mensch/5/Gerd/Gerd.png"), "draggable_scene": preload("res://szenen/card/mensch/5/Koenig_Gerd/koenig_gerd.tscn")},
 	{"texture": preload("res://assets/characters/mensch/6/Urus/Urus.png"), "draggable_scene": preload("res://szenen/card/mensch/6/Lord_Urus/Lord_Urus.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/1/Bär/Bär.png"), "draggable_scene": preload("res://szenen/card/Kobold/1/Bär/bär.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/2/Gift/Gift.png"), "draggable_scene": preload("res://szenen/card/Kobold/2/Gift/gift.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/3/Späher/Späher.png"), "draggable_scene": preload("res://szenen/card/Kobold/3/Späher/späher.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/4/Muti/Muti.png"), "draggable_scene": preload("res://szenen/card/Kobold/4/Muti/Muti.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/5/Stratege/Stratege.png"), "draggable_scene": preload("res://szenen/card/Kobold/5/Stratege/Stratege.tscn")},
-	{"texture": preload("res://assets/characters/Kobold/6/Meister/Meister.png"), "draggable_scene": preload("res://szenen/card/Kobold/6/Meister/Meister.tscn")}
+	{"texture": preload("res://assets/characters/kobold/1/Bär/Bär.png"), "draggable_scene": preload("res://szenen/card/kobold/1/Bär/bär.tscn")},
+	{"texture": preload("res://assets/characters/kobold/2/Gift/Gift.png"), "draggable_scene": preload("res://szenen/card/kobold/2/Gift/gift.tscn")},
+	{"texture": preload("res://assets/characters/kobold/3/Späher/Späher.png"), "draggable_scene": preload("res://szenen/card/kobold/3/Späher/späher.tscn")},
+	{"texture": preload("res://assets/characters/kobold/4/Muti/Muti.png"), "draggable_scene": preload("res://szenen/card/kobold/4/Muti/Muti.tscn")},
+	{"texture": preload("res://assets/characters/kobold/5/Stratege/Stratege.png"), "draggable_scene": preload("res://szenen/card/kobold/5/Stratege/Stratege.tscn")},
+	{"texture": preload("res://assets/characters/kobold/6/Meister/Meister.png"), "draggable_scene": preload("res://szenen/card/kobold/6/Meister/Meister.tscn")}
 ]
+
 func _ready():
 	shuffle_deck()
 
