@@ -21,7 +21,13 @@ var deck = [
 	{"texture": preload("res://assets/characters/kobold/3/Späher/Späher.png"), "draggable_scene": preload("res://szenen/card/kobold/3/Späher/späher.tscn")},
 	{"texture": preload("res://assets/characters/kobold/4/Muti/Muti.png"), "draggable_scene": preload("res://szenen/card/kobold/4/Muti/Muti.tscn")},
 	{"texture": preload("res://assets/characters/kobold/5/Stratege/Stratege.png"), "draggable_scene": preload("res://szenen/card/kobold/5/Stratege/Stratege.tscn")},
-	{"texture": preload("res://assets/characters/kobold/6/Meister/Meister.png"), "draggable_scene": preload("res://szenen/card/kobold/6/Meister/Meister.tscn")}
+	{"texture": preload("res://assets/characters/kobold/6/Meister/Meister.png"), "draggable_scene": preload("res://szenen/card/kobold/6/Meister/Meister.tscn")},
+	{"texture": preload("res://assets/characters/ork/1/Ungelehrter/Ungelehrter.png"), "draggable_scene": preload("res://szenen/card/Ork/1/Ungelehrter/Unge.tscn")},
+	{"texture": preload("res://assets/characters/ork/2/hauer/hauer.png"), "draggable_scene": preload("res://szenen/card/Ork/2/Hauer/Hauer.tscn")},
+	{"texture": preload("res://assets/characters/ork/3/Zerfleischer/Cropped.png"), "draggable_scene": preload("res://szenen/card/Ork/3/Zerfleischer/Zerfleischer.tscn")},
+	{"texture": preload("res://assets/characters/ork/4/EF/EF.png"), "draggable_scene": preload("res://szenen/card/Ork/4/FetterReiter/EF.tscn")},
+	{"texture": preload("res://assets/characters/ork/5/RO/RO.png"), "draggable_scene": preload("res://szenen/card/Ork/5/OgerOrk/RO.tscn")},
+	{"texture": preload("res://assets/characters/ork/6/Kirill/Kirill.png"), "draggable_scene": preload("res://szenen/card/Ork/6/Kirill/Kirill.tscn")}
 ]
 
 func _ready():
