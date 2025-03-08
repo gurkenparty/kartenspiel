@@ -1,0 +1,179 @@
+[gd_scene load_steps=10 format=3 uid="uid://bul23oudxndng"]
+
+[ext_resource type="PackedScene" uid="uid://caleonbj5axop" path="res://assets/3d/showroom.glb" id="1_4w74g"]
+[ext_resource type="Script" path="res://modeltwist.gd" id="2_fdngl"]
+[ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe/knappe.png" id="3_muur5"]
+
+[sub_resource type="Environment" id="Environment_bappa"]
+background_mode = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qruyr"]
+
+[sub_resource type="Compositor" id="Compositor_fk68i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0wmq"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pl6w7"]
+material = SubResource("StandardMaterial3D_p0wmq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1xme"]
+
+[node name="showroom" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bappa")
+camera_attributes = SubResource("CameraAttributesPractical_qruyr")
+compositor = SubResource("Compositor_fk68i")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(81.3775, 0, 0, 0, 3.00904, 0, 0, 0, 42.1785, -0.0347046, -0.172467, 0.460308)
+mesh = SubResource("PlaneMesh_pl6w7")
+
+[node name="Modeltwist" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000589371, 0.0293334, -0.014389)
+script = ExtResource("2_fdngl")
+
+[node name="omni2" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10046, 0.239236, 5.20089)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni3" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10046, 0.239236, -5.49015)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni4" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12937, 0.239236, -0.331885)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni5" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03175, 0.239236, -0.331885)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni6" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20847, 0.239236, 4.90144)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni7" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66024, 0.239236, -5.37185)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni8" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103971, 0.239236, -6.6074)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni9" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103971, 0.239236, 6.83438)
+light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
+light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omniblau" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119512, 0.324153, 2.16556)
+light_color = Color(0, 0.431373, 0.854902, 1)
+light_energy = 4.393
+light_indirect_energy = 2.778
+
+[node name="omniblau2" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79336, 0.324153, 0.452599)
+light_color = Color(0, 0.431373, 0.854902, 1)
+light_energy = 4.393
+light_indirect_energy = 2.778
+
+[node name="omniblau3" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155992, 0.324153, -1.39925)
+light_color = Color(0, 0.431373, 0.854902, 1)
+light_energy = 4.393
+light_indirect_energy = 2.778
+
+[node name="omniblau4" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97647, 0.324153, 0.38409)
+light_color = Color(0, 0.431373, 0.854902, 1)
+light_energy = 4.393
+light_indirect_energy = 2.778
+
+[node name="model" type="MeshInstance3D" parent="Modeltwist"]
+transform = Transform3D(1.60027, 0, 0, 0, 2.33694, 0, 0, 0, 0.829431, 0, 1.297, 0)
+mesh = SubResource("BoxMesh_r1xme")
+skeleton = NodePath("../..")
+
+[node name="showroom_model" parent="Modeltwist" instance=ExtResource("1_4w74g")]
+
+[node name="facts" type="Node3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000589371, -0.0293334, 0.014389)
+
+[node name="wins" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000589371, 1.30822, 6.95194)
+text = "Wins"
+font_size = 59
+
+[node name="num" type="Label3D" parent="Modeltwist/facts/wins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
+text = "0"
+font_size = 59
+
+[node name="loss" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(0.686212, 0, -0.727402, 0, 1, 0, 0.727402, 0, 0.686212, -5.03486, 1.30822, 5.10889)
+text = "Loss"
+font_size = 59
+
+[node name="num" type="Label3D" parent="Modeltwist/facts/loss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
+text = "0"
+font_size = 59
+
+[node name="freunde" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(-0.777289, 0, 0.629144, 0, 1, 0, -0.629144, 0, -0.777289, 5.38456, 1.30822, -5.60409)
+text = "Freunde"
+font_size = 59
+
+[node name="num" type="Label3D" parent="Modeltwist/facts/freunde"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
+text = "0"
+font_size = 59
+
+[node name="draw" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(-0.0377425, 0, -0.999288, 0, 1, 0, 0.999288, 0, -0.0377425, -7.08706, 1.30822, 0.00519586)
+text = "Draws"
+font_size = 59
+
+[node name="num" type="Label3D" parent="Modeltwist/facts/draw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
+text = "0"
+font_size = 59
+
+[node name="resource" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(0.0112222, 0, 0.999937, 0, 1, 0, -0.999937, 0, 0.0112222, 7.04922, 1.30822, 0.00519586)
+text = "Lieblings Resource"
+font_size = 59
+
+[node name="word" type="Label3D" parent="Modeltwist/facts/resource"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
+text = "Holz"
+font_size = 59
+
+[node name="favcard" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(-0.73579, 0, -0.67721, 0, 1, 0, 0.67721, 0, -0.73579, -4.81938, 2.62165, -5.20045)
+text = "Lieblingskarte"
+font_size = 59
+
+[node name="card" type="Sprite3D" parent="Modeltwist/facts/favcard"]
+transform = Transform3D(0.253163, 0, -2.98023e-08, 0, 0.253163, 0, 2.98023e-08, 0, 0.253163, 0, -1.33141, 0)
+texture = ExtResource("3_muur5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0.000589371, 1.74433, 9.34061)

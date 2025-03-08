@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var cam: Camera3D # Get the active camera
+@export var cam: Camera3D
 @export var angriff: int = 0
 @export var leben: int = 0
 @export var headclass = "Truppe"
@@ -18,12 +18,14 @@ extends Node3D
 @export var option_btn : Button
 @export var weiter_btn : Button
 @export var hand: Control
+@export var GameState:Node3D
 @export var player_number : int
 @onready var attack_label = $Stats/angriff
 @onready var health_label = $Stats/leben
 @onready var select_border = $MeshInstance3D
 @onready var cardimg = $Sprite3D
 @onready var collision_area = $Area3D
+
 var overlap_areas: Array[Area3D]
 var original_position: Vector3
 var played = false
@@ -51,7 +53,8 @@ func _ready():
 	init_angriff = angriff
 	init_leben = leben
 	update_labels()
-	
+	cam = get_viewport().get_camera_3d()
+	#GameStateWorld.turn_changed.connect(_on_turn_changed)
 	
 	# Connect signals if karte2d is assigned
 	if karte2d:
@@ -246,3 +249,5 @@ func _on_option_pressed():
 	if instantiated_cardimg_scene.visible == true:
 		instantiated_cardimg_scene.visible = false
 		option_btn.visible = false
+#func _on_turn_changed(new_player:int):
+#	cam = get_viewport().get_camera_3d()

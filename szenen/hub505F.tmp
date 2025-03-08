@@ -1,0 +1,201 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkqow1a3ayy64"]
+
+[ext_resource type="Script" path="res://szenen/hub.gd" id="1_0vnk4"]
+[ext_resource type="Shader" path="res://szenen/profileimg.gdshader" id="1_vvtia"]
+[ext_resource type="AudioStream" uid="uid://coxy71hh0gf5n" path="res://assets/audio/magic-world-151599.mp3" id="2_6wfj0"]
+[ext_resource type="Texture2D" uid="uid://ctxycpumdy6e5" path="res://assets/layouts/testchar.png" id="2_8pk0q"]
+[ext_resource type="Texture2D" uid="uid://b211qat5c2dhy" path="res://assets/layouts/coin-1873955_1920.png" id="3_vdmwd"]
+[ext_resource type="PackedScene" uid="uid://bul23oudxndng" path="res://szenen/showroom.tscn" id="4_fub3b"]
+[ext_resource type="Script" path="res://szenen/showroom.gd" id="5_41qlm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kp7vr"]
+shader = ExtResource("1_vvtia")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1ekk"]
+
+[node name="HUB" type="Control" node_paths=PackedStringArray("showroom_subviewport")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vnk4")
+background_music = ExtResource("2_6wfj0")
+showroom_subviewport = NodePath("Showroom/SubViewport")
+
+[node name="Showroom" type="SubViewportContainer" parent="." node_paths=PackedStringArray("scene")]
+layout_mode = 0
+offset_right = 1923.0
+offset_bottom = 1078.0
+stretch = true
+script = ExtResource("5_41qlm")
+scene = NodePath("SubViewport/showroom")
+
+[node name="SubViewport" type="SubViewport" parent="Showroom"]
+handle_input_locally = false
+size = Vector2i(1923, 1078)
+render_target_update_mode = 4
+
+[node name="showroom" parent="Showroom/SubViewport" instance=ExtResource("4_fub3b")]
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 59.0
+
+[node name="character_img" type="Sprite2D" parent="Panel"]
+material = SubResource("ShaderMaterial_kp7vr")
+position = Vector2(56, 30)
+scale = Vector2(0.0315584, 0.0338041)
+texture = ExtResource("2_8pk0q")
+
+[node name="coin_img" type="Sprite2D" parent="Panel"]
+material = SubResource("ShaderMaterial_kp7vr")
+position = Vector2(1654, 29)
+scale = Vector2(0.0315584, 0.0338041)
+texture = ExtResource("3_vdmwd")
+
+[node name="username" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 103.0
+offset_top = 9.0
+offset_right = 253.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 30
+text = "Username"
+
+[node name="coins" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 1691.0
+offset_top = 5.0
+offset_right = 1841.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.956863, 0.682353, 0.133333, 1)
+theme_override_font_sizes/font_size = 30
+text = "99999"
+
+[node name="menu" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 5.0
+offset_right = 1914.0
+offset_bottom = 57.0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="showroom" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Lobby"
+flat = true
+
+[node name="Decks" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Meine Decks"
+flat = true
+
+[node name="Packs" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Packs"
+flat = true
+
+[node name="Shop" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Shop"
+flat = true
+
+[node name="Freunde" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Freunde"
+flat = true
+
+[node name="Profil" type="Button" parent="Panel/menu"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Profil"
+flat = true
+
+[node name="Spielen" type="Button" parent="Panel"]
+z_index = 2
+layout_mode = 2
+offset_left = 1696.0
+offset_top = 810.0
+offset_right = 1883.0
+offset_bottom = 888.0
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
+text = "Spielen
+"
+flat = true
+
+[connection signal="pressed" from="Panel/Spielen" to="." method="_on_spielen_pressed"]
+[connection signal="pressed" from="Panel/Spielen" to="Showroom" method="_on_spielen_pressed"]

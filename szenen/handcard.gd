@@ -5,13 +5,15 @@ extends Control
 @export var deck: Node3D  # Reference to the Deck node
 @export var option_btn : Button
 @export var weiter_btn : Button
-@export var player_number: int = 1
+@export var player_number: int
+@export var GameState: Node3D
 
 signal card_played(card)  # Signal when a card is played
 signal request_draw_card  # Signal to request a new card from the deck
 signal card_3d_effector(card3d)
 
 func _ready():
+	player_number = GameState.player_number
 	spawn_hand_cards(5)  # Spawn initial 5 cards
 	self.global_position += Vector2(0, 100)
 	# Listen for phase changes from GameState
@@ -19,11 +21,12 @@ func _ready():
 	GameStateWorld.turn_changed.connect(_on_turn_changed)
 	# Connect the draw request signal
 	request_draw_card.connect(_on_request_draw_card)
+	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
 
 # Function to handle drawing a card when a card requests it
 func _on_request_draw_card():
 	if hand_container.get_child_count() < 5:
-		print("A card requested a draw! Requesting from deck.")
+		print("A card requested a draw! Requesting from " + str(player_number))
 		if deck:
 			var new_card_data = deck.draw_card()  # Ask deck for a new card
 			if new_card_data:
@@ -40,7 +43,10 @@ func spawn_card(card_data: Dictionary):
 		new_card.option_btn = option_btn
 		new_card.weiter_btn = weiter_btn
 		new_card.hand = self
+		print("Gave new card player number: " + str(player_number))
 		new_card.player_number = player_number
+		new_card.GameState = GameState
+		print("Karte2d got the following game State: " + str(GameState))
 
 # Function to initially fill the hand
 func spawn_hand_cards(amount: int):
@@ -54,7 +60,7 @@ func _on_card_placed(card: Button, card3d: Node3D):
 	card_3d_effector.emit(card3d)
 
 	# Move the card to the world
-	var world_parent = get_tree().get_root().find_child("Main", true, false)
+	var world_parent = get_tree().get_root().find_child("Game3D", true, false)
 	if world_parent:
 		world_parent.add_child(card)
 		print("Card: " + str(card) + " added to: " + str(world_parent))

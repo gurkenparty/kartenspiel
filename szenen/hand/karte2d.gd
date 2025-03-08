@@ -8,6 +8,8 @@ signal card_placed(card, card3d)  # Declare the signal
 @export var weiter_btn: Button
 @export var hand : Control
 @export var player_number:int
+@export var GameState:Node3D
+var to_rotate = false
 var is_dragging = false
 var local_draggable: Node
 var placed = false
@@ -42,6 +44,9 @@ func _physics_process(_delta):
 			if rayResult.has("collider") and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var co: CollisionObject3D = rayResult.get("collider")
 				local_draggable.global_position = Vector3(cam.global_position.x, cam.global_position.y - 1, cam.global_position.z)
+				if player_number == 2 and to_rotate == false:
+					local_draggable.rotation.z = deg_to_rad(180)
+					to_rotate = true
 				local_draggable.visible = true
 				var hand_tween = create_tween()
 				hand_tween.tween_property(local_draggable, "position", Vector3(co.global_position.x, 2.0, co.global_position.z), 0.2)
@@ -75,7 +80,7 @@ func _physics_process(_delta):
 					x_position += GameState.field_spacing * GameState.placed_cards.size()
 
 				var final_position = Vector3(x_position, y_position, z_position)
-
+				print("Karte: " + str(self.name) + " is placed: " + str(final_position))
 				var placing_tween = create_tween()
 				placing_tween.tween_property(local_draggable, "position", final_position, 0.2)
 
@@ -89,12 +94,13 @@ func _physics_process(_delta):
 				self.visible = false
 				local_draggable.played = true
 				local_draggable.add_to_group("Player1")
-				local_draggable.cam = cam
 				local_draggable.cardimg_file = cardimg
 				local_draggable.option_btn = option_btn
 				local_draggable.weiter_btn = weiter_btn
 				local_draggable.hand = hand
 				local_draggable.player_number = player_number
+				local_draggable.cam = cam
+				local_draggable.GameState = GameState
 
 				# Emit the signal to notify the hand container
 				card_placed.emit(self, local_draggable)
@@ -128,4 +134,3 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	is_dragging = false
 	print("Button Up")
-	

@@ -1,12 +1,13 @@
 extends Node
-@onready var option_btn: Button = get_tree().get_root().find_child("option_btn", true, false)
-@onready var weiter_btn: Button = get_tree().get_root().find_child("weiter", true, false)
-@export var player: int = 1
-
+@export var option_btn: Button 
+@export var weiter_btn: Button
+@export var player: int
+@onready var player_1_base: Control = get_tree().get_root().find_child("Basis", true, false)
+@onready var player_2_base: Control = get_tree().get_root().find_child("Basis2", true, false)
 var placed_cards = {}  # Stores placed card positions
 var field_start_x = -9.0  # Left-most position on the field
 var field_spacing = 3  # Distance between cards
-var field_z = 0  # Fixed z-axis position
+var field_z = -2  # Fixed z-axis position
 var placed_3d_cards = []
 var selected_cards = []
 var attack_mode = false
@@ -14,9 +15,16 @@ var ressources = {"Holz" : 30, "Stein" : 30, "Metall" : 30, "Amethyst" : 0, "Gol
 func _ready():
 	print("option_btn:", option_btn)
 	print("weiter_btn:", weiter_btn)
+	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+	if player == 2:
+		print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+		field_start_x = 9
+		field_spacing = -3
+		field_z = 2
 	option_btn.option_pressed.connect(_on_option_pressed)
 func set_attack_mode():
-	if GameStateWorld.current_phase == GameStateWorld.Phase.FIGHTING:
+	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+	if GameStateWorld.current_phase == GameStateWorld.Phase.FIGHTING and player == GameStateWorld.current_player:
 		if selected_cards.size() > 0:
 		
 			option_btn.text = "Mit " + str(selected_cards.size()) + " Truppen angreifen"
@@ -35,3 +43,13 @@ func _on_option_pressed():
 			option_btn.visible = false
 			weiter_btn.visible = true
 			GameStateWorld.next_phase()
+			
+func player_attacking(player:int, attack:Array):
+	if player == 1:
+		for card in attack:
+			player_2_base.change_hp_base(card.angriff*-1)
+	elif player == 2:
+		for card in attack:
+			player_1_base.change_hp_base(card.angriff*-1)
+			
+			

@@ -1,6 +1,14 @@
 extends Node
-@onready var player_1_base: Control = get_tree().get_root().find_child("Basis", true, false)
-@onready var player_2_base: Control = get_tree().get_root().find_child("Basis2", true, false)
+var player_1_cam : Camera3D
+var player_2_cam :Camera3D
+var player_1_username:String = "Sean"
+var player_2_username:String = "Max ist Gay"
+var player_1_avatar:Texture2D = preload("res://assets/wallpapers/wallpaper_dragon.png")
+var player_2_avatar:Texture2D = preload("res://assets/wallpapers/wallpaper_magic_queen.png")
+var player_1_hp:int = 100
+var player_2_hp:int = 100
+
+
 enum Phase { 
 	FIRST_EFFECT, 
 	DRAWING, 
@@ -33,7 +41,14 @@ func end_turn():
 	if current_player > max_players:
 		current_player = 1  # Loop back to Player 1
 	turn_changed.emit(current_player)
-	print("Turn changed signal emitted: " + str(current_player))  
+	print("Turn changed signal emitted: " + str(current_player))
+	if current_player == 1:
+		player_1_cam.current = !player_1_cam.current
+		player_2_cam.current = player_2_cam.current
+	if current_player == 2:
+		player_2_cam.current = !player_2_cam.current 
+		player_1_cam.current = player_1_cam.current
+		
 
 	phase_changed.emit(current_phase)  
 	print("Phase changed signal emitted (end turn): " + str(current_phase))  
@@ -48,11 +63,6 @@ func get_phase_name() -> String:
 		Phase.FIGHTING: return "Kämpfen"
 		Phase.LAST_EFFECT: return "Zug beenden"
 		_: return "Unknown Phase"
+		
 
-func player_attacking(player:int, attack:Array):
-	if player == 1:
-		for card in attack:
-			player_2_base.change_hp_base(card.angriff*-1)
-	elif player == 2:
-		for card in attack:
-			player_1_base.change_hp_base(card.angriff*-1)
+	

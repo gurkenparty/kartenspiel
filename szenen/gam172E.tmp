@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpy05kmu61fjw"]
+
+[ext_resource type="Script" path="res://szenen/game_3d.gd" id="1_jw74r"]
+[ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/main/feld/spielfeld.tscn" id="2_aw4i0"]
+[ext_resource type="PackedScene" uid="uid://bdha2gsrd1me1" path="res://szenen/main.tscn" id="3_mjn76"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h5mra"]
+
+[node name="Game3D" type="Node3D"]
+script = ExtResource("1_jw74r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524, 0.0739527, -0.0558453, -0.0397854)
+
+[node name="Spielfeld" parent="." instance=ExtResource("2_aw4i0")]
+transform = Transform3D(5.98508, -0.0201607, 0.0140518, 0.0201893, 5.98508, -0.018109, -0.0114758, 0.0148926, 7.29672, 0.0739527, -0.0558453, -0.0397854)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062809, 1.53642, 5.27282)
+mesh = SubResource("CylinderMesh_h5mra")
+
+[node name="Player1" parent="." instance=ExtResource("3_mjn76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149355, 9.53674e-07, 1.75179)
+
+[node name="Player2" parent="." instance=ExtResource("3_mjn76")]
+transform = Transform3D(-0.999999, 0, 0.00150088, 0, 1, 0, -0.00150088, 0, -0.999999, -0.0266045, 0, -2.18993)
+player_number = 2
