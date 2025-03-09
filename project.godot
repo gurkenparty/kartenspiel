@@ -18,11 +18,10 @@ boot_splash/fullsize=false
 
 [autoload]
 
-global="*res://scripts/global.gd"
-Cardvals="*res://scripts/cardvals.gd"
 GameStateWorld="*res://scripts/game_state_world.gd"
-MiltiplayerManager="*res://scripts/miltiplayer_manager.gd"
 GameStats="*res://scripts/GameStats.gd"
+GlobalLibrary="*res://scripts/global_library.gd"
+DeckClass="*res://scripts/deck_class.gd"
 
 [display]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjsgsdly7mxkt"]
+
+[ext_resource type="Script" path="res://szenen/element_preview.gd" id="1_fcidw"]
+[ext_resource type="Texture2D" uid="uid://cl201aeph2dtn" path="res://assets/card/card_textures/texture_black_paper.jpg" id="1_oeftr"]
+
+[node name="element_preview" type="Button" node_paths=PackedStringArray("name_label", "preview_sprite")]
+offset_left = 668.0
+offset_top = -9.0
+offset_right = 676.0
+offset_bottom = -1.0
+scale = Vector2(74.7523, 117.702)
+script = ExtResource("1_fcidw")
+name_label = NodePath("Label")
+preview_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+scale = Vector2(0.00324541, -0.00611319)
+texture = ExtResource("1_oeftr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.91149
+offset_top = 7.54264
+offset_right = 252.911
+offset_bottom = 91.5426
+scale = Vector2(0.0198355, 0.0145468)
+theme_override_font_sizes/font_size = 61
+text = "Example"

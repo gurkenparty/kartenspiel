@@ -1,39 +1,31 @@
 extends Node3D
 
-var deck = [
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Knappe/knappe.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Knappe/Knappe.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Landwirtin/Landwirtin.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Landwirtin/Landwirtin.tscn")},
-	{"texture": preload("res://assets/characters/mensch/1/Joker/Joker.png"), "draggable_scene": preload("res://szenen/card/mensch/1/Joker/Joker.tscn")},
-	{"texture": preload("res://assets/characters/mensch/2/Ritter/Ritter.png"), "draggable_scene": preload("res://szenen/card/mensch/2/Ritter/ritter.tscn")},
-	{"texture": preload("res://assets/characters/mensch/2/Assasine/Assasine.png"), "draggable_scene": preload("res://szenen/card/mensch/2/Assasine/Assasine.tscn")},
-	{"texture": preload("res://assets/characters/mensch/3/Grundbesitzerin/Grundbesitzerin.png"), "draggable_scene": preload("res://szenen/card/mensch/3/Grundbesitzerin/Grundbesitzerin.tscn")},
-	{"texture": preload("res://assets/characters/mensch/4/Graf_Zacharias/Zacharias.png"), "draggable_scene": preload("res://szenen/card/mensch/4/Graf_Zacharias/graf_zacharias.tscn")},
-	{"texture": preload("res://assets/characters/mensch/5/Gerd/Gerd.png"), "draggable_scene": preload("res://szenen/card/mensch/5/Koenig_Gerd/koenig_gerd.tscn")},
-	{"texture": preload("res://assets/characters/mensch/6/Urus/Urus.png"), "draggable_scene": preload("res://szenen/card/mensch/6/Lord_Urus/Lord_Urus.tscn")},
-	{"texture": preload("res://assets/characters/kobold/1/Bär/Bär.png"), "draggable_scene": preload("res://szenen/card/kobold/1/Bär/bär.tscn")},
-	{"texture": preload("res://assets/characters/kobold/2/Gift/Gift.png"), "draggable_scene": preload("res://szenen/card/kobold/2/Gift/gift.tscn")},
-	{"texture": preload("res://assets/characters/kobold/3/Späher/Späher.png"), "draggable_scene": preload("res://szenen/card/kobold/3/Späher/späher.tscn")},
-	{"texture": preload("res://assets/characters/kobold/4/Muti/Muti.png"), "draggable_scene": preload("res://szenen/card/kobold/4/Muti/Muti.tscn")},
-	{"texture": preload("res://assets/characters/kobold/5/Stratege/Stratege.png"), "draggable_scene": preload("res://szenen/card/kobold/5/Stratege/Stratege.tscn")},
-	{"texture": preload("res://assets/characters/kobold/6/Meister/Meister.png"), "draggable_scene": preload("res://szenen/card/kobold/6/Meister/Meister.tscn")}
-]
+var 	deck = [
+		"Knappe", "Knappe", "Knappe", "Knappe",
+		"Landwirtin", "Landwirtin", "Landwirtin", "Landwirtin",
+		"Joker", "Ritter", "Assasine", "Grundbesitzerin",
+		"Graf_Zacharias", "Gerd", "Urus", "Bär",
+		"Gift", "Späher", "Muti", "Stratege", "Meister"
+	]  # Stores the card names
 
 func _ready():
-	shuffle_deck()
+	# Define the deck with card names
+	shuffle_deck()  # Shuffle at start
 
 # Function to draw a card, randomly pick one and remove it from the deck
 func draw_card() -> Dictionary:
 	if deck.size() > 0:
 		var random_index = randi() % deck.size()  # Pick a random index
-		var card = deck[random_index]  # Get the card at that index
-		deck.remove_at(random_index)  # Correct method to remove by index
-		return card
+		var card_name = deck[random_index]  # Get the card name
+		deck.remove_at(random_index)  # Remove card name from deck
+
+		# Fetch the actual card data from the global library
+		print("Card Lib: " + str(GlobalLibrary.cards))
+		if GlobalLibrary.cards.has(card_name):  # Check if card exists
+			return GlobalLibrary.cards[card_name]  # Return the card data
+		else:
+			print("Error: Card '" + card_name + "' not found in GlobalLibrary!")
+			return {}
 	else:
 		print("Deck is empty!")
 		return {}  # Return empty dictionary if no cards are left

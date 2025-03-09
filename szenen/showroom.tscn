@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bul23oudxndng"]
+[gd_scene load_steps=13 format=3 uid="uid://bul23oudxndng"]
 
 [ext_resource type="PackedScene" uid="uid://caleonbj5axop" path="res://assets/3d/showroom.glb" id="1_4w74g"]
 [ext_resource type="Script" path="res://modeltwist.gd" id="2_fdngl"]
 [ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe/knappe.png" id="3_muur5"]
+[ext_resource type="PackedScene" uid="uid://bw886lqkcf4r4" path="res://assets/3d/resources/shield.glb" id="3_tlc8m"]
+[ext_resource type="PackedScene" uid="uid://cejyp1lwft0gs" path="res://assets/3d/avatars/knight.glb" id="4_lwlnj"]
+[ext_resource type="PackedScene" uid="uid://dadq5070c8fty" path="res://assets/3d/resources/stylized_crystal.glb" id="4_yfl1a"]
 
 [sub_resource type="Environment" id="Environment_bappa"]
 background_mode = 1
@@ -38,6 +41,24 @@ script = ExtResource("2_fdngl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10046, 0.239236, 5.20089)
 light_color = Color(0.80421, 0.0317735, 3.85046e-07, 1)
 light_energy = 9.08
+light_indirect_energy = 2.778
+
+[node name="omni10" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49482, 1.35511, 5.37405)
+light_color = Color(1, 0.959215, 0.95194, 1)
+light_energy = 1.161
+light_indirect_energy = 2.778
+
+[node name="omni11" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.47237, 0.691889, -0.0581133)
+light_color = Color(1, 0.959215, 0.95194, 1)
+light_energy = 1.161
+light_indirect_energy = 2.778
+
+[node name="omni12" type="OmniLight3D" parent="Modeltwist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351087, 0.691889, -7.18656)
+light_color = Color(1, 0.959215, 0.95194, 1)
+light_energy = 1.161
 light_indirect_energy = 2.778
 
 [node name="omni3" type="OmniLight3D" parent="Modeltwist"]
@@ -126,6 +147,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
 text = "0"
 font_size = 59
 
+[node name="league" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(-0.999996, 0, 0.00279251, 0, 1, 0, -0.00279251, 0, -0.999996, 0.000589371, 1.30822, -6.71329)
+text = "Liga"
+font_size = 59
+
+[node name="word" type="Label3D" parent="Modeltwist/facts/league"]
+transform = Transform3D(0.628902, 0, -1.16415e-10, 0, 0.628902, 0, 1.16415e-10, 0, 0.628902, 0, -0.663039, 0)
+text = "Holz"
+font_size = 59
+
+[node name="Sketchfab_Scene" parent="Modeltwist/facts/league" instance=ExtResource("3_tlc8m")]
+transform = Transform3D(3.44864e-08, 0, 0.000659485, 0, 0.000659484, 0, -0.000659485, 0, 3.44864e-08, 0.0114063, -0.751483, -0.100123)
+
 [node name="loss" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(0.686212, 0, -0.727402, 0, 1, 0, 0.727402, 0, 0.686212, -5.03486, 1.30822, 5.10889)
 text = "Loss"
@@ -157,14 +191,17 @@ text = "0"
 font_size = 59
 
 [node name="resource" type="Label3D" parent="Modeltwist/facts"]
-transform = Transform3D(0.0112222, 0, 0.999937, 0, 1, 0, -0.999937, 0, 0.0112222, 7.04922, 1.30822, 0.00519586)
+transform = Transform3D(0.0112222, 0, 0.999937, 0, 1, 0, -0.999937, 0, 0.0112222, 7.04922, 1.69156, 0.00519586)
 text = "Lieblings Resource"
 font_size = 59
 
 [node name="word" type="Label3D" parent="Modeltwist/facts/resource"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
-text = "Holz"
+text = "Amethyst"
 font_size = 59
+
+[node name="Sketchfab_Scene" parent="Modeltwist/facts/resource" instance=ExtResource("4_yfl1a")]
+transform = Transform3D(0.00900503, 0, -1.45519e-11, 0, 0.00900502, 0, 1.45519e-11, 0, 0.00900503, -0.099, -1.85193, 0.00111103)
 
 [node name="favcard" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(-0.73579, 0, -0.67721, 0, 1, 0, 0.67721, 0, -0.73579, -4.81938, 2.62165, -5.20045)
@@ -174,6 +211,14 @@ font_size = 59
 [node name="card" type="Sprite3D" parent="Modeltwist/facts/favcard"]
 transform = Transform3D(0.253163, 0, -2.98023e-08, 0, 0.253163, 0, 2.98023e-08, 0, 0.253163, 0, -1.33141, 0)
 texture = ExtResource("3_muur5")
+
+[node name="avatar" type="Label3D" parent="Modeltwist/facts"]
+transform = Transform3D(0.668196, 0, 0.743985, 0, 1, 0, -0.743985, 0, 0.668196, 4.84511, 2.21123, 4.975)
+text = "Avatar"
+font_size = 59
+
+[node name="Sketchfab_Scene" parent="Modeltwist/facts/avatar" instance=ExtResource("4_lwlnj")]
+transform = Transform3D(0.010576, 0, -9.31323e-10, 0, 0.010576, 0, 9.31323e-10, 0, 0.010576, 0.044728, -1.17842, 0.181567)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0.000589371, 1.74433, 9.34061)

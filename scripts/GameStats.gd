@@ -5,3 +5,4 @@ var wins = 0
 var draws = 0
 var loss = 0
 var elo = 100
+var decks = []

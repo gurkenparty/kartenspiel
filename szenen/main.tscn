@@ -252,7 +252,6 @@ horizontal_alignment = 1
 [node name="Player1_control" type="Node3D" parent="."]
 
 [node name="Deck1" type="Node3D" parent="Player1_control"]
-visible = false
 script = ExtResource("6_xgr2f")
 
 [node name="option_btn" type="Button" parent="."]
