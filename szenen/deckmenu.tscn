@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://deckmenu.gd" id="1_p3c34"]
 
-[node name="Deckmenu" type="Control" node_paths=PackedStringArray("deckcontainer")]
+[node name="Deckmenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,12 +10,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p3c34")
-deckcontainer = NodePath("GridContainer")
-columns = 6
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(48.0599, 26.731)
 columns = 6

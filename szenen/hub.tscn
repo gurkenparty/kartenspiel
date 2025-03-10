@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkqow1a3ayy64"]
+[gd_scene load_steps=11 format=3 uid="uid://bkqow1a3ayy64"]
 
 [ext_resource type="Script" path="res://szenen/hub.gd" id="1_0vnk4"]
 [ext_resource type="Shader" path="res://szenen/profileimg.gdshader" id="1_vvtia"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b211qat5c2dhy" path="res://assets/layouts/coin-1873955_1920.png" id="3_vdmwd"]
 [ext_resource type="PackedScene" uid="uid://bul23oudxndng" path="res://szenen/showroom.tscn" id="4_fub3b"]
 [ext_resource type="Script" path="res://szenen/showroom.gd" id="5_41qlm"]
+[ext_resource type="PackedScene" uid="uid://dsx7byk22j2ep" path="res://szenen/deckmenu.tscn" id="5_txf8t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kp7vr"]
 shader = ExtResource("1_vvtia")
@@ -38,6 +39,9 @@ size = Vector2i(1923, 1078)
 render_target_update_mode = 4
 
 [node name="showroom" parent="Showroom/SubViewport" instance=ExtResource("4_fub3b")]
+
+[node name="Deckmenu" parent="Showroom/SubViewport" instance=ExtResource("5_txf8t")]
+visible = false
 
 [node name="Panel" type="Panel" parent="."]
 z_index = 1
@@ -197,5 +201,7 @@ text = "Spielen
 "
 flat = true
 
+[connection signal="pressed" from="Panel/menu/showroom" to="Showroom" method="_on_showroom_pressed"]
+[connection signal="pressed" from="Panel/menu/Decks" to="Showroom" method="_on_decks_pressed"]
 [connection signal="pressed" from="Panel/Spielen" to="." method="_on_spielen_pressed"]
 [connection signal="pressed" from="Panel/Spielen" to="Showroom" method="_on_spielen_pressed"]

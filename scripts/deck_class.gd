@@ -7,11 +7,13 @@ class_name Deck
 var cards_playable: Array = []
 
 # Constructor (_init is called when 'Card.new()' is used)
-func _init(deck_name: String = "", preview: Texture = null, cards:Array = []):
-	deck_name = deck_name
-	preview = preview
-	cards = cards
-	cards_playable = cards
+func _init(deck_name: String, preview: Texture, cards:Array):
+	self.deck_name = deck_name
+	print(deck_name)
+	self.preview = preview
+	self.cards = cards
+	self.cards_playable = cards
+	GameStats.decks.append(self)
 
 func add_card(card:String):
 	if self.cards.size() <= 60:

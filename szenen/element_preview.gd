@@ -6,10 +6,13 @@ extends Button
 @export var preview_sprite:Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	name_label.text = deck_name
-	preview_sprite.texture = preview
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+func change_deck_name(deck_name:String):
+	name_label.text = deck_name
+func change_preview(deck_preview:Texture2D):
+	preview_sprite.texture = deck_preview
