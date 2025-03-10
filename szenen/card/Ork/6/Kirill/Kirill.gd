@@ -3,9 +3,9 @@ extends "res://szenen/card/mensch/main.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cost = {"Holz":0, "Stein":3, "Metall":0, "Amethyst":0}
-	leben = 1
-	angriff = 2
+	cost = {"Holz":5, "Stein":40, "Metall":0, "Amethyst":5}
+	leben = 30
+	angriff = 3
 	headclass = "Ork"
 	subclass = "Grobian"
 	add_to_group("Ork")
