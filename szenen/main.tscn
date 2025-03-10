@@ -18,11 +18,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o5"]
 shader = ExtResource("14_fdxmg")
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("option_btn", "weiter_btn", "clicktrack")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("option_btn", "weiter_btn")]
 script = ExtResource("1_bcnpp")
 option_btn = NodePath("option_btn")
 weiter_btn = NodePath("Zug/weiter")
-clicktrack = NodePath("Clicktrack")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)

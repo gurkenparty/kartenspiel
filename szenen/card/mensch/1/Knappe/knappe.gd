@@ -1,6 +1,5 @@
 extends "res://szenen/card/mensch/main.gd"
 
-
 @export var unterstützung: int = 1  
 
 var effect_activated = false  # Ensure effect only runs once # Adjust to the correct path # Disable collision checks at start
@@ -12,9 +11,6 @@ func _ready():
 	headclass = "Mensch"
 	subclass = "Ritter"
 	rating = 1
-	cardmenu_path = "res://szenen/welt/3d/card/" + str(headclass.to_lower()) + "/" + str(rating) + "/" + str(self.name).to_lower() + "/cardmenu.tscn"
-	print("path for" + str(self.name) + "is: " + str(cardmenu_path))
-	cardmenu = load(cardmenu_path)
 	standard_texture = preload("res://assets/card/card_textures/texture_black_paper.jpg")
 	selection_material_texture = preload("res://assets/card/card_selectable.jpg")
 	selected_material_texture = preload("res://assets/card/card_selected.jpg") 

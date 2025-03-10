@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bka000siu4sla"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_bq7ak"]
+[ext_resource type="Script" path="res://szenen/card/Ork/1/Ungelehrter/Unge.gd" id="2_du4kn"]
+[ext_resource type="Texture2D" uid="uid://d3r2mnxl54bbk" path="res://assets/characters/ork/1/Ungelehrter/Ungelehrter_cropped.png" id="3_3t78m"]
+
+[node name="Unge" instance=ExtResource("1_bq7ak")]
+script = ExtResource("2_du4kn")
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("3_3t78m")
+
+[node name="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(3.81036, 0, 0, 0, 3.222, -1.77636e-15, 0, 2.84217e-14, 0.229, 0, 1.36569, -0.139546)

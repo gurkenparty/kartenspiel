@@ -1,12 +1,13 @@
 extends Node3D
 
-var 	deck = [
-		"Knappe", "Knappe", "Knappe", "Knappe",
-		"Landwirtin", "Landwirtin", "Landwirtin", "Landwirtin",
-		"Joker", "Ritter", "Assasine", "Grundbesitzerin",
-		"Graf_Zacharias", "Gerd", "Urus", "Bär",
-		"Gift", "Späher", "Muti", "Stratege", "Meister"
-	]  # Stores the card names
+var deck = [
+	"Knappe", "Knappe", "Knappe", "Knappe",
+	"Landwirtin", "Landwirtin", "Landwirtin", "Landwirtin",
+	"Joker", "Ritter", "Assasine", "Grundbesitzerin",
+	"Graf_Zacharias", "Gerd", "Urus", "Bär",
+	"Gift", "Späher", "Muti", "Stratege", "Meister",
+	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill"
+]  # Stores the card names
 
 func _ready():
 	# Define the deck with card names
