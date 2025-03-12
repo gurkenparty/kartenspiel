@@ -8,9 +8,9 @@ var viewport : Viewport
 
 func _ready():
 	# Erstellen des Viewports
-	viewport = Viewport.new()
+	viewport = get_viewport()
 	viewport.size = Vector2(256, 256)  # Größe des Viewports entsprechend der Textur
-	viewport.render_target_update_mode = Viewport.UPDATE_ALWAYS
+	viewport.render_target_update_mode = Viewport.VRS_UPDATE_ALWAYS
 
 	# Erstellen und Hinzufügen des Sprites zum Viewport
 	var sprite = Sprite2D.new()
