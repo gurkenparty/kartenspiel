@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ma1tnlo2jway"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_1lkye"]
+[ext_resource type="Script" path="res://szenen/card/ork/5/OgerOrk/RO.gd" id="2_6xye7"]
+[ext_resource type="Texture2D" uid="uid://bmw1n1312gu6y" path="res://assets/characters/ork/5/RO/RO_cropped.png" id="3_ktcqo"]
+
+[node name="RO" instance=ExtResource("1_1lkye")]
+script = ExtResource("2_6xye7")
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("3_ktcqo")
+
+[node name="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(3.81036, 0, 0, 0, 3.222, -1.77636e-15, 0, 2.84217e-14, 0.229, 0, 1.36569, -0.139546)
