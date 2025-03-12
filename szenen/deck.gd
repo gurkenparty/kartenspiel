@@ -6,7 +6,8 @@ var deck = [
 	"Joker", "Ritter", "Assasine", "Grundbesitzerin",
 	"Graf_Zacharias", "Gerd", "Urus", "Bär",
 	"Gift", "Späher", "Muti", "Stratege", "Meister",
-	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill"
+	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill", "Blumen", "Erde", 
+	"Feuer", "Glas" , "Licht", "Natur", "Schatten", "Stahl", "Wasser"
 ]  # Stores the card names
 
 func _ready():
