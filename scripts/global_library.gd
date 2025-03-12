@@ -119,5 +119,29 @@ var cards = {
 	"Wasser": {
 		"texture": preload("res://assets/characters/drache/Wasser.png"),
 		"draggable_scene": preload("res://szenen/card/drache/Wasser.tscn")
+	},
+	"Sch": {
+		"texture": preload("res://assets/characters/elf/1/Schneiderin/Sch.png"),
+		"draggable_scene": preload("res://szenen/card/elf/1/Sch/Sch.tscn")
+	},
+	"Vet": {
+		"texture": preload("res://assets/characters/elf/2/Veteranin/Vet.png"),
+		"draggable_scene": preload("res://szenen/card/elf/2/Vet/Vet.tscn")
+	},
+	"EK": {
+		"texture": preload("res://assets/characters/elf/3/Elegante Bitch/EK.png"),
+		"draggable_scene": preload("res://szenen/card/elf/3/EK/EK.tscn")
+	},
+	"BB": {
+		"texture": preload("res://assets/characters/elf/4/Bestein Beschwörerin/BB.png"),
+		"draggable_scene": preload("res://szenen/card/elf/4/BB/BB.tscn")
+	},
+	"TW": {
+		"texture": preload("res://assets/characters/elf/5/Tempelwächterin/TW.png"),
+		"draggable_scene": preload("res://szenen/card/elf/5/TW/TW.tscn")
+	},
+	"Xera": {
+		"texture": preload("res://assets/characters/elf/6/Xera/Xera.png"),
+		"draggable_scene": preload("res://szenen/card/elf/6/Xera/Xera.tscn")
 	}
 }

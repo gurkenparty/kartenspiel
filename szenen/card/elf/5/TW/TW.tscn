@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy51pnvb5ebya"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_11bkq"]
+[ext_resource type="Script" path="res://szenen/card/elf/5/TW/TW.gd" id="2_afg2q"]
+[ext_resource type="Texture2D" uid="uid://c1md4yh0gkbmq" path="res://assets/characters/elf/5/Tempelwächterin/TW_cropped.png" id="3_n2j85"]
+
+[node name="TW" instance=ExtResource("1_11bkq")]
+script = ExtResource("2_afg2q")
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(0.931239, 0, 0, 0, 1.03365, -3.55271e-15, 0, 3.55271e-15, 0.999449, 0, 1.36599, 5.97091e-08)
+texture = ExtResource("3_n2j85")
+
+[node name="leben" parent="Stats" index="0"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, 1.75365, -0.082354, 0.0427669)
+
+[node name="angriff" parent="Stats" index="1"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, -1.56336, -0.080614, 0.0435393)
+
+[node name="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(3.75678, 0, 0, 0, 3.222, -1.77636e-15, 0, 2.84217e-14, 0.229, 0, 1.36569, -0.139546)

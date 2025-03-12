@@ -7,7 +7,7 @@ var deck = [
 	"Graf_Zacharias", "Gerd", "Urus", "Bär",
 	"Gift", "Späher", "Muti", "Stratege", "Meister",
 	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill", "Blumen", "Erde", 
-	"Feuer", "Glas" , "Licht", "Natur", "Schatten", "Stahl", "Wasser"
+	"Feuer", "Glas" , "Licht", "Natur", "Schatten", "Stahl", "Wasser", "Xera", "TW", "BB", "EK", "Vet", "Sch"
 ]  # Stores the card names
 
 func _ready():
