@@ -37,7 +37,7 @@ func create_card_mesh() -> ArrayMesh:
 	var mesh = ArrayMesh.new()
 
 	# Erstellen der Vertices für die Vorder- und Rückseite sowie die Seiten
-	var vertices = PoolVector3Array([
+	var vertices = PackedVector3Array([
 		Vector3(-0.5, -0.5, -0.5),  # Rückseite unten links
 		Vector3( 0.5, -0.5, -0.5),  # Rückseite unten rechts
 		Vector3( 0.5,  0.5, -0.5),  # Rückseite oben rechts
@@ -49,7 +49,7 @@ func create_card_mesh() -> ArrayMesh:
 	])
 
 	# Erstellen der Indizes für die Dreiecke der Karte
-	var indices = PoolIntArray([
+	var indices = PackedInt32Array([
 		0, 1, 2, 0, 2, 3,  # Rückseite
 		4, 5, 6, 4, 6, 7,  # Vorderseite
 		0, 1, 5, 0, 5, 4,  # Unterseite
@@ -59,7 +59,7 @@ func create_card_mesh() -> ArrayMesh:
 	])
 
 	# Erstellen der UV-Koordinaten für die Textur
-	var uvs = PoolVector2Array([
+	var uvs = PackedVector2Array([
 		Vector2(0.0, 0.0),  # Rückseite unten links
 		Vector2(1.0, 0.0),  # Rückseite unten rechts
 		Vector2(1.0, 1.0),  # Rückseite oben rechts
@@ -70,11 +70,13 @@ func create_card_mesh() -> ArrayMesh:
 		Vector2(0.0, 1.0),  # Vorderseite oben links
 	])
 
+	var arrays = []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_TEX_UV] = uvs
+	arrays[Mesh.ARRAY_INDEX] = indices
+
 	# Erstellen der Oberflächen für das Mesh
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, [
-		ArrayMesh.ARRAY_VERTEX: vertices,
-		ArrayMesh.ARRAY_TEX_UV: uvs,
-		ArrayMesh.ARRAY_INDEX: indices,
-	])
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 
 	return mesh
