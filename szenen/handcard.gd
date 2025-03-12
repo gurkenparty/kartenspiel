@@ -43,9 +43,10 @@ func spawn_card(card_data: Dictionary):
 		new_card.option_btn = option_btn
 		new_card.weiter_btn = weiter_btn
 		new_card.hand = self
+		new_card.GameState = GameState
+		new_card.set_GameState(GameState)
 		print("Gave new card player number: " + str(player_number))
 		new_card.player_number = player_number
-		new_card.GameState = GameState
 		print("Karte2d got the following game State: " + str(GameState))
 
 # Function to initially fill the hand

@@ -117,5 +117,7 @@ func player_attacking(player:int, attack:Array):
 	elif player == 2:
 		for card in attack:
 			player_1_base.change_hp_base(card.angriff*-1)
+func get_resources():
+	return self.ressources
 			
 			

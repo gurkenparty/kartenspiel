@@ -24,8 +24,7 @@ func _ready() -> void:
 	local_draggable.set_karte2d(self)
 	local_draggable.visible = false
 	cam = get_viewport().get_camera_3d()
-func set_GameState(gamestate:Node3D):
-	self.GameState = gamestate
+
 func _physics_process(_delta):
 	if GameStateWorld.current_phase == GameStateWorld.Phase.PLAYING and is_dragging and not placed:
 		update_card_position()
@@ -120,11 +119,9 @@ func try_to_place_card():
 func can_place_card() -> bool:
 	for res in cost.keys():
 		if GameState.ressources[res] < cost[res]:
-			self.modulate = Color(0.3, 0.3, 0.3, 1)  # Verdunkelt die Karte
+			print("Not enough " + res)
 			return false
-	self.modulate = Color(1, 1, 1, 1)  # Setzt Farbe zurück, falls genug Ressourcen
 	return true
-
 
 func reset_card_position():
 	placed = false
