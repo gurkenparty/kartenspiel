@@ -1,5 +1,6 @@
 extends Button
 
+signal element_pressed(element)
 @export var deck_name: String = "New Deck"
 @export var preview:Texture2D
 @export var name_label:Label
@@ -16,3 +17,7 @@ func change_deck_name(deck_name:String):
 	name_label.text = deck_name
 func change_preview(deck_preview:Texture2D):
 	preview_sprite.texture = deck_preview
+
+
+func _on_pressed() -> void:
+	element_pressed.emit(self)

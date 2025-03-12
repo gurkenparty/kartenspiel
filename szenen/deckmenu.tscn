@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://deckmenu.gd" id="1_p3c34"]
 
-[node name="Deckmenu" type="Control"]
+[node name="Deckmenu" type="Control" node_paths=PackedStringArray("input_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,3 +11,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p3c34")
 columns = 6
+input_panel = NodePath("Panel")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -98.0
+offset_right = -256.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(16.0259, 5.20626)
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 1.55997
+offset_top = 16.1344
+offset_right = 68.6225
+offset_bottom = 47.1344
+scale = Vector2(0.0131862, 0.021608)
+theme_override_colors/caret_color = Color(0.546335, 0.402822, 0.233398, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 191
+placeholder_text = "Gebe einen Decknamen ein..."
+max_length = 22
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="nameset" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 32.3226
+offset_top = 29.0035
+offset_right = 360.323
+offset_bottom = 142.004
+scale = Vector2(0.0160667, 0.0440414)
+theme_override_colors/icon_hover_color = Color(0.600031, 0.407852, 0.0359597, 1)
+theme_override_font_sizes/font_size = 76
+text = "Erstellen"
+
+[connection signal="pressed" from="Panel/nameset" to="." method="_on_nameset_pressed"]

@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cejyp1lwft0gs" path="res://assets/3d/avatars/knight.glb" id="4_lwlnj"]
 [ext_resource type="PackedScene" uid="uid://dadq5070c8fty" path="res://assets/3d/resources/stylized_crystal.glb" id="4_yfl1a"]
 
-[sub_resource type="Environment" id="Environment_bappa"]
-background_mode = 1
+[sub_resource type="Environment" id="Environment_atrb0"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0921
+volumetric_fog_albedo = Color(0.0807833, 0.0807833, 0.0807833, 1)
+volumetric_fog_emission_energy = 98.01
+volumetric_fog_gi_inject = 1.26
+volumetric_fog_detail_spread = 3.36358
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qruyr"]
 
@@ -25,7 +30,7 @@ material = SubResource("StandardMaterial3D_p0wmq")
 [node name="showroom" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bappa")
+environment = SubResource("Environment_atrb0")
 camera_attributes = SubResource("CameraAttributesPractical_qruyr")
 compositor = SubResource("Compositor_fk68i")
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvc2p73ej1m10"]
+[gd_scene load_steps=5 format=3 uid="uid://bvc2p73ej1m10"]
+
+[ext_resource type="PackedScene" uid="uid://bpes48cpf068n" path="res://assets/maps/mossygrassy_landscape/scene.gltf" id="1_fjhu2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3er1"]
 transparency = 1
-albedo_color = Color(0.384314, 0.384314, 0.384314, 1)
+albedo_color = Color(0.384314, 0.384314, 0.384314, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l3e01"]
 material = SubResource("StandardMaterial3D_m3er1")
@@ -20,3 +22,6 @@ mesh = SubResource("PlaneMesh_l3e01")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0139692, 0.00854497, 0.0263299)
 shape = SubResource("BoxShape3D_8ejyb")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_fjhu2")]
+transform = Transform3D(0.0498334, 0, 0, 0, 0.0498334, 0, 0, 0, 0.0498334, -3.67688, -23.8123, 0.557495)

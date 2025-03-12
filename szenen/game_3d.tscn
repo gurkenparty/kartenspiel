@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpy05kmu61fjw"]
+[gd_scene load_steps=4 format=3 uid="uid://cpy05kmu61fjw"]
 
 [ext_resource type="Script" path="res://szenen/game_3d.gd" id="1_jw74r"]
 [ext_resource type="PackedScene" uid="uid://bvc2p73ej1m10" path="res://szenen/main/feld/spielfeld.tscn" id="2_aw4i0"]
 [ext_resource type="PackedScene" uid="uid://bdha2gsrd1me1" path="res://szenen/main.tscn" id="3_mjn76"]
-[ext_resource type="PackedScene" uid="uid://bpes48cpf068n" path="res://assets/maps/mossygrassy_landscape/scene.gltf" id="4_p5ffr"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_h5mra"]
 
 [node name="Game3D" type="Node3D"]
 script = ExtResource("1_jw74r")
@@ -16,10 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 0.0174524, 0.999848, 0, -0.999848, 0.0174524
 [node name="Spielfeld" parent="." instance=ExtResource("2_aw4i0")]
 transform = Transform3D(4.88971, -0.0164381, 0.0276072, 0.0164945, 4.88975, -0.0147949, -0.0226036, 0.0122116, 5.9613, 0.0739527, -0.0558453, -0.0397854)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58016, 1.53642, 0.46046)
-mesh = SubResource("CylinderMesh_h5mra")
-
 [node name="Player1" parent="." instance=ExtResource("3_mjn76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149355, 9.53674e-07, 1.75179)
 player_number = 1
@@ -27,6 +20,3 @@ player_number = 1
 [node name="Player2" parent="." instance=ExtResource("3_mjn76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0266045, 0, -12.8821)
 player_number = 2
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_p5ffr")]
-transform = Transform3D(0.0498334, 0, 0, 0, 0.0498334, 0, 0, 0, 0.0498334, -3.67688, -4.27528, 0.557495)

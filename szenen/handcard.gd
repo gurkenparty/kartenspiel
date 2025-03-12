@@ -44,7 +44,6 @@ func spawn_card(card_data: Dictionary):
 		new_card.weiter_btn = weiter_btn
 		new_card.hand = self
 		new_card.GameState = GameState
-		new_card.set_GameState(GameState)
 		print_debug("Gave new card player number: " + str(player_number))
 		new_card.player_number = player_number
 		print_debug("Karte2d got the following game State: " + str(GameState))
