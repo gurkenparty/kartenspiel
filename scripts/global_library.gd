@@ -59,5 +59,65 @@ var cards = {
 	"Meister": {
 		"texture": preload("res://assets/characters/kobold/6/Meister/Meister.png"),
 		"draggable_scene": preload("res://szenen/card/kobold/6/Meister/Meister.tscn")
+	},
+	"Unge": {
+		"texture": preload("res://assets/characters/ork/1/Ungelehrter/Ungelehrter.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/1/Ungelehrter/Unge.tscn")
+	},
+	"Hauer": {
+		"texture": preload("res://assets/characters/ork/2/hauer/hauer.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/2/Hauer/Hauer.tscn")
+	},
+	"Zerfleischer": {
+		"texture": preload("res://assets/characters/ork/3/Zerfleischer/Cropped.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/3/Zerfleischer/Zerfleischer.tscn")
+	},
+	"EF": {
+		"texture": preload("res://assets/characters/ork/4/EF/EF.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/4/FetterReiter/EF.tscn")
+	},
+	"RO": {
+		"texture": preload("res://assets/characters/ork/5/RO/RO.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/5/OgerOrk/RO.tscn")
+	},
+	"Kirill": {
+		"texture": preload("res://assets/characters/ork/6/Kirill/Kirill.png"),
+		"draggable_scene": preload("res://szenen/card/Ork/6/Kirill/Kirill.tscn")
+	},
+	"Blumen": {
+		"texture": preload("res://assets/characters/Drache/Blumen.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Blumen.tscn")
+	},
+	"Erde": {
+		"texture": preload("res://assets/characters/Drache/Erde.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Erde.tscn")
+	},
+	"Feuer": {
+		"texture": preload("res://assets/characters/Drache/Feuer.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Feuer.tscn")
+	},
+	"Glas": {
+		"texture": preload("res://assets/characters/Drache/Glas.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Glass.tscn")
+	},
+	"Licht": {
+		"texture": preload("res://assets/characters/Drache/Licht.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Licht.tscn")
+	},
+	"Natur": {
+		"texture": preload("res://assets/characters/Drache/Natur.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Natur.tscn")
+	},
+	"Schatten": {
+		"texture": preload("res://assets/characters/Drache/Schatten.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Schatten.tscn")
+	},
+	"Stahl": {
+		"texture": preload("res://assets/characters/Drache/Stahl.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Stahl.tscn")
+	},
+	"Wasser": {
+		"texture": preload("res://assets/characters/Drache/Wasser.png"),
+		"draggable_scene": preload("res://szenen/card/Drache/Wasser.tscn")
 	}
 }
