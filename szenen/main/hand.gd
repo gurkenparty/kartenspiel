@@ -42,6 +42,6 @@ func is_on_game_board() -> bool:
 	return board_area.get_rect().has_point(Vector2(card_position.x, card_position.z))  # Example, check if it's inside the board area
 
 func _drop_on_board():
-	print("Card dropped on board!")
+	print_debug("Card dropped on board!")
 	# Handle logic for card placement on the board (e.g., adding it to a list, activating card effect)
 	# You can reset the card position, update the game state, etc.

@@ -16,25 +16,25 @@ func _ready() -> void:
 	
 	if player_number == 1:
 		GameStateWorld.player_1_cam = cam
-		print("Game State World cam 1: " + str(GameStateWorld.player_1_cam))
+		print_debug("Game State World cam 1: " + str(GameStateWorld.player_1_cam))
 	elif player_number == 2:
 		GameStateWorld.player_2_cam = cam
 		cam.rotation.y += deg_to_rad(180)
-		print("Game State World cam 2: " + str(GameStateWorld.player_2_cam))
-	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
+		print_debug("Game State World cam 2: " + str(GameStateWorld.player_2_cam))
+	print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
 	if GameStateWorld.current_player != player_number:
 		self.visible = false
 		hand.visible =false
-		print(self.name + " visibility is set to "+  str(self.visible))
-	print("option_btn:", option_btn)
-	print("weiter_btn:", weiter_btn)
+		print_debug(self.name + " visibility is set to "+  str(self.visible))
+	print_debug("option_btn:", option_btn)
+	print_debug("weiter_btn:", weiter_btn)
 	option_btn.option_pressed.connect(_on_option_pressed)
 	
 	if player_number == 2:
 		field_start_x = 9
 		field_spacing = -3
 		field_z = -1
-		print("Current player num 2 and field start loop")
+		print_debug("Current player num 2 and field start loop")
 	
 
 
@@ -57,7 +57,7 @@ func _physics_process(delta):
 			#if player_number == 2:
 				#mouse_pos.x = mouse_pos.x *-1
 			clicktrack.global_position = Vector2(mouse_pos.x, mouse_pos.y)
-			print("PLayer " + str(player_number) + "mouse position is: " + str(mouse_pos))
+			print_debug("PLayer " + str(player_number) + "mouse position is: " + str(mouse_pos))
 			# Create raycast query
 			var query = PhysicsRayQueryParameters3D.create(origin, end)
 			query.collide_with_areas = true  # Include areas in collision detection
@@ -72,10 +72,10 @@ func _physics_process(delta):
 				var co: CollisionObject3D = rayResult.get("collider")
 func _on_turn_changed(new_player:int):
 	if GameStateWorld.current_player != player_number:
-		print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
+		print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
 		self.visible = false
 	if GameStateWorld.current_player== player_number:
-		print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
+		print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
 		self.visible = true
 		
 
@@ -104,7 +104,7 @@ func set_attack_mode():
 func _on_option_pressed():
 	if GameStateWorld.current_phase == GameStateWorld.Phase.FIGHTING:
 		if selected_cards.size() > 0:
-			print(selected_cards)
+			print_debug(selected_cards)
 			player_attacking(player_number, selected_cards)
 			option_btn.visible = false
 			weiter_btn.visible = true

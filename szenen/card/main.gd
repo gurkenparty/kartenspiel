@@ -72,41 +72,41 @@ func _input(event):
 		var result = space_state.intersect_ray(query)
 
 		if result.has("collider"):
-			print("Ray hit something:", result["collider"], " but self is: ", str(self), " and self are is: " , str(collision_area))
+			print_debug("Ray hit something:", result["collider"], " but self is: ", str(self), " and self are is: " , str(collision_area))
 			if result["collider"] == collision_area:
-				print("Ray hit this card!")
+				print_debug("Ray hit this card!")
 				if selection:
-					print("selection if loop")
+					print_debug("selection if loop")
 					set_selected()
 				else:
-					print("Not selection")
+					print_debug("Not selection")
 					if cardimg_scene:
-						print("In cardimg if loop")
+						print_debug("In cardimg if loop")
 						instantiated_cardimg_scene = cardimg_scene.instantiate()
-						print("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
+						print_debug("Card scene: " + str(instantiated_cardimg_scene) + " instantiated")
 						add_child(instantiated_cardimg_scene)
 						instantiated_cardimg_scene.weiter_btn = weiter_btn
-						print("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
+						print_debug("Card scene: " + str(instantiated_cardimg_scene) + " added as child")
 						instantiated_cardimg_scene.texture = cardimg_file
 						instantiated_cardimg_scene.visible = true
-						print("Card scene: " + str(instantiated_cardimg_scene) + " visibility: " + str(instantiated_cardimg_scene.visible))
+						print_debug("Card scene: " + str(instantiated_cardimg_scene) + " visibility: " + str(instantiated_cardimg_scene.visible))
 						option_btn.text = str(self.name) + " Vorschau ausblenden"
 						option_btn.visible = true
 						option_btn.connect("option_pressed", _on_option_pressed)
-						print(self.name, " got the signal from ", str(option_btn))
+						print_debug(self.name, " got the signal from ", str(option_btn))
 						weiter_btn.visible = false
-						print("Card scene: " + str(instantiated_cardimg_scene) + " texture: " + str(instantiated_cardimg_scene.texture))
+						print_debug("Card scene: " + str(instantiated_cardimg_scene) + " texture: " + str(instantiated_cardimg_scene.texture))
 					else:
-						print("Error: cardimg_scene is null!")
+						print_debug("Error: cardimg_scene is null!")
 					
 			else:
-				print("Ray hit another object:", result["collider"])
+				print_debug("Ray hit another object:", result["collider"])
 		else:
-			print("Ray did not hit anything.")
+			print_debug("Ray did not hit anything.")
 				# Do something while still colliding, e.g., update position
 
 func _on_card_placed(card, card3d):
-	print("Karte3D detected that a card was placed:", card.name)
+	print_debug("Karte3D detected that a card was placed:", card.name)
 	if not effect_placed:
 		add_to_group("feld")
 		played = true
@@ -118,7 +118,7 @@ func _on_phase_changed(new_phase: int):
 	if new_phase == GameStateWorld.Phase.FIGHTING and GameStateWorld.current_player == player_number:
 		selection_on()
 	elif new_phase == GameStateWorld.Phase.LAST_EFFECT and GameStateWorld.current_player == player_number:
-		print("New phase is after fight")
+		print_debug("New phase is after fight")
 		selection_off()
 
 func selection_on():
@@ -130,45 +130,45 @@ func selection_on():
 	selection = true
 	for card in get_tree().get_nodes_in_group("feld"):
 		card.card_selected.connect(_on_card_selected)
-		print(self.name + " connected to " + card.name)
+		print_debug(self.name + " connected to " + card.name)
 
 func selection_off():
 	self.global_position = original_position
 	remove_from_group("selected")
 	selected = false
 	GameState.selected_cards.erase(self)
-	print("Selection off")
+	print_debug("Selection off")
 	select_border.scale -= Vector3(0.3, 0.3, 0)
 	standard_material = StandardMaterial3D.new()
 	standard_material.albedo_texture = standard_texture
-	print("Standard Material for: " + str(self.name) + " applied")
+	print_debug("Standard Material for: " + str(self.name) + " applied")
 	select_border.material_override = standard_material
-	print("Standard material is: " +str(standard_material))
-	print("Material for border of " + str(self.name) + " is: "+ str(select_border.get_active_material(0)))
+	print_debug("Standard material is: " +str(standard_material))
+	print_debug("Material for border of " + str(self.name) + " is: "+ str(select_border.get_active_material(0)))
 	selection = false
 	for card in get_tree().get_nodes_in_group("feld"):
 		card.card_selected.disconnect(_on_card_selected)
-		print(self.name + " disconnected from " + card.name)
+		print_debug(self.name + " disconnected from " + card.name)
 	
 func set_selected():
 	if selection and not selected:
 		selected_material = StandardMaterial3D.new()
 		selected_material.albedo_texture = selected_material_texture
 		select_border.material_override = selected_material
-		print("Selected Material for: " + str(self.name) + " applied")
+		print_debug("Selected Material for: " + str(self.name) + " applied")
 		add_to_group("selected")
 		selected = true
 		temporary_move_distance = move_distance_areas.size()
 		emit_signal("card_selected", self, move_distance_areas.size())
-		print(self.name + " move distance: " + str(move_distance_areas.size()))
+		print_debug(self.name + " move distance: " + str(move_distance_areas.size()))
 		GameState.selected_cards.append(self)
-		print(self.name + " emitted: " + str(card_selected))
+		print_debug(self.name + " emitted: " + str(card_selected))
 		GameState.set_attack_mode()
 	elif selection and selected:
 		selection_material = StandardMaterial3D.new()
 		selection_material.albedo_texture = selection_material_texture
 		select_border.material_override = selection_material
-		print("Selection Material for: " + str(self.name) + " applied")
+		print_debug("Selection Material for: " + str(self.name) + " applied")
 		remove_from_group("selected")
 		selected = false
 		emit_signal("card_selected", self, temporary_move_distance*-1)
@@ -180,7 +180,7 @@ func update_labels():
 	health_label.text = str(leben)
 	
 func apply_effect():
-	print("No Effect for card: " + self.name + " set.")
+	print_debug("No Effect for card: " + self.name + " set.")
 
 func set_karte2d(card: Button):
 	karte2d = card
@@ -219,29 +219,29 @@ func change_values(value: String, change: int):
 	update_labels()
 
 func _on_card_selected(card, distance):
-	print(self.name + " doing on card function")
+	print_debug(self.name + " doing on card function")
 	# Debug the overlap_areas and card comparison
 	if self.global_position.x > card.global_position.x:
-		print(self.name +" moved for distance: "+ str(distance))
+		print_debug(self.name +" moved for distance: "+ str(distance))
 		self.global_position += Vector3(distance*2, 0,0)
 
 func _on_area_3d_area_entered(area: Area3D):
 	if area.name != "Spielfeld":
 		move_distance_areas.append(area)
-		print(self.name + " move distance areas: " + str(move_distance_areas))
+		print_debug(self.name + " move distance areas: " + str(move_distance_areas))
 	if area.name != "Spielfeld" and not overlap_areas.has(area) and self.global_position.x > area.global_position.x:
 		overlap_areas.append(area)
-		print("Colliding with " + area.name)
+		print_debug("Colliding with " + area.name)
 
 func _on_area_3d_area_exited(area: Area3D):
 	if overlap_areas.has(area):
 		overlap_areas.erase(area)
-		print("Stopped colliding with " + area.name)
+		print_debug("Stopped colliding with " + area.name)
 	if move_distance_areas.has(area):
 		move_distance_areas.erase(area)
 
 func _handle_overlap():
-	print(self.name + " is in handle overlap")
+	print_debug(self.name + " is in handle overlap")
 	self.global_position += Vector3(2*overlap_areas.size(), 0, 0)
 	overlap_areas.clear()
 	

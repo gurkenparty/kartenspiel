@@ -64,7 +64,7 @@ func stop_drag():
 
 # Handle logic when the card is dropped on the board
 func _drop_on_board():
-	print("Card dropped on board!")
+	print_debug("Card dropped on board!")
 	# Implement game logic when the card is dropped (e.g., activating card effect, updating game state, etc.)
 
 # Get the position of the mouse in world coordinates via raycasting

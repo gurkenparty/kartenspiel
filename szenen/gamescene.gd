@@ -16,4 +16,4 @@ func _on_spielen_pressed() -> void:
 	sub_viewport.add_child(game_scene_instance)
 	self.visible = true
 	game_scene_instance.visible = true
-	print("Game started Visibility of scene is: " +str(game_scene_instance.name) + str(game_scene_instance.visible))
+	print_debug("Game started Visibility of scene is: " +str(game_scene_instance.name) + str(game_scene_instance.visible))

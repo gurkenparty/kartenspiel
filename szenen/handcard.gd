@@ -21,12 +21,12 @@ func _ready():
 	GameStateWorld.turn_changed.connect(_on_turn_changed)
 	# Connect the draw request signal
 	request_draw_card.connect(_on_request_draw_card)
-	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
+	print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
 
 # Function to handle drawing a card when a card requests it
 func _on_request_draw_card():
 	if hand_container.get_child_count() < 5:
-		print("A card requested a draw! Requesting from " + str(player_number))
+		print_debug("A card requested a draw! Requesting from " + str(player_number))
 		if deck:
 			var new_card_data = deck.draw_card()  # Ask deck for a new card
 			if new_card_data:
@@ -45,9 +45,9 @@ func spawn_card(card_data: Dictionary):
 		new_card.hand = self
 		new_card.GameState = GameState
 		new_card.set_GameState(GameState)
-		print("Gave new card player number: " + str(player_number))
+		print_debug("Gave new card player number: " + str(player_number))
 		new_card.player_number = player_number
-		print("Karte2d got the following game State: " + str(GameState))
+		print_debug("Karte2d got the following game State: " + str(GameState))
 
 # Function to initially fill the hand
 func spawn_hand_cards(amount: int):
@@ -56,7 +56,7 @@ func spawn_hand_cards(amount: int):
 
 # Function to remove a played card from hand
 func _on_card_placed(card: Button, card3d: Node3D):
-	print("Card placed:", card.name)
+	print_debug("Card placed:", card.name)
 	hand_container.remove_child(card)
 	card_3d_effector.emit(card3d)
 
@@ -64,11 +64,11 @@ func _on_card_placed(card: Button, card3d: Node3D):
 	var world_parent = get_tree().get_root().find_child("Game3D", true, false)
 	if world_parent:
 		world_parent.add_child(card)
-		print("Card: " + str(card) + " added to: " + str(world_parent))
+		print_debug("Card: " + str(card) + " added to: " + str(world_parent))
 		GameState.placed_3d_cards.append(card3d)
 
 func _on_phase_changed(new_phase: int):
-	print("Game State changed on Hand to phase: ", new_phase)  # Debug signal reception
+	print_debug("Game State changed on Hand to phase: ", new_phase)  # Debug signal reception
 	if new_phase == GameStateWorld.Phase.DRAWING and GameStateWorld.current_player == player_number:
 		self.global_position -= Vector2(0, 100)
 		spawn_hand_cards(1)

@@ -13,4 +13,4 @@ func _on_phase_changed(new_phase):
 	text = GameStateWorld.get_phase_name()
 
 func _on_turn_changed(new_player):
-	print("Player " + str(new_player) + "'s turn!")
+	print_debug("Player " + str(new_player) + "'s turn!")

@@ -42,13 +42,13 @@ func pick_card_value(Titel: String):
 		self.level = stat.get("level", 1)
 		self.leben = stat.get("leben", 10)
 		self.angriff = stat.get("angriff", 5)
-		print(stat.get("title", ""))
-		print(self.typ)
-		print(self.story)
-		print(self.effekt)
-		print(self.level)
-		print(self.leben)
-		print(self.angriff)
+		print_debug(stat.get("title", ""))
+		print_debug(self.typ)
+		print_debug(self.story)
+		print_debug(self.effekt)
+		print_debug(self.level)
+		print_debug(self.leben)
+		print_debug(self.angriff)
 	else:
 		push_error("Card with title '%s' not found in JSON data." % Titel)
 
@@ -76,7 +76,7 @@ func grab_layout(typ: String, level: int):
 	# Search for the card that matches typ and level
 	for card in cards:
 		if card.get("typ", "") == typ and card.get("level", -1) == level:
-			print(card.get("layers", []))
+			print_debug(card.get("layers", []))
 			self.card_layers = card.get("layers", [])
 	
 	return []  # Return empty array if no matching card is found

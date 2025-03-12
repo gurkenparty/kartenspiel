@@ -22,14 +22,14 @@ func draw_card() -> Dictionary:
 		deck.remove_at(random_index)  # Remove card name from deck
 
 		# Fetch the actual card data from the global library
-		print("Card Lib: " + str(GlobalLibrary.cards))
+		print_debug("Card Lib: " + str(GlobalLibrary.cards))
 		if GlobalLibrary.cards.has(card_name):  # Check if card exists
 			return GlobalLibrary.cards[card_name]  # Return the card data
 		else:
-			print("Error: Card '" + card_name + "' not found in GlobalLibrary!")
+			print_debug("Error: Card '" + card_name + "' not found in GlobalLibrary!")
 			return {}
 	else:
-		print("Deck is empty!")
+		print_debug("Deck is empty!")
 		return {}  # Return empty dictionary if no cards are left
 
 # Function to shuffle the deck

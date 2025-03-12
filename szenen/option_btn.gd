@@ -16,4 +16,4 @@ func _on_pressed() -> void:
 	if preview:
 		weiter_btn.visible = true
 	option_pressed.emit()
-	print("option button emitted")
+	print_debug("option button emitted")

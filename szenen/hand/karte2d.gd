@@ -44,7 +44,7 @@ func update_card_position():
 
 	if rayResult.has("collider") and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var co: CollisionObject3D = rayResult.get("collider")
-		print("Dragging over: ", co.name)
+		print_debug("Dragging over: ", co.name)
 		local_draggable.global_position = Vector3(cam.global_position.x, cam.global_position.y - 1, cam.global_position.z)
 		if player_number == 2 and not to_rotate:
 			local_draggable.rotation.z = deg_to_rad(180)
@@ -55,7 +55,7 @@ func update_card_position():
 		self.visible = false
 
 func try_to_place_card():
-	print("Trying to place card...")
+	print_debug("Trying to place card...")
 	var space_state = local_draggable.get_world_3d().direct_space_state
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var origin: Vector3 = cam.project_ray_origin(mouse_pos)
@@ -67,9 +67,9 @@ func try_to_place_card():
 	var rayResult = space_state.intersect_ray(query)
 
 	if rayResult.has("collider"):
-		print("Ray hit: " + str(rayResult["collider"].name))
+		print_debug("Ray hit: " + str(rayResult["collider"].name))
 		if not can_place_card():
-			print("Not enough resources!")
+			print_debug("Not enough resources!")
 			reset_card_position()
 			return
 
@@ -90,7 +90,7 @@ func try_to_place_card():
 			x_position += GameState.field_spacing * GameState.placed_cards.size()
 
 		var final_position = Vector3(x_position, y_position, z_position)
-		print("Placing card at: " + str(final_position))
+		print_debug("Placing card at: " + str(final_position))
 		var placing_tween = create_tween()
 		placing_tween.tween_property(local_draggable, "position", final_position, 0.2)
 
@@ -113,7 +113,7 @@ func try_to_place_card():
 		local_draggable.GameState = GameState
 
 		card_placed.emit(self, local_draggable)
-		print("Card placed and signal emitted!")
+		print_debug("Card placed and signal emitted!")
 	else:
 		reset_card_position()
 
@@ -131,13 +131,13 @@ func reset_card_position():
 	is_dragging = false
 	local_draggable.visible = false
 	self.visible = true
-	print("Card placement canceled.")
+	print_debug("Card placement canceled.")
 
 func _on_button_down() -> void:
 	is_dragging = true
-	print("Dragging started")
+	print_debug("Dragging started")
 
 func _on_button_up() -> void:
 	is_dragging = false
-	print("Mouse released, trying to place card...")
+	print_debug("Mouse released, trying to place card...")
 	try_to_place_card()

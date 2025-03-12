@@ -23,13 +23,13 @@ func can_grab():
 	if raycast.is_colliding():  # If the raycast is hitting something
 		picked = raycast.get_collider()  # Get the collider the raycast is hitting
 		if picked:
-			print("Object grabbed: " + str(picked.name))
+			print_debug("Object grabbed: " + str(picked.name))
 			grabPos.position = picked.position  # Move the grab position to the object
 			grabPos.visible = true  # Make the grab position visible
 
 # Function to release the object
 func release_object():
 	if picked:
-		print("Object released: " + str(picked.name))
+		print_debug("Object released: " + str(picked.name))
 		picked = null  # Reset the picked object
 		grabPos.visible = false  # Hide the grab position

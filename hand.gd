@@ -34,12 +34,12 @@ func _spawn_hand():
 		cards_in_hand.append(card_instance)
 
 		# Debugging: output card creation info
-		print("Card spawned: ", card_instance.name)
+		print_debug("Card spawned: ", card_instance.name)
 
 # Check for mouse input continuously
 func _process(delta):
 	if Input.is_action_just_pressed("click"):  # Mouse click down
-		print("Mouse button pressed")
+		print_debug("Mouse button pressed")
 		_handle_mouse_click()
 
 	if is_dragging and selected_card:
@@ -52,15 +52,15 @@ func _process(delta):
 func _handle_mouse_click():
 	# Project the mouse position into 3D space
 	var mouse_position = get_viewport().get_mouse_position()
-	print("Mouse position: ", mouse_position)
+	print_debug("Mouse position: ", mouse_position)
 	
 	var from = camera.position
 	var direction = camera.project_ray_normal(mouse_position)
 	var to = from + direction * 1000  # Extend the ray far into the world
 
 	# Debugging: ray info
-	print("Raycast origin: ", from)
-	print("Raycast target: ", to)
+	print_debug("Raycast origin: ", from)
+	print_debug("Raycast target: ", to)
 	
 	# Update the RayCast3D's origin and direction
 	raycast.cast_from = from
@@ -69,14 +69,14 @@ func _handle_mouse_click():
 	# Check if the raycast collides with anything
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		print("Raycast collided with: ", collider)
+		print_debug("Raycast collided with: ", collider)
 
 		# Check if the raycast collided with any card
 		for card in cards_in_hand:
 			if collider == card:
 				selected_card = card
 				is_dragging = true
-				print("Card selected: ", card.name)
+				print_debug("Card selected: ", card.name)
 				break
 
 # Handling card drag
@@ -94,11 +94,11 @@ func _handle_card_drag():
 		# Move the card to the raycast's collision point
 		if raycast.is_colliding():
 			selected_card.position = raycast.get_collision_point()
-			print("Card dragged to: ", selected_card.position)
+			print_debug("Card dragged to: ", selected_card.position)
 
 # Handling mouse release (end drag)
 func _handle_mouse_release():
 	if selected_card:
 		is_dragging = false
 		selected_card = null
-		print("Drag ended.")
+		print_debug("Drag ended.")

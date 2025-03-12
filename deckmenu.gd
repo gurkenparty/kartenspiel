@@ -7,7 +7,7 @@ var deck_preview:Texture2D = load("res://assets/wallpapers/Wallpaper_Schmied.png
 var z_spawn:int = 72
 var default_x:int = 55
 func _ready() -> void:
-	print("Decks: " + str(GameStats.decks))
+	print_debug("Decks: " + str(GameStats.decks))
 	refresh_deck_display()
 
 # Function to refresh the deck display in the menu
@@ -25,8 +25,8 @@ func refresh_deck_display():
 	# Iterate over each deck in GameStats.decks and create a UI for it
 	for deck in GameStats.decks:
 		var deck_preview_scene_instance = deck_preview_scene.instantiate()
-		print(deck.deck_name)
-		print(str(deck.preview))
+		print_debug(deck.deck_name)
+		print_debug(str(deck.preview))
 		deck_preview_scene_instance.change_deck_name(deck.deck_name)
 		deck_preview_scene_instance.change_preview(deck.preview)
 		add_child(deck_preview_scene_instance)
@@ -44,4 +44,4 @@ func refresh_deck_display():
 
 
 func _on_new_deck_button_pressed() -> void:
-	print("Creating a new deck...")
+	print_debug("Creating a new deck...")

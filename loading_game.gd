@@ -23,4 +23,4 @@ func _process(_delta: float) -> void:
 			get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(TARGET_SCENE_PATH))
 		ResourceLoader.THREAD_LOAD_FAILED:
 			# Handle loading error
-			print("Error loading scene")
+			print_debug("Error loading scene")

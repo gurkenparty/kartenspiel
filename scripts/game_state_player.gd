@@ -13,17 +13,17 @@ var selected_cards = []
 var attack_mode = false
 var ressources = {"Holz" : 30, "Stein" : 30, "Metall" : 30, "Amethyst" : 0, "Gold" : 0}
 func _ready():
-	print("option_btn:", option_btn)
-	print("weiter_btn:", weiter_btn)
-	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+	print_debug("option_btn:", option_btn)
+	print_debug("weiter_btn:", weiter_btn)
+	print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
 	if player == 2:
-		print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+		print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
 		field_start_x = 9
 		field_spacing = -3
 		field_z = 2
 	option_btn.option_pressed.connect(_on_option_pressed)
 func set_attack_mode():
-	print("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
+	print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player))
 	if GameStateWorld.current_phase == GameStateWorld.Phase.FIGHTING and player == GameStateWorld.current_player:
 		if selected_cards.size() > 0:
 		
@@ -38,7 +38,7 @@ func set_attack_mode():
 func _on_option_pressed():
 	if GameStateWorld.current_phase == GameStateWorld.Phase.FIGHTING:
 		if selected_cards.size() > 0:
-			print(selected_cards)
+			print_debug(selected_cards)
 			GameStateWorld.player_attacking(player, selected_cards)
 			option_btn.visible = false
 			weiter_btn.visible = true

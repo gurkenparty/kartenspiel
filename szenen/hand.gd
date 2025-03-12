@@ -67,9 +67,9 @@ func face_camera(card):
 	card.rotation_degrees.x = camera_pitch_degrees
 	
 	# Optional: Debugging output to see what’s going on
-	print("Camera Pitch (radians):", camera.rotation.x)
-	print("Camera Pitch (degrees):", camera_pitch_degrees)
-	print("Card Rotation X:", card.rotation_degrees.x)
+	print_debug("Camera Pitch (radians):", camera.rotation.x)
+	print_debug("Camera Pitch (degrees):", camera_pitch_degrees)
+	print_debug("Card Rotation X:", card.rotation_degrees.x)
 
 func _on_card_hover(card):
 	if hovered_card == null:  # Only allow one hover at a time

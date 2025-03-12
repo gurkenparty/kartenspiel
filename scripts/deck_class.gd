@@ -9,7 +9,7 @@ var cards_playable: Array = []
 # Constructor (_init is called when 'Card.new()' is used)
 func _init(deck_name: String, preview: Texture, cards:Array):
 	self.deck_name = deck_name
-	print(deck_name)
+	print_debug(deck_name)
 	self.preview = preview
 	self.cards = cards
 	self.cards_playable = cards
@@ -32,14 +32,14 @@ func draw_card() -> Dictionary:
 		self.cards_playable.remove_at(random_index)  # Remove card name from deck
 
 		# Fetch the actual card data from the global library
-		print("Card Lib: " + str(GlobalLibrary.cards))
+		print_debug("Card Lib: " + str(GlobalLibrary.cards))
 		if GlobalLibrary.cards.has(card_name):  # Check if card exists
 			return GlobalLibrary.cards[card_name]  # Return the card data
 		else:
-			print("Error: Card '" + card_name + "' not found in GlobalLibrary!")
+			print_debug("Error: Card '" + card_name + "' not found in GlobalLibrary!")
 			return {}
 	else:
-		print("Deck is empty!")
+		print_debug("Deck is empty!")
 		return {}  # Return empty dictionary if no cards are left
 		
 func shuffle_deck():

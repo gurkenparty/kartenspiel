@@ -25,23 +25,23 @@ signal phase_changed(new_phase)
 signal turn_changed(new_player)
 func next_phase():
 	current_phase += 1
-	print("Next phase triggered: " + str(current_phase))  
+	print_debug("Next phase triggered: " + str(current_phase))  
 
 	if current_phase > Phase.LAST_EFFECT:
 		end_turn()
 	else:
 		phase_changed.emit(current_phase)  
-		print("Phase changed signal emitted: " + str(current_phase))
+		print_debug("Phase changed signal emitted: " + str(current_phase))
 
 func end_turn():
 	current_phase = Phase.FIRST_EFFECT
 	current_player += 1
-	print("End turn triggered. Current player: " + str(current_player))  
+	print_debug("End turn triggered. Current player: " + str(current_player))  
 
 	if current_player > max_players:
 		current_player = 1  # Loop back to Player 1
 	turn_changed.emit(current_player)
-	print("Turn changed signal emitted: " + str(current_player))
+	print_debug("Turn changed signal emitted: " + str(current_player))
 	if current_player == 1:
 		player_1_cam.current = !player_1_cam.current
 		player_2_cam.current = player_2_cam.current
@@ -51,7 +51,7 @@ func end_turn():
 		
 
 	phase_changed.emit(current_phase)  
-	print("Phase changed signal emitted (end turn): " + str(current_phase))  
+	print_debug("Phase changed signal emitted (end turn): " + str(current_phase))  
 
 
 		
