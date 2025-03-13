@@ -4,6 +4,15 @@ extends Control
 @export var deck_preview_scene: PackedScene = load("res://szenen/element_preview.tscn")  # Scene for deck preview
 @export var columns: int = 2  # Number of columns in the grid (adjust as needed)
 @export var input_panel:Panel
+@export var cardmenu_scene:PackedScene = load("res://szenen/cardmenu.tscn")
+var deck = [
+	"Knappe", "Landwirtin",
+	"Joker", "Ritter", "Assasine", "Grundbesitzerin",
+	"Graf_Zacharias", "Gerd", "Urus", "Bär",
+	"Gift", "Späher", "Muti", "Stratege", "Meister",
+	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill", "Blumen", "Erde", 
+	"Feuer", "Glas" , "Licht", "Natur", "Schatten", "Stahl", "Wasser", "Xera", "TW", "BB", "EK", "Vet", "Sch"
+]
 var blacklist = []
 var deck_preview:Texture2D = load("res://assets/wallpapers/Wallpaper_Schmied.png")
 var z_spawn:int = 72
@@ -35,6 +44,7 @@ func refresh_deck_display():
 		print_debug(str(deck.preview))
 		deck_preview_scene_instance.change_deck_name(deck.deck_name)
 		deck_preview_scene_instance.change_preview(deck.preview)
+		deck_preview_scene_instance.deck = deck
 		deck_preview_scene_instance.element_pressed.connect(_on_element_pressed)
 		add_child(deck_preview_scene_instance)
 		deck_preview_scene_instance.global_position = new_deck_button_scene.global_position
@@ -55,7 +65,14 @@ func _on_element_pressed(element:Button):
 		print_debug("in visible deck loop")
 		input_panel.visible = true
 	else:
-		pass
+		print_debug("in else scene")
+		var cardmenu_scene_instance = cardmenu_scene.instantiate()
+		print_debug("Deck Cards: " + str(element.deck.cards))
+		cardmenu_scene_instance.cards = element.deck.cards
+		add_child(cardmenu_scene_instance)
+		for child in self.get_children():
+			if child.name != "Panel" and child.name != cardmenu_scene_instance.name:
+				child.queue_free()
 
 
 
@@ -67,5 +84,5 @@ func _on_nameset_pressed() -> void:
 		for deck in GameStats.decks:
 			if deck.deck_name == nametext_line.text:
 				return
-		Deck.new(nametext_line.text, deck_preview, [])
+		Deck.new(nametext_line.text, deck_preview, deck)
 		refresh_deck_display()

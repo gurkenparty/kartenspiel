@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cykagwhmjk44n"]
-
-[node name="element_button" type="Button"]
-scale = Vector2(3.83868, 2.61069)
-theme_override_font_sizes/font_size = 131
-text = "+"

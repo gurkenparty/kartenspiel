@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cykagwhmjk44n"]
+
+[ext_resource type="Script" path="res://szenen/card_preview.gd" id="2_m4gun"]
+
+[node name="card_button" type="Button"]
+offset_left = 103.0
+offset_top = 77.0
+offset_right = 511.0
+offset_bottom = 685.0
+scale = Vector2(0.517913, 0.528381)
+theme_override_font_sizes/font_size = 131
+script = ExtResource("2_m4gun")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
