@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://j1ilp6t0g6pa"]
+
+[ext_resource type="Script" uid="uid://cwnbamht6cfms" path="res://szenen/aBuilding/sammler/amethyst1.gd" id="1_ctuwx"]
+[ext_resource type="Texture2D" uid="uid://d3djyjwbc78m4" path="res://assets/characters/gebaeude/sammler/Amethyst/a1.png" id="2_17gqf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_voii1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_140ad"]
+size = Vector3(3.99843, 3.22081, 1.30464)
+
+[node name="ame1" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
+script = ExtResource("1_ctuwx")
+headclass = "Truppe"
+
+[node name="Sprite3D" type="Sprite3D" parent="." groups=["Truppe"]]
+transform = Transform3D(0.977977, 0, 0, 0, 0.533701, -3.55271e-15, 0, 1.77636e-15, 0.999449, 0, 1.36599, 5.97091e-08)
+texture = ExtResource("2_17gqf")
+
+[node name="Stats" type="Node3D" parent="."]
+
+[node name="leben" type="Label3D" parent="Stats"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, 1.79224, -0.082354, 0.0427669)
+pixel_size = 0.006
+double_sided = false
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="angriff" type="Label3D" parent="Stats"]
+transform = Transform3D(1.62, 0, 0, 0, 1.62, 0, 0, 0, 1.62, -1.60618, -0.080614, 0.0435393)
+pixel_size = 0.006
+double_sided = false
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.942, 0, 0, 0, 3.222, -2.01995e-15, 0, 2.84205e-14, 0.229, 0, 1.36569, -0.139546)
+mesh = SubResource("BoxMesh_voii1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.53175e-13, 0, 7.53175e-13, 1, 0.0162878, 1.35909, 0.403173)
+shape = SubResource("BoxShape3D_140ad")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
