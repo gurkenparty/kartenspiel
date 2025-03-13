@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bceiwcedcku57"]
+
+[ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_r7wdg"]
+[ext_resource type="Script" path="res://szenen/extra/qualle.gd" id="2_8hxek"]
+[ext_resource type="Texture2D" uid="uid://dsfoj0pm243i4" path="res://assets/characters/extra/qualle.png" id="3_vm5kj"]
+
+[node name="Qualle" instance=ExtResource("1_r7wdg")]
+script = ExtResource("2_8hxek")
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(0.946101, 0, 0, 0, 0.540442, -3.55271e-15, 0, 1.77636e-15, 0.999449, 0, 1.36599, 5.97091e-08)
+texture = ExtResource("3_vm5kj")
+
+[node name="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(3.81036, 0, 0, 0, 3.222, -1.77636e-15, 0, 2.84217e-14, 0.229, 0, 1.36569, -0.139546)
