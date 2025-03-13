@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt4qs87xsn8w5"]
 
-[ext_resource type="Script" path="res://szenen/ai.gd" id="1_l5hop"]
+[ext_resource type="Script" uid="uid://ko84dsh5gcv0" path="res://szenen/ai.gd" id="1_l5hop"]
 
 [node name="Ai" type="Node3D"]
 script = ExtResource("1_l5hop")

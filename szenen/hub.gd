@@ -6,12 +6,12 @@ var music_player: AudioStreamPlayer
 
 # A reference to your background music
 @export var background_music: AudioStream
-
 @onready var showroom_scene: SubViewportContainer = $Showroom
 @export var showroom_subviewport: SubViewport
 @export var game_subviewport: SubViewport
 var showroom_scene_instance: Node
 var game_scene_instance: Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +28,7 @@ func _ready() -> void:
 
 	# Play the music
 	music_player.play()
+
 
 
 # Button pressed to start the game
