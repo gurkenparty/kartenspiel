@@ -194,34 +194,34 @@ var cards = {
 	},
 	"Metall1": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m1.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/metall1.tscn")
 	},
 	"Metall2": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m2.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/metall2.tscn")
 	},
 	"Metall3": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m3.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/metall3.tscn")
 	},
 	"Metall4": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m4.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/metall4.tscn")
 	},
 	"Amethyst1": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a1.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/amethyst1.tscn")
 	},
 	"Amethyst2": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a2.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/amethyst2.tscn")
 	},
 	"Amethyst3": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a3.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/amethyst3.tscn")
 	},
 	"Amethyst4": {
 		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a4.png"),
-		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/amethyst4.tscn")
 	}
 }
