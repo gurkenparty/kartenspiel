@@ -143,5 +143,85 @@ var cards = {
 	"Xera": {
 		"texture": preload("res://assets/characters/elf/6/Xera/Xera.png"),
 		"draggable_scene": preload("res://szenen/card/elf/6/Xera/Xera.tscn")
+	},
+	"Schmied": {
+		"texture": preload("res://assets/characters/extra/Schmied.png"),
+		"draggable_scene": preload("res://szenen/extra/schmied.tscn")
+	},
+	"Erdbro": {
+		"texture": preload("res://assets/characters/extra/ERDSCHWANZ.png"),
+		"draggable_scene": preload("res://szenen/extra/erdbro.tscn")
+	},
+	"Falle": {
+		"texture": preload("res://assets/characters/extra/Falle.png"),
+		"draggable_scene": preload("res://szenen/extra/falle.tscn")
+	},
+	"Qualle": {
+		"texture": preload("res://assets/characters/extra/qualle.png"),
+		"draggable_scene": preload("res://szenen/extra/qualle.tscn")
+	},
+	"Holz1": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Hloz/h1.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz1.tscn")
+	},
+	"Holz2": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Hloz/h2.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz2.tscn")
+	},
+	"Holz3": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Hloz/h3.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz3.tscn")
+	},
+	"Holz4": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Hloz/h4.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Stein1": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Stein/s1.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Stein2": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Stein/s2.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Stein3": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Stein/s3.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Stein4": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Stein/s4.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Metall1": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m1.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Metall2": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m2.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Metall3": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m3.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Metall4": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/metall/m4.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Amethyst1": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a1.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Amethyst2": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a2.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Amethyst3": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a3.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
+	},
+	"Amethyst4": {
+		"texture": preload("res://assets/characters/gebaeude/sammler/Amethyst/a4.png"),
+		"draggable_scene": preload("res://szenen/aBuilding/sammler/holz4.tscn")
 	}
 }
