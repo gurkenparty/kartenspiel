@@ -20,4 +20,5 @@ func change_preview(deck_preview:Texture2D):
 
 
 func _on_pressed() -> void:
-	card_pressed.emit(self)
+	if self.card_name != "New Card":
+		card_pressed.emit(self)

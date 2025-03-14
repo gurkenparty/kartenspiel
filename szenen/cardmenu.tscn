@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://cardmenu.gd" id="1_7x2q7"]
 [ext_resource type="Script" path="res://szenen/deck_name_scroll.gd" id="2_iqcwn"]
 
-[node name="Cardmenu" type="Control" node_paths=PackedStringArray("card_wrapper", "scroll_container", "deck_name_panel", "scroll_names_cont")]
+[node name="Cardmenu" type="Control" node_paths=PackedStringArray("card_wrapper", "scroll_container", "card_in_deck_container", "reference_card_name", "deck_name_panel", "scroll_names_cont")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_7x2q7")
 card_wrapper = NodePath("ScrollContainer/card_wrap")
 scroll_container = NodePath("ScrollContainer")
+card_in_deck_container = NodePath("Deckview/cards_in_deck/Control/ScrollContainer/Control")
+reference_card_name = NodePath("Deckview/cards_in_deck/Control/ScrollContainer/Control/reference")
 deck_name_panel = NodePath("Deckview/Panel/Deck_name")
 scroll_names_cont = NodePath("Deckview/cards_in_deck/Control/ScrollContainer")
 

@@ -5,10 +5,12 @@ signal closing_editor()
 @export var card_preview_scene: PackedScene = load("res://szenen/card_preview.tscn")  # Scene for deck preview
 var z_spawn:int = 72
 var default_x:int = 55
+var default_x_name:int
+var default_y_name:int
 @export var card_wrapper: Control  # Holds all card previews
 @export var scroll_container:ScrollContainer
-@export var card_in_deck_container:VBoxContainer
-@export var reference_card_name: Label
+@export var card_in_deck_container:Control
+@export var reference_card_name: Button
 @export var deck_name_panel:LineEdit
 @export var deck_name:String
 @export var deck: Deck
@@ -21,7 +23,8 @@ func _ready() -> void:
 	scroll_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	#add_child(scroll_container)
-
+	default_x_name = reference_card_name.global_position.x
+	default_y_name = reference_card_name.global_position.y
 	# Create Wrapper (for positioning manually)
 	card_wrapper.name = "CardWrapper"
 	card_wrapper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -38,6 +41,10 @@ func refresh_card_display():
 	# Clear all existing UI elements
 	for child in card_wrapper.get_children():
 		child.queue_free()
+	for child in card_in_deck_container.get_children():
+		if child.name != "reference":
+			child.queue_free()
+		reference_card_name.global_position = Vector2(default_x_name, default_y_name)
 			
 	var reference_card_scene = card_preview_scene.instantiate()
 	reference_card_scene.global_position = Vector2(default_x, z_spawn)
@@ -74,7 +81,7 @@ func refresh_card_display():
 # Callback when a card is pressed
 func _on_card_pressed(element:Button):
 	cards_in_deck.append(element.card_name)
-	self.cards.erase(self)
+	self.cards.erase(element.card_name)
 	refresh_card_display()
 	
 	
