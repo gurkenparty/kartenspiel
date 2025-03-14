@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://8kvbki0j117v"]
+
+[node name="cardelement_in_deck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 234.0
+offset_right = 1207.0
+offset_bottom = 274.0
+scale = Vector2(1.84385, 1.8726)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -3.25403
+offset_top = -4.80617
+offset_right = 371.746
+offset_bottom = 133.194
+scale = Vector2(0.704041, 0.321407)
+theme_override_font_sizes/font_size = 101
+text = "1"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1234.0
+offset_top = 233.0
+offset_right = 1539.0
+offset_bottom = 273.0
+scale = Vector2(1.84385, 1.8726)
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = -3.25403
+offset_top = -4.80617
+offset_right = 371.746
+offset_bottom = 133.194
+scale = Vector2(0.704041, 0.321407)
+theme_override_font_sizes/font_size = 101
+text = "Knappe"

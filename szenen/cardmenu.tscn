@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://inpw2vja5lp5"]
+[gd_scene load_steps=3 format=3 uid="uid://inpw2vja5lp5"]
 
 [ext_resource type="Script" path="res://cardmenu.gd" id="1_7x2q7"]
+[ext_resource type="Script" path="res://szenen/deck_name_scroll.gd" id="2_iqcwn"]
 
-[node name="Cardmenu" type="Control"]
+[node name="Cardmenu" type="Control" node_paths=PackedStringArray("card_wrapper", "scroll_container", "card_in_deck_container", "reference_card_name", "deck_name_panel", "scroll_names_cont")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +11,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7x2q7")
+card_wrapper = NodePath("ScrollContainer/card_wrap")
+scroll_container = NodePath("ScrollContainer")
+card_in_deck_container = NodePath("")
+reference_card_name = NodePath("")
+deck_name_panel = NodePath("Deckview/Panel/Deck_name")
+scroll_names_cont = NodePath("Deckview/cards_in_deck/Control/ScrollContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 1084.0
+
+[node name="card_wrap" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Deckview" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 1500.0
+offset_right = 1499.68
+offset_bottom = 0.0400009
+scale = Vector2(10.4496, 26.9859)
+
+[node name="Panel" type="Panel" parent="Deckview"]
+layout_mode = 0
+offset_left = -6.02896
+offset_top = 2.18633
+offset_right = 33.971
+offset_bottom = 42.1863
+scale = Vector2(1, 0.0474961)
+
+[node name="Deck_name" type="LineEdit" parent="Deckview/Panel"]
+layout_mode = 0
+offset_left = 3.92361
+offset_top = 3.12079
+offset_right = 235.924
+offset_bottom = 95.1208
+scale = Vector2(0.173723, 0.479614)
+theme_override_font_sizes/font_size = 61
+placeholder_text = "Name.."
+max_length = 9
+
+[node name="finished" type="Button" parent="Deckview/Panel"]
+layout_mode = 0
+offset_left = 7.08164
+offset_top = 648.344
+offset_right = 214.082
+offset_bottom = 752.344
+scale = Vector2(0.150454, 0.62375)
+theme_override_colors/icon_normal_color = Color(0, 0.536013, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Finish"
+
+[node name="cards_in_deck" type="Panel" parent="Deckview"]
+layout_mode = 0
+offset_left = -2.58385
+offset_top = 3.92797
+offset_right = 37.4162
+offset_bottom = 43.928
+scale = Vector2(0.978173, 0.737494)
+
+[node name="Control" type="Control" parent="Deckview/cards_in_deck"]
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.02259, 0.988083)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Deckview/cards_in_deck/Control" node_paths=PackedStringArray("reference_button", "container_space")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.025
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.484
+offset_top = 0.65813
+offset_right = 231.826
+offset_bottom = -0.341869
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.151604, 0.978793)
+horizontal_scroll_mode = 0
+script = ExtResource("2_iqcwn")
+reference_button = NodePath("Control/reference")
+container_space = NodePath("Control")
+
+[node name="Control" type="Control" parent="Deckview/cards_in_deck/Control/ScrollContainer"]
+layout_mode = 2
+
+[node name="reference" type="Button" parent="Deckview/cards_in_deck/Control/ScrollContainer/Control"]
+layout_mode = 2
+offset_left = 61.2943
+offset_top = -0.452716
+offset_right = 143.294
+offset_bottom = 35.5473
+scale = Vector2(0.513996, 0.0463494)
+theme_override_font_sizes/font_size = 70
+text = "Knappe"
+
+[connection signal="pressed" from="Deckview/Panel/finished" to="." method="_on_finished_pressed"]

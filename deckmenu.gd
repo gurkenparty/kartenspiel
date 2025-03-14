@@ -69,6 +69,9 @@ func _on_element_pressed(element:Button):
 		var cardmenu_scene_instance = cardmenu_scene.instantiate()
 		print_debug("Deck Cards: " + str(element.deck.cards))
 		cardmenu_scene_instance.cards = element.deck.cards
+		cardmenu_scene_instance.deck_name = element.deck.deck_name
+		cardmenu_scene_instance.deck = element.deck
+		cardmenu_scene_instance.closing_editor.connect(_on_editor_closed)
 		add_child(cardmenu_scene_instance)
 		for child in self.get_children():
 			if child.name != "Panel" and child.name != cardmenu_scene_instance.name:
@@ -86,3 +89,7 @@ func _on_nameset_pressed() -> void:
 				return
 		Deck.new(nametext_line.text, deck_preview, deck)
 		refresh_deck_display()
+
+func _on_editor_closed():
+	refresh_deck_display()
+	self.visible = true
