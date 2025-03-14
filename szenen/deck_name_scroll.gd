@@ -9,8 +9,6 @@ func _ready() -> void:
 
 	# Ensure container_space (VBoxContainer) expands properly
 	# Add test items to force scrolling
-	for i in range(20):  
-		add_item("Card " + str(i + 1))
 
 	update_scroll_size()
 
@@ -24,9 +22,10 @@ func add_item(text: String):
 	var card_btn = Button.new()
 	card_btn.text = text
 	card_btn.size = reference_button.size
+	card_btn.scale = reference_button.scale
 	card_btn.global_position = reference_button.position
 	print_debug("Adding card: " + str(text) + " with position: " + str(card_btn.global_position) + " and size: " +str(card_btn.size))
-	reference_button.global_position.y += 500
+	reference_button.global_position.y += 100
 	card_btn.add_theme_font_size_override("font_size", 70)  # Make text smaller to fit in the layout
 	container_space.add_child(card_btn)
 	update_scroll_size()  # Update scrolling size

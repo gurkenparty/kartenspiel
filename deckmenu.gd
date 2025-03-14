@@ -6,12 +6,7 @@ extends Control
 @export var input_panel:Panel
 @export var cardmenu_scene:PackedScene = load("res://szenen/cardmenu.tscn")
 var deck = [
-	"Knappe", "Landwirtin",
-	"Joker", "Ritter", "Assasine", "Grundbesitzerin",
-	"Graf_Zacharias", "Gerd", "Urus", "Bär",
-	"Gift", "Späher", "Muti", "Stratege", "Meister",
-	"Unge", "Hauer", "Zerfleischer", "EF", "RO", "Kirill", "Blumen", "Erde", 
-	"Feuer", "Glas" , "Licht", "Natur", "Schatten", "Stahl", "Wasser", "Xera", "TW", "BB", "EK", "Vet", "Sch"
+	"Knappe", "Landwirtin"
 ]
 var blacklist = []
 var deck_preview:Texture2D = load("res://assets/wallpapers/Wallpaper_Schmied.png")
@@ -68,7 +63,6 @@ func _on_element_pressed(element:Button):
 		print_debug("in else scene")
 		var cardmenu_scene_instance = cardmenu_scene.instantiate()
 		print_debug("Deck Cards: " + str(element.deck.cards))
-		cardmenu_scene_instance.cards = element.deck.cards
 		cardmenu_scene_instance.deck_name = element.deck.deck_name
 		cardmenu_scene_instance.deck = element.deck
 		cardmenu_scene_instance.closing_editor.connect(_on_editor_closed)
@@ -91,5 +85,5 @@ func _on_nameset_pressed() -> void:
 		refresh_deck_display()
 
 func _on_editor_closed():
-	refresh_deck_display()
 	self.visible = true
+	refresh_deck_display()

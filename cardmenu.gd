@@ -28,6 +28,8 @@ func _ready() -> void:
 	card_wrapper.custom_minimum_size = Vector2(1700, 900)  # Make sure it’s big enough to scroll
 	scroll_container.add_child(card_wrapper)
 	deck_name_panel.text = deck_name
+	cards = GameStats.user_cards
+	cards_in_deck = deck.cards
 
 	refresh_card_display()
 
@@ -66,22 +68,21 @@ func refresh_card_display():
 
 	# Ensure the wrapper resizes properly (so ScrollContainer works)
 	card_wrapper.custom_minimum_size.y = reference_card_scene.global_position.y + 350
-	for card_name in deck.cards:
+	for card_name in cards_in_deck:
 		scroll_names_cont.add_item(card_name)
-		cards_in_deck.append(card_name)
 
 # Callback when a card is pressed
 func _on_card_pressed(element:Button):
-	var deck_card_label = Button.new()
-	deck_card_label.text = element.card_name
-	deck_card_label.add_theme_font_size_override("font_size", 70)
-	card_in_deck_container.add_child(deck_card_label)
 	cards_in_deck.append(element.card_name)
+	self.cards.erase(self)
+	refresh_card_display()
+	
+	
 	
 
 
 func _on_finished_pressed() -> void:
-	deck.name = self.deck_name
+	deck.deck_name = deck_name_panel.text
 	deck.cards = self.cards_in_deck
 	self.visible = false
 	closing_editor.emit()
