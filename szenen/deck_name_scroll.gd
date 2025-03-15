@@ -24,7 +24,6 @@ func add_item(text: String):
 	card_btn.size = reference_button.size
 	card_btn.scale = reference_button.scale
 	card_btn.global_position = reference_button.position
-	print_debug("Adding card: " + str(text) + " with position: " + str(card_btn.global_position) + " and size: " +str(card_btn.size))
 	reference_button.global_position.y += 100
 	card_btn.add_theme_font_size_override("font_size", 70)  # Make text smaller to fit in the layout
 	container_space.add_child(card_btn)

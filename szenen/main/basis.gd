@@ -33,11 +33,8 @@ func _process(delta: float) -> void:
 			label_username.text = GameStateWorld.player_1_username
 			character_wallpaper.texture = GameStateWorld.player_1_avatar
 func change_hp_base(value:int):
-	if player_number == 1:
-		GameStateWorld.player_1_hp += value
-		if GameStateWorld.player_1_hp <= 0 and self.visible:
-			self.visible = false
-	elif player_number == 2:
-		GameStateWorld.player_2_hp += value
-		if GameStateWorld.player_2_hp <= 0 and self.visible:
-			self.visible = false
+	print_debug("calling in change hp bade player number is: " + str(player_number))
+	GameStateWorld.player_2_hp += value
+	label_hp.text = str(GameStateWorld.player_2_hp)
+	if GameStateWorld.player_2_hp <= 0 and self.visible:
+		self.visible = false

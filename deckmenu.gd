@@ -6,7 +6,6 @@ extends Control
 @export var input_panel:Panel
 @export var cardmenu_scene:PackedScene = load("res://szenen/cardmenu.tscn")
 var deck = [
-	"Knappe", "Landwirtin"
 ]
 var blacklist = []
 var deck_preview:Texture2D = load("res://assets/wallpapers/Wallpaper_Schmied.png")

@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt4qs87xsn8w5"]
+[gd_scene load_steps=4 format=3 uid="uid://dt4qs87xsn8w5"]
 
-[ext_resource type="Script" uid="uid://ko84dsh5gcv0" path="res://szenen/ai.gd" id="1_l5hop"]
+[ext_resource type="Script" path="res://szenen/ai.gd" id="1_l5hop"]
+[ext_resource type="Script" path="res://szenen/ai_turn_manager.gd" id="2_fhdlr"]
+[ext_resource type="Script" path="res://szenen/deck.gd" id="3_glt2s"]
 
 [node name="Ai" type="Node3D"]
 script = ExtResource("1_l5hop")
+player_number = 2
 
 [node name="Ai_turn_manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_fhdlr")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("3_glt2s")

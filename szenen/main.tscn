@@ -18,10 +18,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o5"]
 shader = ExtResource("14_fdxmg")
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("option_btn", "weiter_btn")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("option_btn", "weiter_btn", "player_1_base", "player_2_base")]
 script = ExtResource("1_bcnpp")
 option_btn = NodePath("option_btn")
 weiter_btn = NodePath("Zug/weiter")
+player_1_base = NodePath("Basis")
+player_2_base = NodePath("Basis2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)
@@ -267,4 +269,5 @@ position = Vector2(102, -68)
 scale = Vector2(0.0140428, 0.0156251)
 texture = ExtResource("14_egwdy")
 
+[connection signal="pressed" from="option_btn" to="." method="_on_option_btn_pressed"]
 [connection signal="pressed" from="option_btn" to="option_btn" method="_on_pressed"]

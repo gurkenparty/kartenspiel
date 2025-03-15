@@ -103,6 +103,7 @@ container_space = NodePath("Control")
 layout_mode = 2
 
 [node name="reference" type="Button" parent="Deckview/cards_in_deck/Control/ScrollContainer/Control"]
+visible = false
 layout_mode = 2
 offset_left = 61.0
 offset_right = 326.0

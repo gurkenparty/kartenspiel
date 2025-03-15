@@ -42,12 +42,7 @@ func end_turn():
 		current_player = 1  # Loop back to Player 1
 	turn_changed.emit(current_player)
 	print_debug("Turn changed signal emitted: " + str(current_player))
-	if current_player == 1:
-		player_1_cam.current = !player_1_cam.current
-		player_2_cam.current = player_2_cam.current
-	if current_player == 2:
-		player_2_cam.current = !player_2_cam.current 
-		player_1_cam.current = player_1_cam.current
+
 		
 
 	phase_changed.emit(current_phase)  
