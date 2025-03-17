@@ -14,4 +14,4 @@ var user_cards = [
 ]  # Stores the card names
 func _ready() -> void:
 	var deck_img = load("res://assets/characters/mensch/6/Urus/Urus_cropped.png")
-	Deck.new("DemoDeck", deck_img, ["Knappe","Knappe","Knappe","Knappe","Landwirtin","Landwirtin","Landwirtin","Landwirtin"])
+	Deck.new("DemoDeck", deck_img, ["Holz1", "Knappe","Knappe","Knappe","Knappe","Landwirtin","Landwirtin","Landwirtin","Landwirtin"])

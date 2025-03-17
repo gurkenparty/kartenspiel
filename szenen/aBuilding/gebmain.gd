@@ -31,6 +31,7 @@ var played = false
 var effect_placed = false
 var selected = false
 var selection = false
+var angriff = 0
 
 var selection_material
 var selected_material
