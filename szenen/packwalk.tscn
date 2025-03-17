@@ -1,0 +1,162 @@
+[gd_scene load_steps=14 format=3 uid="uid://8nbtofioucmw"]
+
+[ext_resource type="Script" path="res://szenen/packwalk.gd" id="1_uevmq"]
+[ext_resource type="PackedScene" uid="uid://bhiwvactdenuk" path="res://assets/3d/sword_of_artorias.glb" id="2_e7rp3"]
+[ext_resource type="AudioStream" uid="uid://yid7tl7n5mgb" path="res://assets/audio/distant-110409.mp3" id="2_xwyur"]
+[ext_resource type="PackedScene" uid="uid://dxxu6acohu1ga" path="res://assets/3d/one_angery_dragon_boi.glb" id="3_kto88"]
+[ext_resource type="Texture2D" uid="uid://gsil5qb7wsye" path="res://assets/characters/mensch/6/Urus/Urus.png" id="5_j6lk7"]
+[ext_resource type="PackedScene" uid="uid://b17o8alk4uv0u" path="res://assets/3d/skeleton.glb" id="5_uh67g"]
+[ext_resource type="PackedScene" uid="uid://d0qo00p5x6jv1" path="res://assets/3d/ork_final.glb" id="6_3fhgu"]
+[ext_resource type="PackedScene" uid="uid://171184sthbb0" path="res://assets/3d/dark_knight.glb" id="7_44was"]
+
+[sub_resource type="Environment" id="Environment_vswnk"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0921
+volumetric_fog_albedo = Color(0.0807833, 0.0807833, 0.0807833, 1)
+volumetric_fog_emission_energy = 98.01
+volumetric_fog_gi_inject = 1.26
+volumetric_fog_detail_spread = 3.36358
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh4rb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_waepk"]
+material = SubResource("StandardMaterial3D_yh4rb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dedt"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dncyj"]
+material = SubResource("StandardMaterial3D_5dedt")
+
+[node name="packwalk" type="Node3D" node_paths=PackedStringArray("camera3d", "weiter_btn", "card_vis_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292778, 0.233564, -0.0278854)
+script = ExtResource("1_uevmq")
+camera3d = NodePath("Camera3D")
+weiter_btn = NodePath("Button")
+card_vis_sprite = NodePath("Sprite3D")
+background_music = ExtResource("2_xwyur")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9582, 64.2125)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0129619, 0)
+light_color = Color(0.803122, 0.799798, 2.69532e-06, 1)
+light_energy = 8.39
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vswnk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.61434, 0, 0, 0, 6.25047, 0, 0, 0, 84.0265, 0, 0, -21.994)
+mesh = SubResource("PlaneMesh_waepk")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.61434, -5.46433e-07, 0, 7.53089e-07, -6.25047, 0, 0, 0, 84.0265, 0, 9.59008, -21.994)
+mesh = SubResource("PlaneMesh_waepk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0956286, 0, 0, 0, 9.98276, 0, 0, 0, 156.304, -8.66286, 4.84608, -16.2418)
+mesh = SubResource("BoxMesh_dncyj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0956286, 0, 0, 0, 9.98276, 0, 0, 0, 155.202, 8.83509, 4.84608, -16.2418)
+mesh = SubResource("BoxMesh_dncyj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.18006e-09, 0, 19.151, 0, 9.98276, 0, -0.0956286, 0, -8.37116e-07, -0.119699, 4.84608, -93.2315)
+mesh = SubResource("BoxMesh_dncyj")
+
+[node name="sword1" parent="." instance=ExtResource("2_e7rp3")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.00324, 1.86044, 42.026)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="sword1"]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 3.45816, 0, 3.54268)
+light_color = Color(1, 0, 0, 1)
+light_energy = 8.434
+omni_range = 5.7193
+
+[node name="sword2" parent="." instance=ExtResource("2_e7rp3")]
+transform = Transform3D(-0.3, 0, 2.62268e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.3, 0.53483, 1.86044, 42.026)
+
+[node name="dragonhead" parent="." instance=ExtResource("3_kto88")]
+transform = Transform3D(-0.51119, -0.767659, 1.47382, -0.251559, 1.55995, 0.725271, -1.64261, 0, -0.569734, 5.9578, 2.16525, 20.9232)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="dragonhead"]
+transform = Transform3D(0.575174, 3.02859e-09, 2.98023e-08, -4.18574e-09, 0.575174, 1.52728e-07, -2.98023e-08, -1.16179e-07, 0.575174, 0.0425711, 0.385394, -0.122744)
+light_color = Color(1, 1, 0.0196078, 1)
+light_energy = 3.101
+omni_range = 1.919
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="dragonhead"]
+transform = Transform3D(0.575174, 1.05297e-08, 2.98023e-08, -4.18574e-09, 0.575174, 1.67629e-07, -2.98023e-08, -1.31062e-07, 0.575174, 0.0425711, 0.385394, -0.122744)
+light_color = Color(0.60969, 0.229593, 9.62615e-08, 1)
+light_energy = 7.141
+omni_range = 12.433
+omni_attenuation = -2.232
+
+[node name="Scelleton" parent="dragonhead" instance=ExtResource("5_uh67g")]
+transform = Transform3D(-0.0207751, -0.00361529, -0.0134033, -0.00846555, 0.022419, 0.00707455, 0.0110024, 0.0104233, -0.0198652, 30.5076, -1.30931, 9.86622)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="dragonhead/Scelleton"]
+transform = Transform3D(33.6673, -2.59793e-05, 1.71661e-05, -1.95541e-11, 33.6673, 1.14206e-05, -1.90735e-06, 2.00089e-11, 33.6673, -143.878, 89.9702, 120.237)
+light_color = Color(0.753538, 0.000487468, 0.764047, 1)
+light_energy = 4.807
+omni_range = 12.6
+omni_attenuation = -1.828
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.22375, -70.2366)
+texture = ExtResource("5_j6lk7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297826, 1.42278, 0.542374)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.616
+omni_range = 8.277
+omni_attenuation = 0.192
+
+[node name="ork" parent="." instance=ExtResource("6_3fhgu")]
+transform = Transform3D(0.245411, 0, 0.0672842, 0, 0.254467, 0, -0.0672842, 0, 0.245411, -6.05629, -0.918173, -14.3106)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ork"]
+transform = Transform3D(6.24951, 0, -2.38419e-07, 0, 6.24951, 0, 2.38419e-07, 0, 6.24951, 0.486967, 18.6163, 12.3531)
+light_color = Color(0, 0.843137, 0.321569, 1)
+light_energy = 7.626
+omni_range = 12.599
+omni_attenuation = -0.616
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="ork"]
+transform = Transform3D(6.24951, 0, -2.38419e-07, 0, 6.24951, 0, 2.38419e-07, 0, 6.24951, 11.1999, 23.8716, 32.588)
+light_color = Color(1, 0, 0, 1)
+light_energy = 4.717
+omni_range = 2.777
+omni_attenuation = -1.013
+
+[node name="Knight" parent="ork" instance=ExtResource("7_44was")]
+transform = Transform3D(0.130182, 0, -0.121083, 0, 0.177787, 0, 0.121083, 0, 0.130182, 24.0269, 1.57464, 72.146)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ork/Knight"]
+transform = Transform3D(26.2877, 0, 0, 0, 26.2877, 0, 0, 0, 26.2877, -3.35884, 156.428, 75.3151)
+light_energy = 5.161
+omni_range = 9.7
+omni_attenuation = -1.514
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1309.0
+offset_top = -762.0
+offset_right = -1301.0
+offset_bottom = -754.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(334.416, 204.337)
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

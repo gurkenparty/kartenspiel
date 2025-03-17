@@ -5,6 +5,8 @@ var show_scene: PackedScene = preload("res://szenen/showroom.tscn")
 var music_player: AudioStreamPlayer
 
 # A reference to your background music
+@export var username_text: Label
+
 @export var background_music: AudioStream
 @onready var showroom_scene: SubViewportContainer = $Showroom
 @export var showroom_subviewport: SubViewport
@@ -16,6 +18,7 @@ var game_scene_instance: Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Create the AudioStreamPlayer node if not already created
+	username_text.text = GameStats.username
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)  # Add it to the scene
 

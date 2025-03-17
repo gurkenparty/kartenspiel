@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bul23oudxndng"]
+[gd_scene load_steps=17 format=3 uid="uid://bul23oudxndng"]
 
 [ext_resource type="PackedScene" uid="uid://caleonbj5axop" path="res://assets/3d/showroom.glb" id="1_4w74g"]
 [ext_resource type="Script" path="res://modeltwist.gd" id="2_fdngl"]
 [ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe/knappe.png" id="3_muur5"]
+[ext_resource type="Script" path="res://szenen/num.gd" id="3_p6pxh"]
 [ext_resource type="PackedScene" uid="uid://bw886lqkcf4r4" path="res://assets/3d/resources/shield.glb" id="3_tlc8m"]
-[ext_resource type="PackedScene" uid="uid://cejyp1lwft0gs" path="res://assets/3d/avatars/knight.glb" id="4_lwlnj"]
 [ext_resource type="PackedScene" uid="uid://dadq5070c8fty" path="res://assets/3d/resources/stylized_crystal.glb" id="4_yfl1a"]
+[ext_resource type="Script" path="res://szenen/num_loss.gd" id="5_4agre"]
+[ext_resource type="PackedScene" uid="uid://171184sthbb0" path="res://assets/3d/dark_knight.glb" id="6_avs6f"]
+[ext_resource type="Script" path="res://szenen/num_draw.gd" id="6_tcedf"]
+[ext_resource type="Script" path="res://szenen/favcard.gd" id="9_k6xiy"]
 
 [sub_resource type="Environment" id="Environment_atrb0"]
 volumetric_fog_enabled = true
@@ -151,6 +155,7 @@ font_size = 59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
 text = "0"
 font_size = 59
+script = ExtResource("3_p6pxh")
 
 [node name="league" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(-0.999996, 0, 0.00279251, 0, 1, 0, -0.00279251, 0, -0.999996, 0.000589371, 1.30822, -6.71329)
@@ -174,6 +179,7 @@ font_size = 59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
 text = "0"
 font_size = 59
+script = ExtResource("5_4agre")
 
 [node name="freunde" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(-0.777289, 0, 0.629144, 0, 1, 0, -0.629144, 0, -0.777289, 5.38456, 1.30822, -5.60409)
@@ -194,6 +200,7 @@ font_size = 59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709568, 0)
 text = "0"
 font_size = 59
+script = ExtResource("6_tcedf")
 
 [node name="resource" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(0.0112222, 0, 0.999937, 0, 1, 0, -0.999937, 0, 0.0112222, 7.04922, 1.69156, 0.00519586)
@@ -216,14 +223,15 @@ font_size = 59
 [node name="card" type="Sprite3D" parent="Modeltwist/facts/favcard"]
 transform = Transform3D(0.253163, 0, -2.98023e-08, 0, 0.253163, 0, 2.98023e-08, 0, 0.253163, 0, -1.33141, 0)
 texture = ExtResource("3_muur5")
+script = ExtResource("9_k6xiy")
 
 [node name="avatar" type="Label3D" parent="Modeltwist/facts"]
 transform = Transform3D(0.668196, 0, 0.743985, 0, 1, 0, -0.743985, 0, 0.668196, 4.84511, 2.21123, 4.975)
 text = "Avatar"
 font_size = 59
 
-[node name="Sketchfab_Scene" parent="Modeltwist/facts/avatar" instance=ExtResource("4_lwlnj")]
-transform = Transform3D(0.010576, 0, -9.31323e-10, 0, 0.010576, 0, 9.31323e-10, 0, 0.010576, 0.044728, -1.17842, 0.181567)
+[node name="Sketchfab_Scene2" parent="Modeltwist/facts/avatar" instance=ExtResource("6_avs6f")]
+transform = Transform3D(0.0114582, 0, 2.79397e-09, 0, 0.0114582, 0, -2.79397e-09, 0, 0.0114582, -0.00858617, -2.22904, 0.0683074)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0.000589371, 1.74433, 9.34061)

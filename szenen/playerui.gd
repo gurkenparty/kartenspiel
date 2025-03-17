@@ -14,11 +14,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	player_number = GameState.player_number
-	if player_number == GameStateWorld.current_player:
-		self.visible = true
-	else:
-		self.visible = false
 	holz_label.text =  str(GameState.ressources["Holz"])
 	stein_label.text =  str(GameState.ressources["Stein"])
 	metall_label.text =   str(GameState.ressources["Metall"])

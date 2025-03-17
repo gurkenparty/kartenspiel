@@ -13,8 +13,9 @@ signal request_draw_card  # Signal to request a new card from the deck
 signal card_3d_effector(card3d)
 
 func _ready():
+	deck.ready_loaded.connect(_on_deck_loaded)
 	player_number = GameState.player_number
-	spawn_hand_cards(5)  # Spawn initial 5 cards
+	print_debug("spawned ready called")
 	self.global_position += Vector2(0, 100)
 	# Listen for phase changes from GameState
 	GameStateWorld.phase_changed.connect(_on_phase_changed)
@@ -22,7 +23,8 @@ func _ready():
 	# Connect the draw request signal
 	request_draw_card.connect(_on_request_draw_card)
 	print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
-
+func _on_deck_loaded():
+	spawn_hand_cards(5)
 # Function to handle drawing a card when a card requests it
 func _on_request_draw_card():
 	if hand_container.get_child_count() < 5:
@@ -34,6 +36,7 @@ func _on_request_draw_card():
 
 # Function to spawn a single card from given data
 func spawn_card(card_data: Dictionary):
+	print_debug("spawn card called")
 	var new_card = card_scene.instantiate()
 	if new_card is Button:
 		new_card.cardimg = card_data["texture"]
@@ -44,9 +47,8 @@ func spawn_card(card_data: Dictionary):
 		new_card.weiter_btn = weiter_btn
 		new_card.hand = self
 		new_card.GameState = GameState
-		print_debug("Gave new card player number: " + str(player_number))
 		new_card.player_number = player_number
-		print_debug("Karte2d got the following game State: " + str(GameState))
+
 
 # Function to initially fill the hand
 func spawn_hand_cards(amount: int):
@@ -63,7 +65,6 @@ func _on_card_placed(card: Button, card3d: Node3D):
 	var world_parent = get_tree().get_root().find_child("Game3D", true, false)
 	if world_parent:
 		world_parent.add_child(card)
-		print_debug("Card: " + str(card) + " added to: " + str(world_parent))
 		GameState.placed_3d_cards.append(card3d)
 
 func _on_phase_changed(new_phase: int):

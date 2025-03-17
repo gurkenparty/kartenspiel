@@ -117,6 +117,7 @@ func _physics_process(_delta):
 		if not is_dragging and placed:
 			local_draggable.visible = true
 			self.visible = false
+			
 
 func can_place_card() -> bool:
 	for res in cost.keys():

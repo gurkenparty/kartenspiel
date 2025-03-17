@@ -24,6 +24,7 @@ option_btn = NodePath("option_btn")
 weiter_btn = NodePath("Zug/weiter")
 player_1_base = NodePath("Basis")
 player_2_base = NodePath("Basis2")
+player_number = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 10.002, 5.388)

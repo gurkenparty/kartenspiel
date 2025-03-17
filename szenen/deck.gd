@@ -1,12 +1,13 @@
 extends Node3D
 
 var deck = []  # Stores the card names
-
+signal ready_loaded
 func _ready():
 	if GameStats.selected_deck == null:
 		GameStats.selected_deck = GameStats.decks[0]
 	deck = GameStats.selected_deck.cards
 	shuffle_deck()  # Shuffle at start
+	ready_loaded.emit()
 
 # Function to draw a card, randomly pick one and remove it from the deck
 func draw_card() -> Dictionary:
@@ -16,7 +17,6 @@ func draw_card() -> Dictionary:
 		deck.remove_at(random_index)  # Remove card name from deck
 
 		# Fetch the actual card data from the global library
-		print_debug("Card Lib: " + str(GlobalLibrary.cards))
 		if GlobalLibrary.cards.has(card_name):  # Check if card exists
 			return GlobalLibrary.cards[card_name]  # Return the card data
 		else:

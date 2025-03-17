@@ -11,15 +11,24 @@ extends Node3D
 var machine = false
 var GameState = self
 func _ready() -> void:
-	
-	GameStateWorld.turn_changed.connect(_on_turn_changed)
+	GameStateWorld.player_1_cam = cam
+	GameStateWorld.weiter_btn = weiter_btn
+	GameStateWorld.option_btn = option_btn
 	print_debug("option_btn:", option_btn)
 	print_debug("weiter_btn:", weiter_btn)
 	option_btn.option_pressed.connect(_on_option_btn_pressed)
 	
 
-
+func check_win():
+	if GameStateWorld.player_1_hp <= 0:
+		GameStats.loss += 1
+		get_tree().change_scene_to_file("res://szenen/hub.tscn")
+	elif GameStateWorld.player_2_hp <= 0:
+		GameStats.wins += 1
+		get_tree().change_scene_to_file("res://szenen/hub.tscn")
+	
 func _physics_process(delta):
+	check_win()
 	if clicktrack:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			clicktrack.visible = true
@@ -51,13 +60,6 @@ func _physics_process(delta):
 
 				# Get the collided object
 				var co: CollisionObject3D = rayResult.get("collider")
-func _on_turn_changed(new_player:int):
-	if GameStateWorld.current_player != player_number:
-		print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
-		self.visible = false
-	if GameStateWorld.current_player== player_number:
-		print_debug("Current Player is: " + str(GameStateWorld.current_player) + " and I, " + str(self.name) + " am: " +str(player_number))
-		self.visible = true
 		
 
 var placed_cards = {}  # Stores placed card positions

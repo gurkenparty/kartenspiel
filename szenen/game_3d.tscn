@@ -16,7 +16,6 @@ transform = Transform3D(4.88971, -0.0164381, 0.0276072, 0.0164945, 4.88975, -0.0
 
 [node name="Player1" parent="." instance=ExtResource("3_mjn76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149355, 9.53674e-07, 1.75179)
-player_number = 1
 
 [node name="Ai" parent="." instance=ExtResource("4_jmdsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0266045, 9.44265, -12.8821)

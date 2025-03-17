@@ -1,20 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkqow1a3ayy64"]
+[gd_scene load_steps=12 format=3 uid="uid://bkqow1a3ayy64"]
 
 [ext_resource type="Script" path="res://szenen/hub.gd" id="1_0vnk4"]
 [ext_resource type="Shader" path="res://szenen/profileimg.gdshader" id="1_vvtia"]
 [ext_resource type="Texture2D" uid="uid://ctxycpumdy6e5" path="res://assets/layouts/testchar.png" id="2_8pk0q"]
-[ext_resource type="AudioStream" uid="uid://islcotvfdbqg" path="res://assets/audio/Sexy And I Know It.mp3" id="2_n45so"]
+[ext_resource type="AudioStream" uid="uid://coxy71hh0gf5n" path="res://assets/audio/magic-world-151599.mp3" id="2_hd1x8"]
 [ext_resource type="Texture2D" uid="uid://b211qat5c2dhy" path="res://assets/layouts/coin-1873955_1920.png" id="3_vdmwd"]
 [ext_resource type="PackedScene" uid="uid://bul23oudxndng" path="res://szenen/showroom.tscn" id="4_fub3b"]
 [ext_resource type="Script" path="res://szenen/showroom.gd" id="5_41qlm"]
 [ext_resource type="PackedScene" uid="uid://dsx7byk22j2ep" path="res://szenen/deckmenu.tscn" id="5_txf8t"]
+[ext_resource type="PackedScene" uid="uid://cjwhvxydo3cec" path="res://szenen/packwindow.tscn" id="6_ikdrm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kp7vr"]
 shader = ExtResource("1_vvtia")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1ekk"]
 
-[node name="HUB" type="Control" node_paths=PackedStringArray("showroom_subviewport")]
+[node name="HUB" type="Control" node_paths=PackedStringArray("username_text", "showroom_subviewport")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,16 +23,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vnk4")
-background_music = ExtResource("2_n45so")
+username_text = NodePath("Panel/username")
+background_music = ExtResource("2_hd1x8")
 showroom_subviewport = NodePath("Showroom/SubViewport")
 
-[node name="Showroom" type="SubViewportContainer" parent="." node_paths=PackedStringArray("scene")]
+[node name="Showroom" type="SubViewportContainer" parent="." node_paths=PackedStringArray("scene", "spielen_btn")]
 layout_mode = 0
 offset_right = 1923.0
 offset_bottom = 1078.0
 stretch = true
 script = ExtResource("5_41qlm")
 scene = NodePath("SubViewport/showroom")
+spielen_btn = NodePath("../Panel/Spielen")
 
 [node name="SubViewport" type="SubViewport" parent="Showroom"]
 handle_input_locally = false
@@ -41,6 +44,9 @@ render_target_update_mode = 4
 [node name="showroom" parent="Showroom/SubViewport" instance=ExtResource("4_fub3b")]
 
 [node name="Deckmenu" parent="Showroom/SubViewport" instance=ExtResource("5_txf8t")]
+visible = false
+
+[node name="Packwindow" parent="Showroom/SubViewport" instance=ExtResource("6_ikdrm")]
 visible = false
 
 [node name="Panel" type="Panel" parent="."]
@@ -203,5 +209,6 @@ flat = true
 
 [connection signal="pressed" from="Panel/menu/showroom" to="Showroom" method="_on_showroom_pressed"]
 [connection signal="pressed" from="Panel/menu/Decks" to="Showroom" method="_on_decks_pressed"]
+[connection signal="pressed" from="Panel/menu/Packs" to="Showroom" method="_on_packs_pressed"]
 [connection signal="pressed" from="Panel/Spielen" to="." method="_on_spielen_pressed"]
 [connection signal="pressed" from="Panel/Spielen" to="Showroom" method="_on_spielen_pressed"]

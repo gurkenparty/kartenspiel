@@ -115,9 +115,9 @@ func _on_card_placed(card, card3d):
 		GameStateWorld.phase_changed.connect(_on_phase_changed)
 
 func _on_phase_changed(new_phase: int):
-	if new_phase == GameStateWorld.Phase.FIGHTING and GameStateWorld.current_player == player_number:
+	if new_phase == GameStateWorld.Phase.FIGHTING and GameStateWorld.current_player == 1:
 		selection_on()
-	elif new_phase == GameStateWorld.Phase.LAST_EFFECT and GameStateWorld.current_player == player_number:
+	elif new_phase == GameStateWorld.Phase.LAST_EFFECT and GameStateWorld.current_player ==1:
 		print_debug("New phase is after fight")
 		selection_off()
 
@@ -146,9 +146,16 @@ func selection_off():
 	print_debug("Standard material is: " +str(standard_material))
 	print_debug("Material for border of " + str(self.name) + " is: "+ str(select_border.get_active_material(0)))
 	selection = false
-	for card in get_tree().get_nodes_in_group("feld"):
-		card.card_selected.disconnect(_on_card_selected)
-		print_debug(self.name + " disconnected from " + card.name)
+	if player_number == 1:
+		for card in get_tree().get_nodes_in_group("feld"):
+			if card.get_tree().get_nodes_in_group("Player1"):
+				card.card_selected.disconnect(_on_card_selected)
+				print_debug(self.name + " disconnected from " + card.name)
+	if player_number == 2:
+		for card in get_tree().get_nodes_in_group("feld"):
+			if card.get_tree().get_nodes_in_group("Player2"):
+				card.card_selected.disconnect(_on_card_selected)
+				print_debug(self.name + " disconnected from " + card.name)
 	
 func set_selected():
 	if selection and not selected:

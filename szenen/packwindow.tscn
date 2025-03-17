@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjwhvxydo3cec"]
+
+[ext_resource type="Texture2D" uid="uid://rjx5j4h3a16x" path="res://assets/wallpapers/Wallpaper_knight_mid_street.png" id="1_ecchk"]
+[ext_resource type="Script" path="res://szenen/packwindow.gd" id="1_yulxj"]
+
+[node name="Packwindow" type="Node2D"]
+script = ExtResource("1_yulxj")
+
+[node name="pack" type="Button" parent="."]
+offset_left = 308.0
+offset_top = 256.0
+offset_right = 317.0
+offset_bottom = 266.0
+scale = Vector2(51.2994, 73.6979)
+
+[node name="Sprite2D" type="Sprite2D" parent="pack"]
+position = Vector2(3.91817, 3.70431)
+scale = Vector2(-0.00290926, 0.00339471)
+texture = ExtResource("1_ecchk")
+
+[node name="Label" type="Label" parent="pack"]
+layout_mode = 0
+offset_left = -0.389868
+offset_top = 7.16438
+offset_right = 1019.61
+offset_bottom = 274.164
+scale = Vector2(0.00868592, 0.0099383)
+theme_override_font_sizes/font_size = 96
+text = "Kapitel1:
+Die Ära der Menschen"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="pack" to="." method="_on_pack_pressed"]
