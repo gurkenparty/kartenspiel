@@ -111,8 +111,9 @@ func attack_with_all_cards():
 	
 	# Loop through all cards on the field and select them
 	for card in get_tree().get_nodes_in_group("feld"):
+		
 		print_debug("Bot recognising: " + card.name + " in feld")
-		if card.get_tree().get_nodes_in_group("Player2"):
+		if "Player2" in card.get_groups():
 			print_debug("Bot recognising: " + card.name + " in Player2")
 		# Make sure the card is not already selected
 			if not card.selected:
