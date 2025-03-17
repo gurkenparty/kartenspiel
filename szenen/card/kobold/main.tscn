@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxcsbi61ndm8g"]
 
 [ext_resource type="PackedScene" uid="uid://cl2wjcyficjnf" path="res://szenen/card/main.tscn" id="1_gm1gj"]
-[ext_resource type="Script" path="res://szenen/card/kobold/main.gd" id="2_ekbg8"]
+[ext_resource type="Script" uid="uid://d0crp4sbeaamd" path="res://szenen/card/kobold/main.gd" id="2_ekbg8"]
 
 [node name="Truppe" instance=ExtResource("1_gm1gj")]
 script = ExtResource("2_ekbg8")

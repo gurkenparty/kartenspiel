@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_oea36"]
 [ext_resource type="Texture2D" uid="uid://bf6d05u3iwyus" path="res://assets/characters/kobold/1/Bär/Bär_cropped.png" id="2_5bsr4"]
-[ext_resource type="Script" path="res://szenen/card/kobold/1/Bär/bär.gd" id="2_uo7xw"]
+[ext_resource type="Script" uid="uid://cgra035ftmd4h" path="res://szenen/card/kobold/1/Bär/bär.gd" id="2_uo7xw"]
 
 [node name="Bär" instance=ExtResource("1_oea36")]
 script = ExtResource("2_uo7xw")

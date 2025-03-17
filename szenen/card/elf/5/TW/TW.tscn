@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy51pnvb5ebya"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_11bkq"]
-[ext_resource type="Script" path="res://szenen/card/elf/5/TW/TW.gd" id="2_afg2q"]
+[ext_resource type="Script" uid="uid://bocful8u0ve3t" path="res://szenen/card/elf/5/TW/TW.gd" id="2_afg2q"]
 [ext_resource type="Texture2D" uid="uid://c1md4yh0gkbmq" path="res://assets/characters/elf/5/Tempelwächterin/TW_cropped.png" id="3_n2j85"]
 
 [node name="TW" instance=ExtResource("1_11bkq")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl2wjcyficjnf"]
 
-[ext_resource type="Script" path="res://szenen/card/mensch/main.gd" id="1_2jcrm"]
+[ext_resource type="Script" uid="uid://yqo12tbcpgmg" path="res://szenen/card/mensch/main.gd" id="1_2jcrm"]
 [ext_resource type="Texture2D" uid="uid://c1tqiofeo1fri" path="res://assets/characters/mensch/1/Knappe/knappe_cropped.png" id="2_actvo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_voii1"]

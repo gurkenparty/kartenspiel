@@ -11,6 +11,9 @@ func _ready():
 
 # Function to draw a card, randomly pick one and remove it from the deck
 func draw_card() -> Dictionary:
+	if GameStats.selected_deck == null:
+		GameStats.selected_deck = GameStats.decks[0]
+	deck = GameStats.selected_deck.cards
 	if deck.size() > 0:
 		var random_index = randi() % deck.size()  # Pick a random index
 		var card_name = deck[random_index]  # Get the card name

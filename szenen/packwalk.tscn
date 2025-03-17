@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://8nbtofioucmw"]
 
-[ext_resource type="Script" path="res://szenen/packwalk.gd" id="1_uevmq"]
+[ext_resource type="Script" uid="uid://bvcys8crb7wjo" path="res://szenen/packwalk.gd" id="1_uevmq"]
 [ext_resource type="PackedScene" uid="uid://bhiwvactdenuk" path="res://assets/3d/sword_of_artorias.glb" id="2_e7rp3"]
 [ext_resource type="AudioStream" uid="uid://yid7tl7n5mgb" path="res://assets/audio/distant-110409.mp3" id="2_xwyur"]
 [ext_resource type="PackedScene" uid="uid://dxxu6acohu1ga" path="res://assets/3d/one_angery_dragon_boi.glb" id="3_kto88"]

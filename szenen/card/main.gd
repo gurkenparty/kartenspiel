@@ -148,12 +148,12 @@ func selection_off():
 	selection = false
 	if player_number == 1:
 		for card in get_tree().get_nodes_in_group("feld"):
-			if card.get_tree().get_nodes_in_group("Player1"):
+			if "Player1" in card.get_groups():
 				card.card_selected.disconnect(_on_card_selected)
 				print_debug(self.name + " disconnected from " + card.name)
 	if player_number == 2:
 		for card in get_tree().get_nodes_in_group("feld"):
-			if card.get_tree().get_nodes_in_group("Player2"):
+			if "Player2" in card.get_groups():
 				card.card_selected.disconnect(_on_card_selected)
 				print_debug(self.name + " disconnected from " + card.name)
 	
@@ -256,5 +256,6 @@ func _on_option_pressed():
 	if instantiated_cardimg_scene.visible == true:
 		instantiated_cardimg_scene.visible = false
 		option_btn.visible = false
+		weiter_btn.visible = true
 #func _on_turn_changed(new_player:int):
 #	cam = get_viewport().get_camera_3d()

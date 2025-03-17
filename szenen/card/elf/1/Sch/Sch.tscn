@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brvamjibtbx7t"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_6dpaq"]
-[ext_resource type="Script" path="res://szenen/card/elf/1/Sch/Sch.gd" id="2_mu2i1"]
+[ext_resource type="Script" uid="uid://bkdqwfdy3ou8f" path="res://szenen/card/elf/1/Sch/Sch.gd" id="2_mu2i1"]
 [ext_resource type="Texture2D" uid="uid://chcu0ueaoiyjb" path="res://assets/characters/elf/1/Schneiderin/Sch_cropped.png" id="3_dre05"]
 
 [node name="Sch" instance=ExtResource("1_6dpaq")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_2h2b3"]
 [ext_resource type="Texture2D" uid="uid://bk26vmvw0rqd" path="res://assets/characters/mensch/4/Graf_Zacharias/Zachar_crpopped.png" id="2_3jtqx"]
-[ext_resource type="Script" path="res://szenen/card/mensch/4/Graf_Zacharias/graf_zacharias.gd" id="2_lnmda"]
+[ext_resource type="Script" uid="uid://wi8a0c25i7yt" path="res://szenen/card/mensch/4/Graf_Zacharias/graf_zacharias.gd" id="2_lnmda"]
 
 [node name="Graf_Zacharias" instance=ExtResource("1_2h2b3")]
 script = ExtResource("2_lnmda")

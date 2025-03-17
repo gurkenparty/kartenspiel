@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpwfj0vk3u5fa"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_vc62x"]
-[ext_resource type="Script" path="res://szenen/card/mensch/6/Lord_Urus/lord_urus.gd" id="2_mkpru"]
+[ext_resource type="Script" uid="uid://b7l8bpkqeiue0" path="res://szenen/card/mensch/6/Lord_Urus/lord_urus.gd" id="2_mkpru"]
 [ext_resource type="Texture2D" uid="uid://c31bbuknk1rdu" path="res://assets/characters/mensch/6/Urus/Urus_cropped.png" id="2_u1kt8"]
 
 [node name="Lord_Urus" instance=ExtResource("1_vc62x")]

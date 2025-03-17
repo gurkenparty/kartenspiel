@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg2q7qve5jyod"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_e22ia"]
-[ext_resource type="Script" path="res://szenen/card/ork/2/Hauer/Hauer.gd" id="2_cmlgu"]
+[ext_resource type="Script" uid="uid://dr8w3dv4guw6a" path="res://szenen/card/ork/2/Hauer/Hauer.gd" id="2_cmlgu"]
 [ext_resource type="Texture2D" uid="uid://cl2oo2np20swp" path="res://assets/characters/ork/4/EF/EF_cropped.png" id="3_piwvj"]
 
 [node name="Hauer" instance=ExtResource("1_e22ia")]

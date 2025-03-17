@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bkqow1a3ayy64"]
 
-[ext_resource type="Script" path="res://szenen/hub.gd" id="1_0vnk4"]
-[ext_resource type="Shader" path="res://szenen/profileimg.gdshader" id="1_vvtia"]
+[ext_resource type="Script" uid="uid://dys3nywxhkuyq" path="res://szenen/hub.gd" id="1_0vnk4"]
+[ext_resource type="Shader" uid="uid://cr2eomukg442y" path="res://szenen/profileimg.gdshader" id="1_vvtia"]
 [ext_resource type="Texture2D" uid="uid://ctxycpumdy6e5" path="res://assets/layouts/testchar.png" id="2_8pk0q"]
 [ext_resource type="AudioStream" uid="uid://coxy71hh0gf5n" path="res://assets/audio/magic-world-151599.mp3" id="2_hd1x8"]
 [ext_resource type="Texture2D" uid="uid://b211qat5c2dhy" path="res://assets/layouts/coin-1873955_1920.png" id="3_vdmwd"]
 [ext_resource type="PackedScene" uid="uid://bul23oudxndng" path="res://szenen/showroom.tscn" id="4_fub3b"]
-[ext_resource type="Script" path="res://szenen/showroom.gd" id="5_41qlm"]
+[ext_resource type="Script" uid="uid://bduihbgp8m3vo" path="res://szenen/showroom.gd" id="5_41qlm"]
 [ext_resource type="PackedScene" uid="uid://dsx7byk22j2ep" path="res://szenen/deckmenu.tscn" id="5_txf8t"]
 [ext_resource type="PackedScene" uid="uid://cjwhvxydo3cec" path="res://szenen/packwindow.tscn" id="6_ikdrm"]
 
@@ -97,90 +97,90 @@ alignment = 1
 
 [node name="showroom" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Lobby"
 flat = true
 
 [node name="Decks" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Meine Decks"
 flat = true
 
 [node name="Packs" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Packs"
 flat = true
 
 [node name="Shop" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Shop"
 flat = true
 
 [node name="Freunde" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Freunde"
 flat = true
 
 [node name="Profil" type="Button" parent="Panel/menu"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Profil"
 flat = true
@@ -192,15 +192,15 @@ offset_left = 1696.0
 offset_top = 810.0
 offset_right = 1883.0
 offset_bottom = 888.0
-theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.314316, 0.314316, 0.314316, 1)
 theme_override_font_sizes/font_size = 51
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1ekk")
 text = "Spielen

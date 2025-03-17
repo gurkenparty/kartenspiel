@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://inpw2vja5lp5"]
 
-[ext_resource type="Script" path="res://cardmenu.gd" id="1_7x2q7"]
-[ext_resource type="Script" path="res://szenen/deck_name_scroll.gd" id="2_iqcwn"]
+[ext_resource type="Script" uid="uid://csn5k86dqi5ou" path="res://cardmenu.gd" id="1_7x2q7"]
+[ext_resource type="Script" uid="uid://bmbj3siorj3hj" path="res://szenen/deck_name_scroll.gd" id="2_iqcwn"]
 
 [node name="Cardmenu" type="Control" node_paths=PackedStringArray("card_wrapper", "scroll_container", "card_in_deck_container", "reference_card_name", "deck_name_panel", "scroll_names_cont")]
 layout_mode = 3

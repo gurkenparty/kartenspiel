@@ -22,9 +22,11 @@ func _ready() -> void:
 func check_win():
 	if GameStateWorld.player_1_hp <= 0:
 		GameStats.loss += 1
+		GameStats.selected_deck.reset()
 		get_tree().change_scene_to_file("res://szenen/hub.tscn")
 	elif GameStateWorld.player_2_hp <= 0:
 		GameStats.wins += 1
+		GameStats.selected_deck.reset()
 		get_tree().change_scene_to_file("res://szenen/hub.tscn")
 	
 func _physics_process(delta):

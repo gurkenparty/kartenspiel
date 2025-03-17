@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt4qs87xsn8w5"]
 
-[ext_resource type="Script" path="res://szenen/ai.gd" id="1_l5hop"]
-[ext_resource type="Script" path="res://szenen/deck_ai.gd" id="3_flqk0"]
+[ext_resource type="Script" uid="uid://ko84dsh5gcv0" path="res://szenen/ai.gd" id="1_l5hop"]
+[ext_resource type="Script" uid="uid://d2u25ecp1p2vw" path="res://szenen/deck_ai.gd" id="3_flqk0"]
 
 [node name="Ai" type="Node3D" node_paths=PackedStringArray("deck")]
 script = ExtResource("1_l5hop")

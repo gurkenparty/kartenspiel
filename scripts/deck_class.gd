@@ -12,8 +12,11 @@ func _init(deck_name: String, preview: Texture, cards:Array):
 	print_debug(deck_name)
 	self.preview = preview
 	self.cards = cards
-	self.cards_playable = cards
+	reset()
 	GameStats.decks.append(self)
+	
+func reset():
+	cards_playable = cards
 
 func add_card(card:String):
 	if self.cards.size() <= 60:

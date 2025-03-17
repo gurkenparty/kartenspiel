@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjsgsdly7mxkt"]
 
-[ext_resource type="Script" path="res://szenen/element_preview.gd" id="1_fcidw"]
+[ext_resource type="Script" uid="uid://yfknwhm5qorl" path="res://szenen/element_preview.gd" id="1_fcidw"]
 
 [node name="Element" type="Button" node_paths=PackedStringArray("name_label", "preview_sprite")]
 offset_left = 55.0

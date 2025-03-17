@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjwhvxydo3cec"]
 
 [ext_resource type="Texture2D" uid="uid://rjx5j4h3a16x" path="res://assets/wallpapers/Wallpaper_knight_mid_street.png" id="1_ecchk"]
-[ext_resource type="Script" path="res://szenen/packwindow.gd" id="1_yulxj"]
+[ext_resource type="Script" uid="uid://m50pxtvnl0ig" path="res://szenen/packwindow.gd" id="1_yulxj"]
 
 [node name="Packwindow" type="Node2D"]
 script = ExtResource("1_yulxj")

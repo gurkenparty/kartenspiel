@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://crfsilptmd6ws"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_g0q65"]
-[ext_resource type="Script" path="res://szenen/card/kobold/2/Gift/gift.gd" id="2_co6hw"]
+[ext_resource type="Script" uid="uid://dlk7hvd8uiogr" path="res://szenen/card/kobold/2/Gift/gift.gd" id="2_co6hw"]
 [ext_resource type="Texture2D" uid="uid://ulj4658sfwqn" path="res://assets/characters/kobold/2/Gift/Gift_cropped.png" id="2_kmj0n"]
 
 [node name="Gift" instance=ExtResource("1_g0q65")]

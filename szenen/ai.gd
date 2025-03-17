@@ -18,6 +18,7 @@ var field_spacing = -3.0  # Distance between placed cards
 var field_z = -1.0  # Fixed Z position for AI's side
 
 func _ready() -> void:
+	deck = GameStats.selected_deck
 	print_debug("Bot spawned")
 	GameStateWorld.phase_changed.connect(_on_phase_changed)
 	GameStateWorld.turn_changed.connect(_on_turn_changed)

@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://bul23oudxndng"]
 
 [ext_resource type="PackedScene" uid="uid://caleonbj5axop" path="res://assets/3d/showroom.glb" id="1_4w74g"]
-[ext_resource type="Script" path="res://modeltwist.gd" id="2_fdngl"]
+[ext_resource type="Script" uid="uid://ochy6uu80yvi" path="res://modeltwist.gd" id="2_fdngl"]
 [ext_resource type="Texture2D" uid="uid://djgqk4kwq8s3a" path="res://assets/characters/mensch/1/Knappe/knappe.png" id="3_muur5"]
-[ext_resource type="Script" path="res://szenen/num.gd" id="3_p6pxh"]
+[ext_resource type="Script" uid="uid://dyg0cge78debr" path="res://szenen/num.gd" id="3_p6pxh"]
 [ext_resource type="PackedScene" uid="uid://bw886lqkcf4r4" path="res://assets/3d/resources/shield.glb" id="3_tlc8m"]
 [ext_resource type="PackedScene" uid="uid://dadq5070c8fty" path="res://assets/3d/resources/stylized_crystal.glb" id="4_yfl1a"]
-[ext_resource type="Script" path="res://szenen/num_loss.gd" id="5_4agre"]
+[ext_resource type="Script" uid="uid://drv3wsff3taxp" path="res://szenen/num_loss.gd" id="5_4agre"]
 [ext_resource type="PackedScene" uid="uid://171184sthbb0" path="res://assets/3d/dark_knight.glb" id="6_avs6f"]
-[ext_resource type="Script" path="res://szenen/num_draw.gd" id="6_tcedf"]
-[ext_resource type="Script" path="res://szenen/favcard.gd" id="9_k6xiy"]
+[ext_resource type="Script" uid="uid://5sfnyrwgt03f" path="res://szenen/num_draw.gd" id="6_tcedf"]
+[ext_resource type="Script" uid="uid://es62irhxw113" path="res://szenen/favcard.gd" id="9_k6xiy"]
 
 [sub_resource type="Environment" id="Environment_atrb0"]
 volumetric_fog_enabled = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7kt7cnvxl20f"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_o1xmm"]
-[ext_resource type="Script" path="res://szenen/card/mensch/1/Landwirtin/landwirtin.gd" id="2_4ctrf"]
+[ext_resource type="Script" uid="uid://dyoenj7mvjbm2" path="res://szenen/card/mensch/1/Landwirtin/landwirtin.gd" id="2_4ctrf"]
 [ext_resource type="Texture2D" uid="uid://dx1gwk8dght2s" path="res://assets/characters/mensch/1/Landwirtin/Landwirtin_cropped.png" id="2_kmx85"]
 
 [node name="Landwirtin" groups=["Landwirt", "Mensch", "Truppe"] instance=ExtResource("1_o1xmm")]

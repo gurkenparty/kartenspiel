@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfkjk1nunw1w6"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_y1p8l"]
-[ext_resource type="Script" path="res://szenen/card/drache/Stahl.gd" id="2_lvtk4"]
+[ext_resource type="Script" uid="uid://cvwo1a2oit0hs" path="res://szenen/card/drache/Stahl.gd" id="2_lvtk4"]
 [ext_resource type="Texture2D" uid="uid://b38sl7snynw" path="res://assets/characters/drache/Stahl.png" id="3_aefks"]
 
 [node name="Stahl" instance=ExtResource("1_y1p8l")]

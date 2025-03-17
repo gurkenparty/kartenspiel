@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://76q33b5t83fq"]
 
-[ext_resource type="Script" path="res://szenen/aBuilding/sammler/holz4.gd" id="1_xu5v7"]
+[ext_resource type="Script" uid="uid://dpdlioulpbwm1" path="res://szenen/aBuilding/sammler/holz4.gd" id="1_xu5v7"]
 [ext_resource type="Texture2D" uid="uid://ipunhpjcfrgc" path="res://assets/characters/gebaeude/sammler/Hloz/h4.png" id="2_s5150"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_voii1"]

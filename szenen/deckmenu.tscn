@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsx7byk22j2ep"]
 
-[ext_resource type="Script" path="res://deckmenu.gd" id="1_p3c34"]
+[ext_resource type="Script" uid="uid://b66acr3qf8a06" path="res://deckmenu.gd" id="1_p3c34"]
 
 [node name="Deckmenu" type="Control" node_paths=PackedStringArray("input_panel")]
 layout_mode = 3

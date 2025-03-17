@@ -9,6 +9,7 @@ var player_1_hp:int = 20
 var player_2_hp:int = 20
 var weiter_btn:Button
 var option_btn:Button
+var cardimg_scene
 
 enum Phase { 
 	FIRST_EFFECT, 
@@ -52,10 +53,10 @@ func end_turn():
 		
 func get_phase_name() -> String:
 	match current_phase:
-		Phase.FIRST_EFFECT: return "Mein Zug"
-		Phase.DRAWING: return "Karte ziehen"
+		Phase.FIRST_EFFECT: return "Spieler " + str(GameStateWorld.current_player)
+		Phase.DRAWING: return "Ziehen"
 		Phase.PLAYING: return "Spielen"
-		Phase.FIGHTING: return "Kämpfen"
-		Phase.LAST_EFFECT: return "Zug beenden"
+		Phase.FIGHTING: return "Angriff"
+		Phase.LAST_EFFECT: return "Fertig"
 		_: return "Unknown Phase"
 		

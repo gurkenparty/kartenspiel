@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ma8ixw7roa3j"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_n41vl"]
-[ext_resource type="Script" path="res://szenen/card/drache/Natur.gd" id="2_gqykc"]
+[ext_resource type="Script" uid="uid://cdgppsdinmxgt" path="res://szenen/card/drache/Natur.gd" id="2_gqykc"]
 [ext_resource type="Texture2D" uid="uid://ckshb0151f53p" path="res://assets/characters/drache/Natur.png" id="3_66rov"]
 
 [node name="natur" instance=ExtResource("1_n41vl")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cudhkmechdttq"]
 
 [ext_resource type="PackedScene" uid="uid://c4r12qollucsp" path="res://szenen/card/mensch/main.tscn" id="1_y0bcq"]
-[ext_resource type="Script" path="res://szenen/card/drache/Licht.gd" id="2_fckwx"]
+[ext_resource type="Script" uid="uid://tiwvbh8d8ccl" path="res://szenen/card/drache/Licht.gd" id="2_fckwx"]
 [ext_resource type="Texture2D" uid="uid://ds0qvstbhj14j" path="res://assets/characters/drache/Licht.png" id="3_lfa0o"]
 
 [node name="Licht" instance=ExtResource("1_y0bcq")]
