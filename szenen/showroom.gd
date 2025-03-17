@@ -7,8 +7,6 @@ func _ready():
 	var sub_viewport = $SubViewport
 	# Set mouse filter to Pass for SubViewportContainer
 	
-
-	sub_viewport.size = target_resolution
 	stretch = true  # Enable stretching
 	stretch_shrink = 1  # Optional: Adjust as needed
 
