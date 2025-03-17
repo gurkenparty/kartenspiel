@@ -129,7 +129,7 @@ var cards = {
 		"draggable_scene": preload("res://szenen/card/elf/2/Vet/Vet.tscn")
 	},
 	"EK": {
-		"texture": preload("res://assets/characters/elf/3/Elegante Bitch/EK.png"),
+		"texture": preload("res://assets/characters/elf/3/Elegante Kriegerin/EK.png"),
 		"draggable_scene": preload("res://szenen/card/elf/3/EK/EK.tscn")
 	},
 	"BB": {
