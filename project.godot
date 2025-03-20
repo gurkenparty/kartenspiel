@@ -15,6 +15,7 @@ run/main_scene="res://szenen/hub.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/fullsize=false
 boot_splash/image="res://assets/wallpapers/wallpaper_knights_with_title_text.png"
+config/icon="uid://rjx5j4h3a16x"
 
 [autoload]
 
